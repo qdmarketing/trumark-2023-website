@@ -1,15 +1,30 @@
 <?php
 
+
+
+/**
+ * Requires
+ */
+require_once 'resources/qntm-functions.php'; // Functions, misc things
+require_once 'resources/custom-post-types.php'; // Custom Post Types
+require_once 'resources/qntm-blocks.php'; // ACF Gutenberg Blocks
+
+
+
 /**
  * Theme setup.
  */
 function tailpress_setup()
 {
+
 	add_theme_support('title-tag');
 
 	register_nav_menus(
 		array(
 			'primary' => __('Primary Menu', 'tailpress'),
+			'header-utility' => __('Header Utility Menu', 'tailpress'),
+			'footer-main' => __('Footer Main Menu', 'tailpress'),
+			// 'footer-utility' => __('Footer Utility Menu', 'tailpress'),
 		)
 	);
 
@@ -32,6 +47,7 @@ function tailpress_setup()
 
 	add_theme_support('editor-styles');
 	add_editor_style('css/editor-style.css');
+	add_editor_style('https://use.typekit.net/ffq4tbb.css');
 }
 
 add_action('after_setup_theme', 'tailpress_setup');
@@ -45,7 +61,7 @@ function tailpress_enqueue_scripts()
 
 	wp_enqueue_style('tailpress', tailpress_asset('css/app.css'), array(), $theme->get('Version'));
 	wp_enqueue_style('typekit', "https://use.typekit.net/ffq4tbb.css");
-	wp_enqueue_script('tailpress', tailpress_asset('js/app.js'), array(), $theme->get('Version'));
+	wp_enqueue_script('tailpress', tailpress_asset('js/app.js'), array('jquery'), $theme->get('Version'));
 	wp_enqueue_style('fontawesome', tailpress_asset('resources/css/fonts/fontawesome-pro-6.2.0-web/css/all.css'), array(), $theme->get('Version'));
 }
 

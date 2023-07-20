@@ -23,15 +23,18 @@ module.exports = {
             'xs' : '375px',
             'sm': '640px',
             'md': '768px',
-            'lg': '940px',
-            'xl': '1180px',
-            'xxl':'1320px', // These numbers are the photoshop size plus padding added.. 1364 + 20 + 20
-            // '3xl': '1680px', //1640 plus paddin
+            'lg': '940px', // 980
+            'xl': '1281px', //1170
+            'xxl':'1384px', // These numbers are the photoshop size plus padding added.. 1344 + 20 + 20
+            '3xl': '2000px', // Max screen size for image backgrounds
             // '4xl': '1920px',
             // '5xl': '2200px'
         },
         fontFamily: {
-            primary: ['trade-gothic-next'],
+            primary: ['trade-gothic-next','helvetica','sans-serif'],
+            condensed: ['trade-gothic-next-condensed','helvetica','sans-serif'],
+            srcond: ["tgn-soft-round-con", 'sans-serif'],
+            sr: ["tgn-soft-round", 'sans-serif'],
             fontawesome: ['\"Font Awesome 6 Pro\"']
         },
         fontWeight: {
@@ -197,18 +200,11 @@ module.exports = {
             colors: {
                 primary: '#930027', 
                 secondary : '#15636E',  
-                spacegray :  '#485050',
+                spacegray :  '#485050', // find the names on https://www.color-name.com/hex/e4eeee
+                brightgray: '#e4eeee'
                 
             }
         },
-        screens: {
-            'xs': '480px',
-            'sm': '600px',
-            'md': '782px',
-            'lg': tailpress.theme('settings.layout.contentSize', theme),
-            'xl': tailpress.theme('settings.layout.wideSize', theme),
-            '2xl': '1440px'
-        }
     },
     plugins: [
         tailpress.tailwind

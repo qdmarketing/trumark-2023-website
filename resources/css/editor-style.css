@@ -2,17 +2,17 @@
 @import "tailwindcss/utilities";
 
 body {
-    @apply font-sans;
+	@apply font-primary;
 }
 
-.wp-block{
-    @apply max-w-screen-xl;
+.wp-block {
+	@apply max-w-screen-xl;
 }
 
-.wp-block[data-align=wide] {
-    @apply max-w-screen-xl;
+.wp-block[data-align="wide"] {
+	@apply max-w-screen-xl;
 }
 
-.wp-block[data-align=full] {
-    @apply max-w-full;
+.wp-block[data-align="full"] {
+	@apply max-w-full;
 }
