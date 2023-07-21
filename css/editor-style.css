@@ -55,20 +55,14 @@
 .left-0 {
     left: 0px
 }
-.top-\[120px\] {
-    top: 120px
+.left-1 {
+    left: 0.25rem
 }
 .top-\[130px\] {
     top: 130px
 }
-.left-\[20px\] {
-    left: 20px
-}
-.left-10 {
-    left: 2.5rem
-}
-.left-1 {
-    left: 0.25rem
+.top-\[140px\] {
+    top: 140px
 }
 .col-span-2 {
     grid-column: span 2 / span 2
@@ -93,32 +87,20 @@
 .mb-8 {
     margin-bottom: 0.5rem
 }
-.mr-\[50px\] {
-    margin-right: 50px
-}
-.mt-4 {
-    margin-top: 0.25rem
-}
-.mt-\[20px\] {
-    margin-top: 20px
-}
-.mr-\[20px\] {
-    margin-right: 20px
-}
 .mr-\[10px\] {
     margin-right: 10px
 }
-.ml-20 {
-    margin-left: 1.25rem
+.mr-\[50px\] {
+    margin-right: 50px
+}
+.mt-\[20px\] {
+    margin-top: 20px
 }
 .block {
     display: block
 }
 .inline-block {
     display: inline-block
-}
-.inline {
-    display: inline
 }
 .flex {
     display: flex
@@ -141,12 +123,6 @@
 .h-\[52px\] {
     height: 52px
 }
-.h-\[40px\] {
-    height: 40px
-}
-.max-h-\[260px\] {
-    max-height: 260px
-}
 .max-h-\[300px\] {
     max-height: 300px
 }
@@ -162,17 +138,14 @@
 .w-\[25\%\] {
     width: 25%
 }
+.w-\[270px\] {
+    width: 270px
+}
 .w-\[823px\] {
     width: 823px
 }
 .w-full {
     width: 100%
-}
-.w-\[270px\] {
-    width: 270px
-}
-.w-\[40x\] {
-    width: 40x
 }
 .max-w-\[2000px\] {
     max-width: 2000px
@@ -198,12 +171,11 @@
 .list-disc {
     list-style-type: disc
 }
-.columns-2 {
-    -moz-columns: 2;
-         columns: 2
-}
 .flex-col {
     flex-direction: column
+}
+.flex-wrap {
+    flex-wrap: wrap
 }
 .items-end {
     align-items: flex-end
@@ -236,9 +208,9 @@
 .border-transparent {
     border-color: transparent
 }
-.bg-gray-100 {
+.bg-brightgray {
     --tw-bg-opacity: 1;
-    background-color: rgb(243 244 246 / var(--tw-bg-opacity))
+    background-color: rgb(228 238 238 / var(--tw-bg-opacity))
 }
 .bg-gray-200 {
     --tw-bg-opacity: 1;
@@ -263,10 +235,6 @@
 .bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity))
-}
-.bg-brightgray {
-    --tw-bg-opacity: 1;
-    background-color: rgb(228 238 238 / var(--tw-bg-opacity))
 }
 .bg-gradient-to-r {
     background-image: linear-gradient(to right, var(--tw-gradient-stops))
@@ -297,24 +265,25 @@
 .to-90\% {
     --tw-gradient-to-position: 90%
 }
-.fill-primary {
-    fill: #930027
-}
 .px-12 {
     padding-left: 12px;
     padding-right: 12px
-}
-.py-12 {
-    padding-top: 12px;
-    padding-bottom: 12px
 }
 .px-\[20px\] {
     padding-left: 20px;
     padding-right: 20px
 }
-.py-40 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem
+.py-12 {
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+.py-20 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem
+}
+.py-30 {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem
 }
 .pl-10 {
     padding-left: .625rem
@@ -322,14 +291,44 @@
 .pl-25 {
     padding-left: 1.5625rem
 }
+.pl-20 {
+    padding-left: 1.25rem
+}
+.pt-20 {
+    padding-top: 1.25rem
+}
+.pt-10 {
+    padding-top: .625rem
+}
+.pt-5 {
+    padding-top: .3125rem
+}
+.pt-\[4px\] {
+    padding-top: 4px
+}
+.pt-\[3px\] {
+    padding-top: 3px
+}
+.pl-50 {
+    padding-left: 3.125rem
+}
 .text-center {
     text-align: center
+}
+.font-fontawesome {
+    font-family: "Font Awesome 6 Pro"
 }
 .font-sr {
     font-family: tgn-soft-round, sans-serif
 }
-.font-fontawesome {
-    font-family: "Font Awesome 6 Pro"
+.text-12 {
+    font-size: 0.75rem
+}
+.text-14 {
+    font-size: 0.875rem
+}
+.text-18 {
+    font-size: 1.125rem
 }
 .text-22 {
     font-size: 1.375rem
@@ -343,14 +342,8 @@
 .text-xl {
     font-size: 1.5rem
 }
-.text-14 {
-    font-size: 0.875rem
-}
-.text-12 {
-    font-size: 0.75rem
-}
-.text-18 {
-    font-size: 1.125rem
+.font-700 {
+    font-weight: 700
 }
 .uppercase {
     text-transform: uppercase
@@ -394,6 +387,10 @@
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity))
 }
+.text-darkgray {
+    --tw-text-opacity: 1;
+    color: rgb(37 37 37 / var(--tw-text-opacity))
+}
 .underline {
     text-decoration-line: underline
 }
@@ -403,9 +400,6 @@
 }
 .opacity-0 {
     opacity: 0
-}
-.opacity-20 {
-    opacity: 0.2
 }
 .invert {
     --tw-invert: invert(100%);
@@ -538,9 +532,6 @@ body {
     }
     .lg\:hidden {
         display: none
-    }
-    .lg\:bg-transparent {
-        background-color: transparent
     }
     .lg\:p-0 {
         padding: 0

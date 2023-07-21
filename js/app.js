@@ -8,53 +8,51 @@
 /***/ (() => {
 
 // Navigation toggle
-window.addEventListener('load', function () {
-  var main_navigation = document.querySelector('#primary-menu');
-  document.querySelector('#primary-menu-toggle').addEventListener('click', function (e) {
+window.addEventListener("load", function () {
+  var main_navigation = document.querySelector("#primary-menu");
+  document.querySelector("#primary-menu-toggle").addEventListener("click", function (e) {
     e.preventDefault();
-    main_navigation.classList.toggle('hidden');
+    main_navigation.classList.toggle("hidden");
   });
 });
 jQuery(document).ready(function ($) {
-  $('.header').removeClass('opacity-0');
-  if ($('#primary-menu')) {
-    $('#primary-menu').removeClass('hidden');
+  $(".header").removeClass("opacity-0");
+  if ($("#primary-menu")) {
+    $("#primary-menu").removeClass("hidden");
   }
-  $("#primary-menu > ul > li > ul").addClass('col-1').wrap('<div class="header__primary__submenu"></div>').wrap('<div class="container"></div>').parent().parent().prev().addClass("hasSubmenu");
+  $("#primary-menu > ul > li > ul").addClass("col-1").wrap('<div class="header__primary__submenu"></div>').wrap('<div class="container"></div>').parent().parent().prev().addClass("hasSubmenu");
 
   // Add the blank columns that we will populate with the stuff
 
-  var numElements = 2; // Number of total elements including existing first column
-  var container = $('.header__primary__submenu .container'); // Target container element
+  var numElements = 3; // Number of total elements including existing first column
+  var container = $(".header__primary__submenu .container"); // Target container element
 
   for (var i = 1; i < numElements; i++) {
-    var className = 'col-' + (i + 1); // Create class name with increasing number
-    var newElement = $('<ul>').addClass(className); // Create new element with the class
+    var className = "col-" + (i + 1); // Create class name with increasing number
+    var newElement = $("<ul>"); // Create new element with the class
     container.append(newElement); // Append the new element to the container
   }
 
   // Find the list item with the selector '.header__primary__submenu .menu-item.cta'
-  var listItem = $('.header__primary__submenu .menu-item.cta');
+  var listItem = $(".header__primary__submenu .menu-item.cta");
 
   // Move the list item into its parent element and change it to a div
   if (listItem.length) {
     var parentElement = listItem.parent().parent(); // Get the parent element
     listItem.remove(); // Remove the list item from its current position
-    var newDiv = $('<div>').addClass('menuCallToAction').append(listItem.contents()); // Create a new div and append the contents of the list item
+    var newDiv = $("<div>").addClass("menuCallToAction").append(listItem.contents()); // Create a new div and append the contents of the list item
     parentElement.append(newDiv); // Append the new div to the parent element
   }
 
-  $('.header__primary__submenu .menu-item.cta');
-
   // Open the first one automatically - for development
 
-  $('.header__primary__submenu:first').addClass('active');
+  // $(".header__primary__submenu:first").addClass("active");
 
   // $('.header__primary__submenu > div > ul > li > ul:first').addClass('active');
 
   var breakpoint = 920;
   var menuDesktop = function menuDesktop() {
-    $(".header__primary > ul > li > a.hasSubmenu").on("mouseenter", function ($event) {
+    $(".header__primary > ul > li > a.hasSubmenu").on("click", function ($event) {
       if (window.innerWidth >= breakpoint) {
         $event.preventDefault();
         var $next = $(this).next();
@@ -76,32 +74,43 @@ jQuery(document).ready(function ($) {
         var $submenu = $(this);
         clearTimeout(leaveTimeout);
         leaveTimeout = setTimeout(function () {
-          // $submenu.removeClass("active");
+          $submenu.removeClass("active");
           $(".header").removeClass("menuOpen");
-        }, 250); // Adjust the delay time in milliseconds (e.g., 500ms)
+        }, 350); // Adjust the delay time in milliseconds (e.g., 500ms)
       }
     });
 
     var shouldAnimate = true; // Set this variable to true or false based on your requirement
     var previousSelector = null; // Variable to store the previously hovered selector
 
-    $('.header__primary__submenu a').on('mouseenter', function () {
+    $(".header__primary__submenu").on("click", "a", function () {
       var currentSelector = this;
       if (currentSelector !== previousSelector) {
-        var $nextList = $(this).next('ul');
-        if ($nextList.length && $nextList.is('ul')) {
+        var $nextList = $(this).next("ul");
+        if ($nextList.length && $nextList.is("ul")) {
+          console.log("Bang!", this);
           // const classes = $nextList.attr('class');
-          var classes = 'col-2';
+          var $grandparent = $(this).parent().parent(); // Get the grandparent element
+          $grandparent.find('li').removeClass('active');
+          $(this).parent().addClass("active");
+          var classes = "col-2"; // Default value for classes
+          if ($grandparent.hasClass("col-2")) {
+            classes = "col-3"; // If grandparent has class 'col-2', update classes to 'col-3'
+          } else if ($grandparent.hasClass("col-1")) {
+            classes = "col-2"; // If grandparent has class 'col-1', update classes to 'col-2'
+            // Clear the content from all 'col-3' elements
+            $('.col-3').empty().removeClass('col-3');
+          }
           var $clonedList = $nextList.clone(); // Clone the list
 
-          var $existingList = $(this).parent().parent().next('ul'); // Select the existing list to be replaced
+          var $existingList = $(this).parent().parent().next("ul"); // Select the existing list to be replaced
 
           if (shouldAnimate) {
             // Store the cloned element that will be used for replacement
-            var $replacementList = $('<ul>').addClass(classes).append($clonedList.contents());
+            var $replacementList = $("<ul>").addClass(classes).append($clonedList.contents());
 
             // Set the initial opacity of the replacement list to 0 (hidden)
-            $replacementList.css('opacity', 0);
+            $replacementList.css("opacity", 0);
 
             // Fade out the existing list slowly ('slow' duration)
             $existingList.fadeOut(50, function () {
@@ -111,11 +120,11 @@ jQuery(document).ready(function ($) {
               // Fade in the replacement list quickly ('fast' duration)
               $replacementList.animate({
                 opacity: 1
-              }, 'fast');
+              }, "fast");
             });
           } else {
             // If shouldAnimate is false, replace the list without animation
-            $existingList.replaceWith($('<ul>').addClass(classes).append($clonedList.contents()));
+            $existingList.replaceWith($("<ul>").addClass(classes).append($clonedList.contents()));
           }
 
           // Update the previousSelector with the current selector
@@ -123,7 +132,9 @@ jQuery(document).ready(function ($) {
         }
       }
     });
+    $('.header__primary__submenu > div > ul > li:first >  a ').click(); // Open the first menu automatically
   };
+
   menuDesktop();
 });
 
