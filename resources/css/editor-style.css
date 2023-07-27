@@ -1,5 +1,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "components.css";
+@import "blocks.css";
 
 body {
 	@apply font-primary;

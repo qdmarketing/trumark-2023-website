@@ -17,8 +17,63 @@
 	<div id="page" class="min-h-screen flex flex-col">
 
 		<?php do_action('tailpress_header'); ?>
+		<header class="mobileHeader">
+			<div class="mobileHeader__container mx-auto">
+				<div>
+					<?php if (has_custom_logo()) { ?>
+						<?php the_custom_logo(); ?>
+					<?php } else { ?>
+						<a href="<?php echo get_bloginfo('url'); ?>" class="font-extrabold text-lg uppercase">
+							<?php echo get_bloginfo('name'); ?>
+						</a>
+					<?php } ?>
+				</div>
+				<div class="toggleMenu__wrapper">
+					<div class="toggleMenu">
+						<div class="line line1"></div>
+						<div class="line line2"></div>
+						<div class="line line3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="mobileHeader__menu">
+				<div class="container">
 
-		<header class="header opacity-0" ?>
+					<?php wp_nav_menu(
+						array(
+							'container_id'    => 'mobile-header-utility',
+							'container_class' => 'mobileHeader__utility__menu',
+							'menu_class'      => '',
+							'theme_location'  => 'header-utility',
+							'li_class'        => '',
+							'fallback_cb'     => false,
+						)
+					);
+					?>
+					<a class="mobileHeader__menu__allCategories" href="#">All Categories</a>
+					<?php
+					wp_nav_menu(
+						array(
+							'container_id'    => 'mobile-primary-menu',
+							'container_class' => 'mobileHeader__primary',
+							'menu_class'      => 'mobileHeader__primary__colOne',
+							'theme_location'  => 'primary',
+							'li_class'        => '',
+							'fallback_cb'     => false,
+						)
+					);
+					?>
+					<div class="mobileHeader__cta"></div>
+				</div>
+			</div>
+			<div class="mobile-search-bar bg-secondary text-white">
+				<div class="mobile-search-bar__container">
+					<a class="mobile-search-bar__search" href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+					<?php echo qntm_acf_link('a', 'mobile-search-bar__acct', get_field('account_login_link', 'options'), 'fa-solid fa-lock', false); ?>
+				</div>
+			</div>
+		</header>
+		<header class="header opacity-0">
 
 			<div class="header__container mx-auto container-2k  ">
 				<div class="hidden lg:flex justify-between">
@@ -66,7 +121,7 @@
 							);
 							?>
 
-							<?php echo qntm_acf_link('a', 'header__menus__top__acct', get_field('account_login_link', 'options'), 'fa-solid fa-lock'); ?>
+							<?php echo qntm_acf_link('a', 'header__menus__top__acct', get_field('account_login_link', 'options'), 'fa-solid fa-lock', false); ?>
 						</div>
 
 

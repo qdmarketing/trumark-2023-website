@@ -55,20 +55,26 @@ add_action('after_setup_theme', 'wpse_375968_add_menu_description_support');
 
 /************* SIMPLE RENDER ACF LINKS *************/
 
-function qntm_acf_link($elem, $class, $link, $icon)
+function qntm_acf_link($elem, $class, $link, $icon, $content)
 {
     if (!$link) {
         return;
     }
 
-    if ($icon) {
-        $iconHtml = '<i class="' . $icon . '"></i> ';
-    } else {
-        $iconHtml = '';
+    if (!$content) {
+
+        if ($icon) {
+            $iconHtml = '<i class="' . $icon . '"></i> ';
+        } else {
+            $iconHtml = '';
+        }
+
+        $content = $iconHtml . $link['title'];
     }
+
     $elem = $elem ? $elem : 'a';
     $link_target = $link['target'] ? $link['target'] : '_self';
-    $html = '<' . $elem . ' class="' . $class . '" href="' . $link['url'] . '" target="' . esc_attr($link_target) . '">' . $iconHtml . $link['title'] . '</' . $elem . '>';
+    $html = '<' . $elem . ' class="' . $class . '" href="' . $link['url'] . '" target="' . esc_attr($link_target) . '">' . $content . '</' . $elem . '>';
 
     return $html;
 }

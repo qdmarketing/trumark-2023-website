@@ -1,0 +1,51 @@
+@layer components {
+	.ul-anim-black {
+		text-decoration: none;
+		background-image: linear-gradient(
+				rgba(255, 255, 255, 0),
+				rgba(255, 255, 255, 0)
+			),
+			linear-gradient(#00325b, #00325b);
+		background-size: 100% 2px, 0% 2px;
+		background-position: 100% 100%, 0% 100%;
+		background-repeat: no-repeat;
+		transition: background-size 0.4s ease-in-out;
+		padding-bottom: 2px;
+	}
+	.ul-anim-white {
+		text-decoration: none;
+		background-image: linear-gradient(
+				rgba(255, 255, 255, 0),
+				rgba(255, 255, 255, 0)
+			),
+			linear-gradient(#ffffff, #ffffff);
+		background-size: 100% 2px, 0% 2px;
+		background-position: 100% 100%, 0% 100%;
+		background-repeat: no-repeat;
+		transition: background-size 0.4s ease-in-out;
+		padding-bottom: 2px;
+	}
+	.ul-anim-hover {
+		background-size: 0 2px, 100% 2px;
+		text-decoration: none;
+	}
+
+	.ul-anim-secondary {
+		text-decoration: none;
+		background-image: linear-gradient(
+				rgba(255, 255, 255, 0),
+				rgba(255, 255, 255, 0)
+			),
+			linear-gradient(#15636e, #15636e);
+		background-size: 100% 2px, 0% 2px;
+		background-position: 100% 100%, 0% 100%;
+		background-repeat: no-repeat;
+		transition: background-size 0.4s ease-in-out;
+		padding-bottom: 2px;
+	}
+
+	.filter-secondary {
+		filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(2841%)
+			hue-rotate(172deg) brightness(88%) contrast(84%);
+	}
+}

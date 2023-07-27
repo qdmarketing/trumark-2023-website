@@ -33,6 +33,126 @@ jQuery(document).ready(function ($) {
     container.append(newElement); // Append the new element to the container
   }
 
+  $('.mobileHeader__menu__allCategories').on('click', function ($event) {
+    $event.preventDefault();
+    $menu = $('.mobileHeader__primary');
+    $('.mobileHeader__primary').css('min-height', 0);
+    $(this).removeClass('active');
+    if ($menu.hasClass('move2')) {
+      $menu.removeClass('move2').addClass('move');
+    }
+    if ($menu.hasClass('move')) {
+      $menu.removeClass('move');
+    }
+    $('.mobileHeader__primary__colTwo li, mobileHeader__primary__colThree li, mobileHeader__primary__colFour li').removeClass('active');
+  });
+  $('#mobile-primary-menu').append('<ul class="mobileHeader__primary__colTwo">').append('<ul class="mobileHeader__primary__colThree">').append('<ul class="mobileHeader__primary__colFour">');
+  var previousSelectorMobile = null;
+  // const shouldAnimate = false;
+
+  $('#mobile-primary-menu').on("click", "a", function () {
+    var currentSelector = this;
+    if (currentSelector !== previousSelectorMobile) {
+      var $nextList = $(this).next("ul");
+      if ($nextList.length && $nextList.is("ul")) {
+        var $grandparent = $(this).parent().parent(); // Get the grandparent element
+        $grandparent.find('li').removeClass('active');
+        $(this).parent().addClass("active");
+        var classes = "mobileHeader__primary__colTwo"; // Default value for classes
+
+        var setMinHeight = true;
+        var changeCta = false;
+        if ($grandparent.hasClass("mobileHeader__primary__colTwo")) {
+          classes = "mobileHeader__primary__colThree";
+          $('.mobileHeader__primary').addClass('move');
+          $('.mobileHeader__primary__colFour').empty();
+          $grandparent.parent().prev().addClass('active');
+        } else if ($grandparent.hasClass("mobileHeader__primary__colOne")) {
+          classes = "mobileHeader__primary__colTwo";
+          $('.mobileHeader__primary__colThree').empty();
+          $('.mobileHeader__primary__colFour').empty();
+          changeCta = true;
+          setMinHeight = false;
+        } else if ($grandparent.hasClass("mobileHeader__primary__colThree")) {
+          classes = "mobileHeader__primary__colFour";
+          $('.mobileHeader__primary').removeClass('move');
+          $('.mobileHeader__primary').addClass('move2');
+        }
+        var $clonedList = $nextList.clone(); // Clone the list
+        var $existingList = $(this).parent().parent().next("ul"); // Select the existing list to be replaced
+        var replacementHeight = '';
+        //   if (shouldAnimate || $grandparent.hasClass("mobileHeader__primary__colOne")) {
+        //   if (shouldAnimate) {
+        // 	// Store the cloned element that will be used for replacement
+        // 	const $replacementList = $("<ul>")
+        // 	  .addClass(classes)
+        // 	  .append($clonedList.contents());
+
+        // 	// Set the initial opacity of the replacement list to 0 (hidden)
+        // 	$replacementList.css("opacity", 0);
+
+        // 	// Fade out the existing list slowly ('slow' duration)
+        // 	$existingList.fadeOut(50, () => {
+        // 	  // After fade out is complete, replace the list with the new div and fade it in quickly ('fast' duration)
+        // 	  $existingList.replaceWith($replacementList);
+
+        // 	           // Use promise() to wait for the fadeIn animation to complete
+        // 			   $replacementList.promise().done(() => {
+        // 				// Get the height of the replacement list after fadeIn animation
+        // 				const replacementHeight = $replacementList.outerHeight();
+
+        // 				// Set the min-height of 'mobileHeader__primary' to the height of the replacement list
+        // 				$('.mobileHeader__primary').css('min-height', replacementHeight);
+        // 			  });
+
+        // 			  // Fade in the replacement list quickly ('fast' duration)
+        // 			  $replacementList.animate({ opacity: 1 }, "fast");
+        // 			});
+        //   } else {
+        // If shouldAnimate is false, replace the list without animation
+
+        $existingList.empty().append($clonedList.contents());
+
+        // Get the height of the replacement list
+        $(this).parent().parent().next("ul").css('position', 'static');
+        replacementHeight = $(this).parent().parent().next("ul").outerHeight();
+        $(this).parent().parent().next("ul").css('position', '');
+
+        // Set the min-height of 'mobileHeader__primary' to the height of the replacement list
+
+        // Get the existing min-height of 'mobileHeader__primary'
+        var existingMinHeight = parseInt($('.mobileHeader__primary').css('min-height'));
+
+        // Check if the existing min-height is less than the replacementHeight
+        if (existingMinHeight < replacementHeight && setMinHeight) {
+          // Set the min-height of 'mobileHeader__primary' to the height of the replacement list
+          $('.mobileHeader__primary').css('min-height', replacementHeight);
+        }
+        //   }
+
+        console.log('replacementHeight: ', replacementHeight);
+        console.log('$clonedList', $clonedList);
+
+        // Update the previousSelector with the current selector
+        previousSelectorMobile = currentSelector;
+        var $cta = $nextList.find('.menu-item.cta');
+        console.log('$nextList', $nextList);
+        console.log('cta', $cta);
+        var $ctaHolder = $('.mobileHeader__cta');
+        if (changeCta) {
+          if ($cta.length > 0 && $cta.hasClass('cta')) {
+            console.log('TRUEEEEEEE');
+            var $clonedCta = $cta.clone();
+            $ctaHolder.replaceWith($('<div>').addClass('mobileHeader__cta').append($clonedCta.contents()));
+          } else {
+            $ctaHolder.replaceWith($('<div>').addClass('mobileHeader__cta'));
+            console.log('NOT TRUEEEEEEE');
+          }
+        }
+      }
+    }
+  });
+
   // Find the list item with the selector '.header__primary__submenu .menu-item.cta'
   var listItem = $(".header__primary__submenu .menu-item.cta");
 
@@ -43,6 +163,19 @@ jQuery(document).ready(function ($) {
     var newDiv = $("<div>").addClass("menuCallToAction").append(listItem.contents()); // Create a new div and append the contents of the list item
     parentElement.append(newDiv); // Append the new div to the parent element
   }
+  // Find the list item with the selector '.header__primary__submenu .menu-item.cta'
+  // var mobileCtaListItem = $(".mobileHeader__primary .menu-item.cta");
+
+  // // Move the list item into its parent element and change it to a div
+  // if (mobileCtaListItem.length) {
+
+  // 	var parentElement = mobileCtaListItem.parent().parent().parent(); // Get the parent element
+  // 	mobileCtaListItem.remove(); // Remove the list item from its current position
+  // 	var newDiv = $("<div>")
+  // 		.addClass("menuCallToAction")
+  // 		.append(mobileCtaListItem.contents()); // Create a new div and append the contents of the list item
+  // 	parentElement.append(newDiv); // Append the new div to the parent element
+  // }
 
   // Open the first one automatically - for development
 
@@ -58,11 +191,12 @@ jQuery(document).ready(function ($) {
         var $next = $(this).next();
         var wasActive = false;
         if ($next.hasClass("active")) {
-          return;
+          wasActive = true;
         }
-        $(".header__primary__submenu").removeClass("active");
+        $(".header__primary__submenu").removeClass("active").prev().removeClass('active');
         $(".header").removeClass("menuOpen");
         if (!wasActive) {
+          $(this).addClass('active');
           $next.addClass("active");
           $(".header").addClass("menuOpen");
         }
@@ -74,7 +208,7 @@ jQuery(document).ready(function ($) {
         var $submenu = $(this);
         clearTimeout(leaveTimeout);
         leaveTimeout = setTimeout(function () {
-          $submenu.removeClass("active");
+          $submenu.removeClass("active").prev().removeClass('active');
           $(".header").removeClass("menuOpen");
         }, 350); // Adjust the delay time in milliseconds (e.g., 500ms)
       }
@@ -133,9 +267,39 @@ jQuery(document).ready(function ($) {
       }
     });
     $('.header__primary__submenu > div > ul > li:first >  a ').click(); // Open the first menu automatically
+    $('.mobileHeader__primary__colOne > li:first >  a ').click(); // Open the first menu automatically
   };
 
   menuDesktop();
+  var menuMobile = function menuMobile() {
+    $(".header__primary__submenu__back").on("click", function () {
+      $(this).parent().parent().removeClass("active");
+      $(".header").removeClass("menuOpen");
+    });
+    $(".header__primary > ul > li > a.hasSubmenu").on("click", function ($event) {
+      $event.preventDefault();
+      var $next = $(this).next();
+      if (window.innerWidth < breakpoint) {
+        $next.addClass("active");
+        $(".header").addClass("menuOpen");
+      }
+    });
+    $(".toggleMenu__wrapper").on("click", function () {
+      // const $this = $(this).find('.toggleMenu');
+      var $this = $(this);
+      if ($this.hasClass("toggle")) {
+        $this.removeClass("toggle");
+        $(".mobileHeader__menu").removeClass("active");
+        // $(".mobileHeader__menu").slideUp(300);
+      } else {
+        $this.addClass("toggle");
+        $(".mobileHeader__menu").addClass("active");
+        // $(".mobileHeader__menu").slideDown(300);
+      }
+    });
+  };
+
+  menuMobile();
 });
 
 /***/ }),

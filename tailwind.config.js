@@ -202,7 +202,9 @@ module.exports = {
                 secondary : '#15636E',  
                 spacegray :  '#485050', // find the names on https://www.color-name.com/hex/e4eeee
                 brightgray: '#e4eeee',
-                darkgray: '#252525'
+                darkgray: '#252525',
+                midgray:'#485050',
+                secondaryDark: '#0c575f' 
                 
             }
         },
