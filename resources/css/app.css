@@ -2,5 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "./slick/slick.css";
+@import "./slick/slick-theme.css";
+
+@import "./glightbox.min.css";
+/* @import "./plyr.min.css"; */
+
 @import "components.css";
 @import "custom.css";

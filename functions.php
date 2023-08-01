@@ -61,8 +61,10 @@ function tailpress_enqueue_scripts()
 
 	wp_enqueue_style('tailpress', tailpress_asset('css/app.css'), array(), $theme->get('Version'));
 	wp_enqueue_style('typekit', "https://use.typekit.net/ffq4tbb.css");
-	wp_enqueue_script('tailpress', tailpress_asset('js/app.js'), array('jquery'), $theme->get('Version'));
 	wp_enqueue_style('fontawesome', tailpress_asset('resources/css/fonts/fontawesome-pro-6.2.0-web/css/all.css'), array(), $theme->get('Version'));
+	wp_enqueue_script('tailpress', tailpress_asset('js/app.js'), array('jquery'), $theme->get('Version'));
+	wp_enqueue_script('slickJs', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '', true);
+	wp_enqueue_script('glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array('jquery'), '', true);
 }
 
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_scripts');

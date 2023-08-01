@@ -345,4 +345,25 @@ jQuery(document).ready(function ($) {
 	  }
 	  menuMobile();
 
+if ($('.mainstage')){
+
+	$('.mainstage').slick({
+		autoplay: false,
+		arrows: false,
+		dots: true,
+		fade: false,
+		draggable: true,
+		adaptiveHeight: true,
+		autofocusVideos: true
+
+	})
+
+	const options = {};
+
+	const lightbox = GLightbox({
+		...options
+	});
+
+}
+
 });

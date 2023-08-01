@@ -48,6 +48,8 @@ add_action('after_setup_theme', 'wpse_375968_add_menu_description_support');
 
 // add_image_size('product-features', 1200, 480, true);
 
+add_image_size('mainstage', 1920, 1080, true);
+
 /********************************
         USEFUL UTILITIES
  ********************************/
