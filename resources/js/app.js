@@ -366,4 +366,34 @@ if ($('.mainstage')){
 
 }
 
+if ($('.image-pathways__more-open')[0]){
+	console.log('pathways');
+	// $('.image-pathways__more-open').on('click',function(){
+	// 	console.log('click');
+	// 	if ($(this).hasClass('active')){
+	// 		$(this).removeClass('active');
+	// 		$(this).next().slideUp();
+	// 	} else {
+	// 		$(this).addClass('active');
+	// 		$(this).next().slideDown();
+	// 	}
+	// })
+
+	$('.image-pathways__more-open').on('click', function(event) {
+		event.preventDefault(); // Prevents the default link behavior (e.g., following the href)
+	
+		var clickedItem = $(this).data('item'); // Get the data-item value of the clicked link
+		var contentToShow = $('.image-pathways__more-content[data-item="' + clickedItem + '"]');
+	
+		// Check if the content is currently visible or hidden
+		if (contentToShow.is(':visible')) {
+		  // If the content is visible, slide up to hide it
+		  contentToShow.slideUp();
+		} else {
+		  // If the content is hidden, slide down to show it
+		  contentToShow.slideDown();
+		}
+	  });
+}
+
 });

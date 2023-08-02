@@ -24,8 +24,8 @@ module.exports = {
             'sm': '640px',
             'md': '768px',
             'lg': '940px', // 980
-            'xl': '1281px', //1170
-            'xxl':'1384px', // These numbers are the photoshop size plus padding added.. 1344 + 20 + 20
+            'xl': '1150px', //1110
+            'xxl':'1320px', // These numbers are the photoshop size plus padding added.. 1344 + 20 + 20
             '3xl': '2000px', // Max screen size for image backgrounds
             // '4xl': '1920px',
             // '5xl': '2200px'
@@ -204,7 +204,10 @@ module.exports = {
                 brightgray: '#e4eeee',
                 darkgray: '#252525',
                 midgray:'#485050',
-                secondaryDark: '#0c575f' 
+                secondaryDark: '#0c575f',
+                darkestgray: "#1e1e1e",
+                antiflashwhite: '#ECF2F3'
+                
                 
             }
         },

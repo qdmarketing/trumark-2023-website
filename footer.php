@@ -20,7 +20,7 @@ $cta_button = get_field('cta_button', 'option');
 	</div>
 </div>
 <footer id="colophon" class="site-footer bg-gray-50 py-12" role="contentinfo">
-	<div class="container-xl">
+	<div class="container-xxl">
 		<div class="site-footer__grid">
 			<div class="site-footer__col site-footer__col--one">
 				<?php echo $phone_number ? '<div class="site-footer__phone">' . $phone_number . '</div>' : ''; ?>

@@ -1,12 +1,12 @@
 body {
-	@apply font-sr;
+	@apply font-sr text-darkestgray;
 }
 
 /* **************************    EXTRA CONTAINERS    ************************** */
 .container-lg {
 	@apply container lg:max-w-screen-lg;
 }
-.container-xl {
+.container-xxl {
 	@apply container xl:max-w-screen-xl;
 }
 
@@ -68,7 +68,8 @@ article > *:not(.entry-content),
 
 /* **************************    GLOBAL AREAS    ************************** */
 .mobileHeader {
-	@apply lg:hidden md:pb-20;
+	@apply lg:hidden;
+	/* @apply  md:pb-20; */
 	&__menu {
 		@apply bg-brightgray duration-300 transition-all max-h-[1000px];
 		clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
@@ -339,6 +340,7 @@ article > *:not(.entry-content),
 			/************ LEVEL 2 BG **************/
 			@apply absolute left-0 top-[140px] w-full bg-brightgray text-14 py-40 transition-all duration-300;
 			clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+			z-index: 1;
 			&:not(.active) {
 				@apply opacity-0 pointer-events-none absolute;
 				clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);

@@ -48,4 +48,7 @@
 		filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(2841%)
 			hue-rotate(172deg) brightness(88%) contrast(84%);
 	}
+	.button-main {
+		@apply inline-block bg-secondary text-white text-center py-15 text-18 px-40 hover:bg-secondaryDark transition-all duration-300;
+	}
 }

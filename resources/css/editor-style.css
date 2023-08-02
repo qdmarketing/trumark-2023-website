@@ -18,3 +18,14 @@ body {
 .wp-block[data-align="full"] {
 	@apply max-w-full;
 }
+
+.editor-styles-wrapper
+	.edit-post-visual-editor__post-title-wrapper
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.editor-styles-wrapper
+	.block-editor-block-list__layout.is-root-container
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	@apply max-w-screen-xxl !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
