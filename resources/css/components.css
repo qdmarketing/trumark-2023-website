@@ -49,6 +49,11 @@
 			hue-rotate(172deg) brightness(88%) contrast(84%);
 	}
 	.button-main {
-		@apply inline-block bg-secondary text-white text-center py-15 text-18 px-40 hover:bg-secondaryDark transition-all duration-300;
+		@apply inline-block bg-secondary text-white text-center py-12 text-18 px-20 hover:bg-secondaryDark transition-all duration-300;
+		&--chev {
+			@apply font-fontawesome text-12 pl-20 pt-[3px] left-2 relative transition-all duration-300;
+			content: " ";
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M11.9213 8.53129L5.84805 14.6045C5.55514 14.8974 5.08027 14.8974 4.78739 14.6045L4.07905 13.8962C3.78664 13.6038 3.78608 13.1299 4.0778 12.8368L8.89095 8.00095L4.0778 3.16516C3.78608 2.87207 3.78664 2.39816 4.07905 2.10576L4.78739 1.39741C5.0803 1.10451 5.55517 1.10451 5.84805 1.39741L11.9213 7.47063C12.2142 7.76351 12.2142 8.23838 11.9213 8.53129Z' fill='%23F5F5F8'/%3E%3C/svg%3E");
+		}
 	}
 }

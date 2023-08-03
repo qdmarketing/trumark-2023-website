@@ -10,22 +10,22 @@
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "#0EA5E9"
+          "color": "#930027"
         },
         {
           "name": "Secondary",
           "slug": "secondary",
-          "color": "#14B8A6"
+          "color": "#15636E"
         },
         {
-          "name": "Dark",
-          "slug": "dark",
-          "color": "#1F2937"
+          "name": "Seconday Dark",
+          "slug": "secondaryDark",
+          "color": "#0c575f"
         },
         {
-          "name": "Light",
-          "slug": "light",
-          "color": "#F9FAFB"
+          "name": "Space Gray",
+          "slug": "spacegray",
+          "color": "#485050"
         }
       ]
     },
@@ -39,7 +39,7 @@
         {
           "slug": "regular",
           "name": "Regular",
-          "size": "1.5rem"
+          "size": "1.0rem"
         },
         {
           "slug": "large",
@@ -49,17 +49,17 @@
         {
           "slug": "xl",
           "name": "XL",
-          "size": "1.25rem"
+          "size": "1.5rem"
         },
         {
           "slug": "xxl",
           "name": "2XL",
-          "size": "1.5rem"
+          "size": "1.875rem"
         },
         {
           "slug": "xxxl",
           "name": "3XL",
-          "size": "1.875rem"
+          "size": "2rem"
         }
       ]
     }

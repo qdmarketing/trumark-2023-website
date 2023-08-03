@@ -572,6 +572,12 @@ article > *:not(.entry-content),
 	}
 }
 
+.mainstage {
+	/* @apply mb-[80px]; */
+	/* &--no-dots {
+		@apply mb-50;
+	} */
+}
 .mainstage-slide {
 	&__left {
 		@apply flex  justify-center md:justify-end;

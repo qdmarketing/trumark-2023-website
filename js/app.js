@@ -307,10 +307,16 @@ jQuery(document).ready(function ($) {
 
   menuMobile();
   if ($('.mainstage')) {
+    var count = $('.mainstage').data('count');
+    var dots = true;
+    console.log(count);
+    if (count < 2) {
+      dots = false;
+    }
     $('.mainstage').slick({
       autoplay: false,
       arrows: false,
-      dots: true,
+      dots: dots,
       fade: false,
       draggable: true,
       adaptiveHeight: true,
@@ -321,17 +327,6 @@ jQuery(document).ready(function ($) {
   }
   if ($('.image-pathways__more-open')[0]) {
     console.log('pathways');
-    // $('.image-pathways__more-open').on('click',function(){
-    // 	console.log('click');
-    // 	if ($(this).hasClass('active')){
-    // 		$(this).removeClass('active');
-    // 		$(this).next().slideUp();
-    // 	} else {
-    // 		$(this).addClass('active');
-    // 		$(this).next().slideDown();
-    // 	}
-    // })
-
     $('.image-pathways__more-open').on('click', function (event) {
       event.preventDefault(); // Prevents the default link behavior (e.g., following the href)
 
@@ -339,6 +334,19 @@ jQuery(document).ready(function ($) {
       var contentToShow = $('.image-pathways__more-content[data-item="' + clickedItem + '"]');
 
       // Check if the content is currently visible or hidden
+      if (contentToShow.is(':visible')) {
+        // If the content is visible, slide up to hide it
+        contentToShow.slideUp();
+      } else {
+        // If the content is hidden, slide down to show it
+        contentToShow.slideDown();
+      }
+    });
+  }
+  if ($('.accordion')[0]) {
+    $('.accordion__title').on('click', function (event) {
+      event.preventDefault();
+      var contentToShow = $(this).next();
       if (contentToShow.is(':visible')) {
         // If the content is visible, slide up to hide it
         contentToShow.slideUp();

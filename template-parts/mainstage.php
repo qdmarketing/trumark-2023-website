@@ -1,5 +1,8 @@
-<?php if (have_rows('mainstage_slides')) : ?>
-    <div class="is-mainstage-php mainstage">
+<?php if (have_rows('mainstage_slides')) :
+
+    $count = count(get_field('mainstage_slides'));
+?>
+    <div class="is-mainstage-php mainstage<?php echo $count < 2 ? ' mainstage--no-dots' : ''; ?>" data-count="<?php echo $count; ?>">
         <?php while (have_rows('mainstage_slides')) : the_row();
             $headline = get_sub_field('headline');
             $content = get_sub_field('content');

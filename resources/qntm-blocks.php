@@ -49,54 +49,54 @@ function acf_gutenberg_block_init()
             )
         );
 
-        // acf_register_block_type(array(
-        //     'name'                => 'contact-form',
-        //     'title'                => __('QNTM Contact Form'),
-        //     'description'        => __('QNTM Contact Form'),
-        //     'render_template'    => '/resources/blocks/form.php',
-        //     'category' => 'qntm-blocks',
-        //     'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><defs><style>.fa-secondary{opacity:.4}</style></defs><path class="fa-primary" d="M176 256c35.35 0 64-28.65 64-64s-28.65-64-64-64s-64 28.65-64 64S140.7 256 176 256zM208 288h-64C99.82 288 64 323.8 64 368C64 376.8 71.16 384 80 384h192c8.836 0 16-7.164 16-16C288 323.8 252.2 288 208 288z"/><path class="fa-secondary" d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"/></svg>',
-        //     'keywords'            => array('contact', 'form'),
-        //     'mode'              => 'preview',
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
-        // ));
-        // acf_register_block(array(
-        //     'name'                => 'accordion',
-        //     'title'                => __('QNTM Accordion'),
-        //     'description'        => __('Accordion'),
-        //     'render_template'    => '/resources/blocks/accordion.php',
-        //     'category' => 'qntm-blocks',
-        //     'mode'                => 'edit',
-        //     'icon'                => $icon_square_chev,
-        //     'keywords'            => array('content'),
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true)
-        // ));
-        // acf_register_block_type(
-        //     array(
-        //         'name' => 'checkerboard',
-        //         'title' => __('QNTM Checkerboard'),
-        //         'description' => __('Checkerboard'),
-        //         'render_template' => '/resources/blocks/checkerboard.php',
-        //         'category' => 'qntm-blocks',
-        //         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 248h-152V96c0-4.422-3.578-8-8-8H64C59.58 88 56 91.58 56 96v160c0 4.422 3.578 8 8 8h152V416c0 4.422 3.578 8 8 8h160c4.422 0 8-3.578 8-8V256C392 251.6 388.4 248 384 248zM216 248h-144v-144h144V248zM376 408h-144v-144h144V408zM384 32h-320C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V96C448 60.65 419.3 32 384 32zM432 416c0 26.47-21.53 48-48 48H64c-26.47 0-48-21.53-48-48V96c0-26.47 21.53-48 48-48h320c26.47 0 48 21.53 48 48V416z"/></svg>',
-        //         'keywords' => array('content'),
-        //         'mode' => 'preview',
-        //         'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     )
-        // );
-        // acf_register_block_type(
-        //     array(
-        //         'name' => 'cta',
-        //         'title' => __('QNTM CTA'),
-        //         'description' => __('CTA'),
-        //         'render_template' => '/resources/blocks/cta.php',
-        //         'category' => 'qntm-blocks',
-        //         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 352h-24.02l.0098-135.1c0-.0176 0 .0176 0 0C263.1 211.6 260.4 208 256 208H224c-4.406 0-8 3.594-8 8S219.6 224 224 224h23.98v128H224c-4.406 0-8 3.594-8 8S219.6 368 224 368h64c4.406 0 8-3.594 8-8S292.4 352 288 352zM255.9 176c8.822 0 16-7.178 16-16s-7.178-16-16-16s-16 7.178-16 16S247.1 176 255.9 176zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 496c-132.3 0-240-107.7-240-240S123.7 16 256 16s240 107.7 240 240S388.3 496 256 496z"/></svg>',
-        //         'keywords' => array('content'),
-        //         'mode' => 'preview',
-        //         'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     )
-        // );
+        acf_register_block_type(array(
+            'name'                => 'checkmark-list',
+            'title'                => __('QNTM Checkmark List'),
+            'description'        => __('QNTM Checkmark List'),
+            'render_template'    => '/resources/blocks/checkmark-list.php',
+            'category' => 'qntm-blocks',
+            'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><defs><style>.fa-secondary{opacity:.4}</style></defs><path class="fa-primary" d="M176 256c35.35 0 64-28.65 64-64s-28.65-64-64-64s-64 28.65-64 64S140.7 256 176 256zM208 288h-64C99.82 288 64 323.8 64 368C64 376.8 71.16 384 80 384h192c8.836 0 16-7.164 16-16C288 323.8 252.2 288 208 288z"/><path class="fa-secondary" d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"/></svg>',
+            'keywords'            => array('checkmark', 'content'),
+            'mode'              => 'preview',
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
+        ));
+        acf_register_block(array(
+            'name'                => 'comparison',
+            'title'                => __('QNTM Comparison'),
+            'description'        => __('QNTM Comparison'),
+            'render_template'    => '/resources/blocks/comparison.php',
+            'category' => 'qntm-blocks',
+            'mode'                => 'edit',
+            'icon'                => $icon_square_chev,
+            'keywords'            => array('content'),
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true)
+        ));
+        acf_register_block_type(
+            array(
+                'name' => 'fifty',
+                'title' => __('QNTM 50/50 Content'),
+                'description' => __('QNTM 50/50 Content'),
+                'render_template' => '/resources/blocks/fifty.php',
+                'category' => 'qntm-blocks',
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 248h-152V96c0-4.422-3.578-8-8-8H64C59.58 88 56 91.58 56 96v160c0 4.422 3.578 8 8 8h152V416c0 4.422 3.578 8 8 8h160c4.422 0 8-3.578 8-8V256C392 251.6 388.4 248 384 248zM216 248h-144v-144h144V248zM376 408h-144v-144h144V408zM384 32h-320C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V96C448 60.65 419.3 32 384 32zM432 416c0 26.47-21.53 48-48 48H64c-26.47 0-48-21.53-48-48V96c0-26.47 21.53-48 48-48h320c26.47 0 48 21.53 48 48V416z"/></svg>',
+                'keywords' => array('content'),
+                'mode' => 'preview',
+                'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
+            )
+        );
+        acf_register_block_type(
+            array(
+                'name' => 'accordion',
+                'title' => __('QNTM Accordion'),
+                'description' => __('Accordion'),
+                'render_template' => '/resources/blocks/accordion.php',
+                'category' => 'qntm-blocks',
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 352h-24.02l.0098-135.1c0-.0176 0 .0176 0 0C263.1 211.6 260.4 208 256 208H224c-4.406 0-8 3.594-8 8S219.6 224 224 224h23.98v128H224c-4.406 0-8 3.594-8 8S219.6 368 224 368h64c4.406 0 8-3.594 8-8S292.4 352 288 352zM255.9 176c8.822 0 16-7.178 16-16s-7.178-16-16-16s-16 7.178-16 16S247.1 176 255.9 176zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 496c-132.3 0-240-107.7-240-240S123.7 16 256 16s240 107.7 240 240S388.3 496 256 496z"/></svg>',
+                'keywords' => array('content'),
+                'mode' => 'preview',
+                'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
+            )
+        );
         // acf_register_block(array(
         //     'name'                => 'product-features',
         //     'title'                => __('QNTM Product Features Slider'),
@@ -307,17 +307,11 @@ function qd_allowed_block_types($allowed_blocks)
 
         'acf/image-pathways',
         'acf/application-status',
-        // 'acf/interest-rate',
-        // 'acf/contact-form',
-        // 'acf/product-features',
-        // 'acf/product-pathways',
-        // 'acf/testimonials',
-        // 'acf/text-photo-icons',
-        // 'acf/checkerboard',
-        // 'acf/cta',
-        // 'acf/highlighted-panes',
-        // 'acf/blog-content',
-        // 'acf/wysiwyg'
+        'acf/checkmark-list',
+        'acf/comparison',
+        'acf/fifty',
+        'acf/accordion'
+
 
 
     );

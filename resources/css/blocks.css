@@ -1,8 +1,15 @@
 .entry-content,
 .block-editor-block-list__layout {
+	@apply mt-40 md:mt-80;
 	> p {
 		/* @apply max-w-[1160px] px-20 mx-auto; */
 		@apply container xl:max-w-screen-xl;
+		&.has-large-font-size {
+			font-size: clamp(0.9375rem, 0.5375rem + 1vw, 1.125rem) !important;
+		}
+		&.has-xl-font-size {
+			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
+		}
 	}
 
 	.acf-block {
@@ -54,9 +61,18 @@
 		&__headline {
 			@apply text-24 font-700 text-primary text-center mb-0;
 		}
+		&__content {
+			@apply mb-20 max-sm:text-15;
+		}
 		&__link {
 			@apply w-full  mt-20 mb-30;
-			@apply button-main block;
+			@apply button-main block px-15;
+			&::after {
+				@apply button-main--chev;
+			}
+			&:hover::after {
+				@apply left-3;
+			}
 		}
 		&__more-content {
 			@apply mb-20;
@@ -76,18 +92,55 @@
 	}
 
 	.application-status {
-		@apply bg-antiflashwhite py-50 font-primary;
+		@apply bg-antiflashwhite py-50 md:py-70 font-primary;
 		&__headline {
 			@apply text-36 font-700;
+			font-size: clamp(24px, 4vw, 36px);
 		}
 		&__link {
-			@apply button-main;
+			@apply button-main w-full md:w-[375px];
+			&::after {
+				@apply button-main--chev;
+			}
+			&:hover::after {
+				@apply left-3;
+			}
 		}
 		&__top {
-			@apply flex justify-between border-b border-[#888] pb-20 mb-20;
+			@apply flex flex-col gap-4 md:flex-row justify-between items-center;
 		}
 		&__content {
-			@apply text-18;
+			@apply text-15 md:text-18 pt-35 border-t border-[#888] mt-30;
+		}
+	}
+	.accordion {
+		@apply my-40 md:my-80;
+		&__headline {
+			@apply text-secondary text-center font-700 font-primary mb-30;
+			font-size: clamp(1.75rem, -0.3833rem + 5.3333vw, 2.75rem);
+		}
+		&__item {
+			@apply block;
+			&:not(:last-child) {
+				@apply border-b border-[#C7C6C6] mb-30;
+			}
+		}
+		&__title {
+			@apply flex justify-between pb-20 md:px-30;
+			&-text {
+				@apply flex-1 text-midgray;
+				font-size: clamp(1rem, -0.6rem + 4vw, 1.75rem);
+			}
+		}
+		&__content {
+			@apply pb-30 md:px-30 text-14 md:text-16;
+		}
+
+		&__open-close {
+			@apply bg-secondary hover:bg-secondaryDark transition-all duration-300 rounded-full  w-[40px] h-[40px] md:w-[50px] md:h-[50px] relative ml-10;
+			svg {
+				@apply relative top-[20%] left-[20%] md:top-[25%] md:left-[25%];
+			}
 		}
 	}
 }

@@ -1,0 +1,96 @@
+{
+    "key": "group_64cbfc9070529",
+    "title": "Block: 50\/50 Content",
+    "fields": [
+        {
+            "key": "field_64cbfe77ebfe0",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "off-white": "Off-White",
+                "blue": "Blue"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_64cbfc9037e91",
+            "label": "Column One",
+            "name": "column_one",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_64cbfa06ec6d4"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 1,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_64cbfcfd55902",
+            "label": "Column Two",
+            "name": "column_two",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_64cbfa06ec6d4"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 1,
+            "prefix_name": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/fifty"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1691090602
+}

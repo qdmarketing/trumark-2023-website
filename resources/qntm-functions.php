@@ -1,6 +1,13 @@
 <?php
 
+/********************************
+ENABLE FONT AWESOME
+ ********************************/
 
+
+add_action('wp_head', function () {
+    echo '<script src="https://kit.fontawesome.com/5318d5e5fe.js" crossorigin="anonymous"></script>';
+});
 
 
 /********************************
