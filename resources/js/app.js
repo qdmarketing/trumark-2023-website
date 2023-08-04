@@ -402,9 +402,11 @@ if ($('.accordion')[0]){
 
 		if (contentToShow.is(':visible')) {
 			// If the content is visible, slide up to hide it
+			$(this).removeClass('active');
 			contentToShow.slideUp();
 		  } else {
 			// If the content is hidden, slide down to show it
+			$(this).addClass('active');
 			contentToShow.slideDown();
 		  }
 	})

@@ -90,7 +90,7 @@
                     "label": "Summary",
                     "name": "content",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -101,18 +101,18 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "rows": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "new_lines": "",
                     "parent_repeater": "field_64cc06501f112"
                 },
                 {
-                    "key": "field_64cc07111f115",
+                    "key": "field_64cd4a8143188",
                     "label": "Attributes",
                     "name": "attributes",
                     "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
+                    "type": "wysiwyg",
+                    "instructions": "Add a list of items here.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -120,36 +120,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
-                    "pagination": 0,
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_64cc07181f116",
-                            "label": "Attribute",
-                            "name": "content",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_64cc07111f115"
-                        }
-                    ],
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "just_list",
+                    "media_upload": 0,
+                    "delay": 0,
                     "parent_repeater": "field_64cc06501f112"
                 }
             ]
@@ -189,5 +164,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691092891
+    "modified": 1691176058
 }

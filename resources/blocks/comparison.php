@@ -16,6 +16,7 @@ $blockClass = isset($block['className']) ? $block['className'] : '';
 
 $headline = get_field('headline');
 $background = get_field('background');
+$link = get_field('Link');
 ?>
 
 
@@ -28,27 +29,29 @@ $background = get_field('background');
             <?php if (have_rows('items')) : ?>
                 <?php while (have_rows('items')) : the_row(); ?>
                     <div class="comparison__item">
-
                         <?php
                         $title = get_sub_field('title');
-                        $content = get_sub_field('content'); ?>
-                        <a href="#" class="comparison__title">
-                            <div class="comparison__title-text">
-                                <?php echo $title; ?>
-                            </div>
-                            <div class="comparison__open-close">
-                                <svg class="comparison__plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.3077 9.92203H14.077V3.69126C14.077 2.92669 13.4569 2.30664 12.6924 2.30664H11.3077C10.5432 2.30664 9.92312 2.92669 9.92312 3.69126V9.92203H3.69235C2.92779 9.92203 2.30774 10.5421 2.30774 11.3066V12.6913C2.30774 13.4558 2.92779 14.0759 3.69235 14.0759H9.92312V20.3066C9.92312 21.0712 10.5432 21.6913 11.3077 21.6913H12.6924C13.4569 21.6913 14.077 21.0712 14.077 20.3066V14.0759H20.3077C21.0723 14.0759 21.6924 13.4558 21.6924 12.6913V11.3066C21.6924 10.5421 21.0723 9.92203 20.3077 9.92203Z" fill="white" />
-                                </svg>
-                            </div>
-                        </a>
-
-                        <?php echo $content ? '<div class="comparison__content" style="display:none;">' . $content . '</div>' : '';
+                        $content = get_sub_field('content');
+                        $attributes = get_sub_field('attributes');
                         ?>
+                        <?php echo $title ? '<h3 class="comparison__title">' . $title . '</h3>' : ''; ?>
+                        <?php echo $content ? '<div class="comparison__content">' . $content . '</div>' : ''; ?>
+                        <?php echo $attributes ? '<div class="comparison__attributes">' . $attributes . '</div>' : ''; ?>
 
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
+        </div>
+        <div>
+            <a class="image-pathways__more-open">More Info
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="24" fill="#930027" />
+                    <path d="M32.3076 21.922H26.0768V15.6913C26.0768 14.9267 25.4568 14.3066 24.6922 14.3066H23.3076C22.5431 14.3066 21.923 14.9267 21.923 15.6913V21.922H15.6922C14.9277 21.922 14.3076 22.5421 14.3076 23.3066V24.6913C14.3076 25.4558 14.9277 26.0759 15.6922 26.0759H21.923V32.3066C21.923 33.0712 22.5431 33.6913 23.3076 33.6913H24.6922C25.4568 33.6913 26.0768 33.0712 26.0768 32.3066V26.0759H32.3076C33.0722 26.0759 33.6922 25.4558 33.6922 24.6913V23.3066C33.6922 22.5421 33.0722 21.922 32.3076 21.922Z" fill="white" />
+                </svg>
+            </a>
+        </div>
+        <div class="comparison__button-wrapper">
+            <?php echo qntm_acf_link('a', 'comparison__button', $link, false, false); ?>
         </div>
     </div>
 </div>

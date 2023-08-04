@@ -17,7 +17,7 @@ if ($style === 'link-list') {
 ?>
 
 <div class="fifty-item fifty-item--<?php echo $style; ?>">
-    <?php echo $headline ? '<h3 class="fifty__headline">' . $headline . '</h3>' : ''; ?>
+    <?php echo $headline ? '<h3 class="fifty-item__headline">' . $headline . '</h3>' : ''; ?>
     <?php if ($style === 'icon' && $icons) : ?>
         <div class="fifty-item__icon-wrapper">
             <?php foreach ($icons as $icon) : ?>
@@ -32,10 +32,7 @@ if ($style === 'link-list') {
     <?php endif; ?>
     <?php if ($style === 'link-list' && $linklist) : ?>
         <ul class="fifty-item__link-list">
-            <?php foreach ($linklist as $link) :
-
-            ?>
-
+            <?php foreach ($linklist as $link) : ?>
                 <li>
                     <?php echo qntm_acf_link('a', 'fifty-item__link', $link['link'], $link['fa_icon'], false); ?>
                 </li>
@@ -44,4 +41,3 @@ if ($style === 'link-list') {
     <?php endif; ?>
 
 </div>
-<hr>

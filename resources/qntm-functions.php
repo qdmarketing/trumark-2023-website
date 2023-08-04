@@ -323,3 +323,16 @@ function my_acf_init()
     acf_update_setting('google_api_key', get_field('google_maps_api_key', 'option'));
 }
 add_action('acf/init', 'my_acf_init');
+
+
+add_filter('acf/fields/wysiwyg/toolbars', 'qntm_acf_toolbars');
+function qntm_acf_toolbars($toolbars)
+{
+
+    // Add a new toolbar called "Very Simple"
+    // - this toolbar has only 1 row of buttons
+    $toolbars['Just List'] = array();
+    $toolbars['Just List'][1] = array('bullist');
+
+    return $toolbars;
+}
