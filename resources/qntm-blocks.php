@@ -97,45 +97,39 @@ function acf_gutenberg_block_init()
                 'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
             )
         );
-        // acf_register_block(array(
-        //     'name'                => 'product-features',
-        //     'title'                => __('QNTM Product Features Slider'),
-        //     'description'        => __('Product Features'),
-        //     'render_template'    => '/resources/blocks/product-features.php',
-        //     'category' => 'qntm-blocks',
-        //     'mode'                => 'edit',
-        //     'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M160 184c13.26 0 24-10.75 24-24S173.3 136 160 136C146.7 136 136 146.7 136 160S146.7 184 160 184zM346.6 171.9c-11.28-15.81-38.5-15.94-49.1-.0313L252.6 233.3L245.6 224.4C234.2 209.9 208.6 209.8 197.2 224.4L134.2 304.8c-7.123 9.131-8.154 21.55-2.623 31.56C136.8 345.1 147.1 352 158.4 352h259.2c11 0 21.17-5.805 26.54-15.09c0-.0313-.0313 .0313 0 0c5.656-9.883 5.078-21.84-1.578-31.15L346.6 171.9zM162.2 319.9l58.25-75.61l20.09 25.66C244.9 275.5 258.1 280.6 266.1 269.4l54.44-78.75l92.68 129.2H162.2zM512 64H64C28.65 64 0 92.65 0 128v256c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V128C576 92.65 547.3 64 512 64zM544 384c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V128c0-17.64 14.36-32 32-32h448c17.64 0 32 14.36 32 32V384z"/></svg>',
-        //     'keywords'            => array('content'),
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     'enqueue_assets' => function () {
-        //         wp_enqueue_script('slickJs', get_template_directory_uri() . '/resources/js/slick.min.js', array('jquery'), '', true);
-        //     }
-        // ));
-        // acf_register_block(array(
-        //     'name'                => 'product-pathways',
-        //     'title'                => __('QNTM Product Pathways'),
-        //     'description'        => __('Product Features'),
-        //     'render_template'    => '/resources/blocks/product-pathways.php',
-        //     'category' => 'qntm-blocks',
-        //     'mode'                => 'edit',
-        //     'icon'                => $icon_columns3,
-        //     'keywords'            => array('content'),
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
-        // ));
-        // acf_register_block(array(
-        //     'name'                => 'testimonials',
-        //     'title'                => __('QNTM Testimonials'),
-        //     'description'        => __('A Customer Testimonial Block'),
-        //     'render_template'    => '/resources/blocks/testimonials.php',
-        //     'category' => 'qntm-blocks',
-        //     'mode'                => 'edit',
-        //     'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M274.7 304H173.3c-95.73 0-173.3 77.6-173.3 173.3C0 496.5 15.52 512 34.66 512H413.3C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM413.3 496H34.66c-10.29 0-18.66-8.375-18.66-18.67C15.1 390.6 86.58 320 173.3 320H274.7C361.4 320 432 390.6 432 477.3C432 487.6 423.6 496 413.3 496zM224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM223.1 16C285.8 16 336 66.24 336 128S285.8 240 223.1 240s-112-50.24-112-112S162.2 16 223.1 16zM432 256c64.62 0 116.4-54.71 111.7-120.3c-3.445-47.64-38.17-88.11-84.4-100.1c-26.62-6.918-51.32-3.184-72.75 6.594c-3.914 1.789-5.566 6.359-3.695 10.23c.1055 .2187 .2109 .4414 .3164 .6602c1.76 3.684 6.051 5.445 9.762 3.742c14.72-6.77 31.25-10.18 48.96-8.227C490 53.84 527.8 95.26 528 143.7C528.2 196.8 485 240 432 240c-19.32 0-37.13-5.961-52.16-15.88c-3.369-2.219-7.834-1.074-10.13 2.242c-.1445 .2109-.2891 .418-.4355 .625c-2.473 3.543-1.535 8.344 2.08 10.71C388.8 249.1 409.5 256 432 256zM479.1 320H448c-4.418 0-8 3.582-8 8S443.6 336 448 336h31.1c79.5 0 144.2 64.75 144 144.3C623.1 488.1 616.7 496 608 496H496c-4.418 0-8 3.582-8 8S491.6 512 496 512h112C625.7 512 640 497.6 640 479.1C639.9 391.7 568.3 320 479.1 320z"/></svg>',
-        //     'keywords'            => array('content'),
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     'enqueue_assets' => function () {
-        //         wp_enqueue_script('slickJs', get_template_directory_uri() . '/resources/js/slick.min.js', array('jquery'), '', true);
-        //     }
-        // ));
+        acf_register_block(array(
+            'name'                => 'cta',
+            'title'                => __('QNTM CTA'),
+            'description'        => __('Call-To-Action'),
+            'render_template'    => '/resources/blocks/cta.php',
+            'category' => 'qntm-blocks',
+            'mode'                => 'edit',
+            'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M160 184c13.26 0 24-10.75 24-24S173.3 136 160 136C146.7 136 136 146.7 136 160S146.7 184 160 184zM346.6 171.9c-11.28-15.81-38.5-15.94-49.1-.0313L252.6 233.3L245.6 224.4C234.2 209.9 208.6 209.8 197.2 224.4L134.2 304.8c-7.123 9.131-8.154 21.55-2.623 31.56C136.8 345.1 147.1 352 158.4 352h259.2c11 0 21.17-5.805 26.54-15.09c0-.0313-.0313 .0313 0 0c5.656-9.883 5.078-21.84-1.578-31.15L346.6 171.9zM162.2 319.9l58.25-75.61l20.09 25.66C244.9 275.5 258.1 280.6 266.1 269.4l54.44-78.75l92.68 129.2H162.2zM512 64H64C28.65 64 0 92.65 0 128v256c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V128C576 92.65 547.3 64 512 64zM544 384c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V128c0-17.64 14.36-32 32-32h448c17.64 0 32 14.36 32 32V384z"/></svg>',
+            'keywords'            => array('content'),
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
+        ));
+        acf_register_block(array(
+            'name'                => 'secondary-content',
+            'title'                => __('QNTM Secondary Content'),
+            'description'        => __('Secondary Content'),
+            'render_template'    => '/resources/blocks/secondary-content.php',
+            'category' => 'qntm-blocks',
+            'mode'                => 'edit',
+            'icon'                => $icon_columns3,
+            'keywords'            => array('content'),
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
+        ));
+        acf_register_block(array(
+            'name'                => 'icons',
+            'title'                => __('QNTM Icons'),
+            'description'        => __('Icons Block'),
+            'render_template'    => '/resources/blocks/icons.php',
+            'category' => 'qntm-blocks',
+            'mode'                => 'edit',
+            'icon'                => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M274.7 304H173.3c-95.73 0-173.3 77.6-173.3 173.3C0 496.5 15.52 512 34.66 512H413.3C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM413.3 496H34.66c-10.29 0-18.66-8.375-18.66-18.67C15.1 390.6 86.58 320 173.3 320H274.7C361.4 320 432 390.6 432 477.3C432 487.6 423.6 496 413.3 496zM224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM223.1 16C285.8 16 336 66.24 336 128S285.8 240 223.1 240s-112-50.24-112-112S162.2 16 223.1 16zM432 256c64.62 0 116.4-54.71 111.7-120.3c-3.445-47.64-38.17-88.11-84.4-100.1c-26.62-6.918-51.32-3.184-72.75 6.594c-3.914 1.789-5.566 6.359-3.695 10.23c.1055 .2187 .2109 .4414 .3164 .6602c1.76 3.684 6.051 5.445 9.762 3.742c14.72-6.77 31.25-10.18 48.96-8.227C490 53.84 527.8 95.26 528 143.7C528.2 196.8 485 240 432 240c-19.32 0-37.13-5.961-52.16-15.88c-3.369-2.219-7.834-1.074-10.13 2.242c-.1445 .2109-.2891 .418-.4355 .625c-2.473 3.543-1.535 8.344 2.08 10.71C388.8 249.1 409.5 256 432 256zM479.1 320H448c-4.418 0-8 3.582-8 8S443.6 336 448 336h31.1c79.5 0 144.2 64.75 144 144.3C623.1 488.1 616.7 496 608 496H496c-4.418 0-8 3.582-8 8S491.6 512 496 512h112C625.7 512 640 497.6 640 479.1C639.9 391.7 568.3 320 479.1 320z"/></svg>',
+            'keywords'            => array('content'),
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
+        ));
         // acf_register_block(array(
         //     'name'                => 'text-photo-icons',
         //     'title'                => __('QNTM Text with Photo and Icons'),
@@ -310,7 +304,10 @@ function qd_allowed_block_types($allowed_blocks)
         'acf/checkmark-list',
         'acf/comparison',
         'acf/fifty',
-        'acf/accordion'
+        'acf/accordion',
+        'acf/secondary-content',
+        'acf/icons',
+        'acf/cta',
 
 
 

@@ -372,7 +372,35 @@ if ($('.mainstage')){
 	});
 
 }
+if ($('.comparison__more-open')[0]){
+	console.log('comparison block')
+	$('.comparison__more-open').on('click',function(event){
+		event.preventDefault();
+		var $block = $(this).closest('.comparison');
+		if ($(this).hasClass('active')){
+			$(this).removeClass('active');
+			$block.removeClass('active');
+		}
+		 else {
+			$(this).addClass('active');
+			$block.addClass('active');
+		 }
+	})
 
+
+	$('.comparison__more-open--mobile').on('click',function(event){
+		event.preventDefault();
+		var $block = $(this).parent().prev();
+		if ($(this).hasClass('active')){
+			$(this).removeClass('active');
+			$block.removeClass('active');
+		}
+		 else {
+			$(this).addClass('active');
+			$block.addClass('active');
+		 }
+	})
+}
 if ($('.image-pathways__more-open')[0]){
 	console.log('pathways');
 
@@ -386,9 +414,12 @@ if ($('.image-pathways__more-open')[0]){
 		// Check if the content is currently visible or hidden
 		if (contentToShow.is(':visible')) {
 		  // If the content is visible, slide up to hide it
+
+		  $(this).removeClass('active');
 		  contentToShow.slideUp();
 		} else {
 		  // If the content is hidden, slide down to show it
+		  $(this).addClass('active');
 		  contentToShow.slideDown();
 		}
 	  });

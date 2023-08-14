@@ -60,4 +60,24 @@
 		@apply text-secondary text-center font-700 font-primary mb-10;
 		font-size: clamp(1.75rem, -0.3833rem + 5.3333vw, 2.75rem);
 	}
+	.more-open {
+		@apply mb-20 text-center relative block uppercase text-midgray text-15 cursor-pointer;
+		letter-spacing: 2px;
+		svg {
+			@apply mx-auto mt-5 block fill-primary duration-300;
+			transition-property: fill;
+		}
+
+		&.active svg {
+			transform: rotate(45deg);
+		}
+		&:hover svg {
+			@apply fill-secondary;
+		}
+		&:before {
+			@apply bg-[#BCBCBC] h-[1px] absolute w-full left-0 bottom-[23px];
+			content: " ";
+			z-index: -1;
+		}
+	}
 }

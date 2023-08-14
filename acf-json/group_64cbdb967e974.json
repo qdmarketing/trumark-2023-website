@@ -133,6 +133,31 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_64cbdbaf92947"
+                },
+                {
+                    "key": "field_64daa0198e5dc",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64cbdc109294b",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_64cbdbaf92947"
                 }
             ]
         }
@@ -155,5 +180,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691090221
+    "modified": 1692049489
 }
