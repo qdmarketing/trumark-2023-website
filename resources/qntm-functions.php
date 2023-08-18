@@ -57,6 +57,7 @@ add_action('after_setup_theme', 'wpse_375968_add_menu_description_support');
 
 add_image_size('mainstage', 1920, 1080, true);
 add_image_size('pathways', 225, 225, true);
+add_image_size('checkerboard', 580, 400, true);
 
 /********************************
         USEFUL UTILITIES
@@ -81,10 +82,11 @@ function qntm_acf_link($elem, $class, $link, $icon, $content)
 
         $content = $iconHtml . $link['title'];
     }
+    $screenreader = '<span class="screen-reader-text">' . $link['title'] . '</span>';
 
     $elem = $elem ? $elem : 'a';
     $link_target = $link['target'] ? $link['target'] : '_self';
-    $html = '<' . $elem . ' class="' . $class . '" href="' . $link['url'] . '" target="' . esc_attr($link_target) . '">' . $content . '</' . $elem . '>';
+    $html = '<' . $elem . ' class="' . $class . '" href="' . $link['url'] . '" target="' . esc_attr($link_target) . '">' . $content . $screenreader . '</' . $elem . '>';
 
     return $html;
 }
@@ -336,3 +338,79 @@ function qntm_acf_toolbars($toolbars)
 
     return $toolbars;
 }
+
+
+
+/****************************
+Add Formats Dropdown Menu To MCE
+ ****************************/
+if (!function_exists('wpex_style_select')) {
+    function wpex_style_select($buttons)
+    {
+        array_push($buttons, 'styleselect');
+        return $buttons;
+    }
+}
+add_filter('mce_buttons', 'wpex_style_select');
+
+/*****************************************************
+Add new styles to the TinyMCE "formats" menu dropdown
+ ******************************************************/
+//
+if (!function_exists('wpex_styles_dropdown')) {
+    function wpex_styles_dropdown($settings)
+    {
+
+        // Create array of new styles
+        $new_styles = array(
+            array(
+                'title'        => __('Blue Text', 'wpex'),
+                'selector'    => 'p',
+                'classes'    => 'has-blue-text'
+            ),
+            //   array(
+            // 	'title'		=> __('No Bullets','wpex'),
+            // 	'selector'	=> 'ul',
+            // 	'classes'	=> 'no-bullets'
+            // 	),
+            // array(
+            // 	'title'		=> __('Styled Link', 'wpex'),
+            // 	'selector'	=> 'a',
+            // 	'classes'	=> 'styledLink'
+            // ),
+
+            // array(
+            // 	'title'		=> __('Button Primary', 'wpex'),
+            // 	'selector'	=> 'a',
+            // 	'classes'	=> 'a-button-primary linkbtn'
+            // ),
+            // array(
+            // 	'title'		=> __('Button Secondary', 'wpex'),
+            // 	'selector'	=> 'a',
+            // 	'classes'	=> 'a-button-secondary linkbtn'
+            // ),
+        );
+        // Merge old & new styles
+        $settings['style_formats_merge'] = false;
+        // Add new styles
+        $settings['style_formats'] = json_encode($new_styles);
+        // Return New Settings
+        return $settings;
+    }
+}
+add_filter('tiny_mce_before_init', 'wpex_styles_dropdown');
+
+
+// function register_custom_block_styles()
+// {
+//     wp_register_style('primary-text-style', false);
+//     register_block_style(
+//         'core/paragraph',
+//         array(
+//             'name'         => 'primary-text',
+//             'label'        => __('Red Text', 'your-text-domain'),
+//             'style_handle' => 'primary-text-style',
+//         )
+//     );
+// }
+// add_action('init', 'register_custom_block_styles');

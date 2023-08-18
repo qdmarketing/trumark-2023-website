@@ -20,7 +20,13 @@ $content = get_field('body');
 
 $items = get_field('items');
 
-$count = count($items);
+$style = get_field('style');
+
+
+
+$count = $items ? count($items) : '0';
+
+
 
 
 ?>
@@ -31,9 +37,9 @@ $count = count($items);
         (Only logged in users can see this message)
     </div>
 <?php elseif ($items) : ?>
-    <div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> image-pathways ">
+    <div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> image-pathways image-pathways--<?php echo $style; ?>">
         <div class="container-xxl">
-            <?php echo $headline ? '<h3 class="image-pathways__headline">' . $headline . '</h3>' : ''; ?>
+            <?php echo $headline ? '<h3 class="image-pathways__main-headline">' . $headline . '</h3>' : ''; ?>
             <?php echo $content ? '<div class="image-pathways__content">' . $content . '</div>' : ''; ?>
             <div class="image-pathways__grid image-pathways__grid--count-<?php echo $count; ?>">
                 <?php foreach ($items as $key => $item) : ?>

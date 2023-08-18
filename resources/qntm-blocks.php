@@ -130,43 +130,43 @@ function acf_gutenberg_block_init()
             'keywords'            => array('content'),
             'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
         ));
-        // acf_register_block(array(
-        //     'name'                => 'text-photo-icons',
-        //     'title'                => __('QNTM Text with Photo and Icons'),
-        //     'description'        => __('Text with Photo and Icons'),
-        //     'render_template'    => '/resources/blocks/text-photo-icons.php',
-        //     'category' => 'qntm-blocks',
-        //     'mode'                => 'edit',
-        //     'icon'                => $qntm_icon,
-        //     'keywords'            => array('content'),
-        //     'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
-        // ));
-        // acf_register_block_type(
-        //     array(
-        //         'name' => 'highlighted-panes',
-        //         'title' => __('QNTM Highlighted Panes'),
-        //         'description' => __('Highlighted Panes'),
-        //         'render_template' => '/resources/blocks/highlighted-panes.php',
-        //         'category' => 'qntm-blocks',
-        //         'keywords' => array('content'),
-        //         'mode' => 'preview',
-        //         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M261 229l215-158.4 29.3 29.3L347 315 261 229zM160 320l0 0-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3l50.7 50.7c12.5 12.5 32.8 12.5 45.3 0L256 416h71.7c15.3 0 29.6-7.2 38.6-19.5L567.6 123.4c5.5-7.4 8.4-16.4 8.4-25.6c0-11.4-4.5-22.4-12.6-30.5L508.6 12.6C500.5 4.5 489.6 0 478.2 0C469 0 460 2.9 452.6 8.4L179.5 209.6c-12.3 9-19.5 23.4-19.5 38.6V320zm-57.9 83.3l-63 63c-4.5 4.5-7 10.6-7 17V488c0 13.3 10.7 24 24 24h68.7c6.4 0 12.5-2.5 17-7l31-31-70.6-70.6zM256 464c-13.3 0-24 10.7-24 24s10.7 24 24 24H584c13.3 0 24-10.7 24-24s-10.7-24-24-24H256z"/></svg>',
-        //         'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     )
-        // );
-        // acf_register_block_type(
-        //     array(
-        //         'name' => 'blog-content',
-        //         'title' => __('QNTM Featured Blog Content'),
-        //         'description' => __('Featured Blog Content'),
-        //         'render_template' => '/resources/blocks/blog-content.php',
-        //         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM16 96V416C16 442.5 37.49 464 64 464H128V48H64C37.49 48 16 69.49 16 96zM496 416V264H144V464H448C474.5 464 496 442.5 496 416zM496 248V96C496 69.49 474.5 48 448 48H144V248H496z"/></svg>',
-        //         'category' => 'qntm-blocks',
-        //         'keywords' => array('content'),
-        //         'mode' => 'preview',
-        //         'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     )
-        // );
+        acf_register_block(array(
+            'name'                => 'timeline',
+            'title'                => __('QNTM Timeline'),
+            'description'        => __('A Timeline Block'),
+            'render_template'    => '/resources/blocks/timeline.php',
+            'category' => 'qntm-blocks',
+            'mode'                => 'edit',
+            'icon'                => $qntm_icon,
+            'keywords'            => array('content'),
+            'supports'             => array('mode' => true, 'align' => false, 'anchor' => true),
+        ));
+        acf_register_block_type(
+            array(
+                'name' => 'checkerboard',
+                'title' => __('QNTM Checkerboard'),
+                'description' => __('Checkerboard'),
+                'render_template' => '/resources/blocks/checkerboard.php',
+                'category' => 'qntm-blocks',
+                'keywords' => array('content'),
+                'mode' => 'preview',
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M261 229l215-158.4 29.3 29.3L347 315 261 229zM160 320l0 0-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3l50.7 50.7c12.5 12.5 32.8 12.5 45.3 0L256 416h71.7c15.3 0 29.6-7.2 38.6-19.5L567.6 123.4c5.5-7.4 8.4-16.4 8.4-25.6c0-11.4-4.5-22.4-12.6-30.5L508.6 12.6C500.5 4.5 489.6 0 478.2 0C469 0 460 2.9 452.6 8.4L179.5 209.6c-12.3 9-19.5 23.4-19.5 38.6V320zm-57.9 83.3l-63 63c-4.5 4.5-7 10.6-7 17V488c0 13.3 10.7 24 24 24h68.7c6.4 0 12.5-2.5 17-7l31-31-70.6-70.6zM256 464c-13.3 0-24 10.7-24 24s10.7 24 24 24H584c13.3 0 24-10.7 24-24s-10.7-24-24-24H256z"/></svg>',
+                'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
+            )
+        );
+        acf_register_block_type(
+            array(
+                'name' => 'simple-table',
+                'title' => __('QNTM Simple Table'),
+                'description' => __('Simple Table'),
+                'render_template' => '/resources/blocks/simple-table.php',
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM16 96V416C16 442.5 37.49 464 64 464H128V48H64C37.49 48 16 69.49 16 96zM496 416V264H144V464H448C474.5 464 496 442.5 496 416zM496 248V96C496 69.49 474.5 48 448 48H144V248H496z"/></svg>',
+                'category' => 'qntm-blocks',
+                'keywords' => array('content'),
+                'mode' => 'preview',
+                'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
+            )
+        );
         // acf_register_block_type(
         //     array(
         //         'name' => 'wysiwyg',
@@ -237,18 +237,18 @@ function qd_allowed_block_types($allowed_blocks)
         'core/quote',
         'core/reusableBlock',
         'core/shortcode',
-        // 'core/table',
+        'core/table',
         // 'core/code',
         // 'core/preformatted',
         // 'core/button',
         // 'core/columns',
-        // 'core/spacer',
-        // 'core/gallery',
+        'core/spacer',
+        'core/gallery',
         // 'core/audio',
         // 'core/cover',
         // 'core/file',
         // 'core/pullquote',
-        // 'core/separator',
+        'core/separator',
         // 'core/media-text',
         // 'core/more',
         // 'core/nextpage',
@@ -308,6 +308,9 @@ function qd_allowed_block_types($allowed_blocks)
         'acf/secondary-content',
         'acf/icons',
         'acf/cta',
+        'acf/timeline',
+        'acf/checkerboard',
+        'acf/simple-table',
 
 
 

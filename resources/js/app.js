@@ -443,5 +443,33 @@ if ($('.accordion')[0]){
 	})
 }
 
+// console.log('hello');
+// const scrollContent = $('.scroll-content');
+// const scrollStep = 300; // Adjust the step size as needed
+
+// $('.left-button').on('click', function() {
+
+// 	scrollContent.animate({
+// 		scrollLeft: '-=' + scrollStep
+// 	}, 300);
+// });
+
+// $('.right-button').on('click', function() {
+// 	console.log('click');
+// 	scrollContent.animate({
+// 		scrollLeft: '+=' + scrollStep
+// 	}, 300);
+// });
+
+
+$('a[href$="#modal"]').on('click', function(event) {
+    // Your event handling code here
+    // This function will be executed when a matching link is clicked
+	$(this).modal();
+  return false;
+  });
+
+
+
 
 });

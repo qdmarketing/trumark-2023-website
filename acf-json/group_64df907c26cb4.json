@@ -1,15 +1,15 @@
 {
-    "key": "group_64daa1f7c455e",
-    "title": "Clone: CTA",
+    "key": "group_64df907c26cb4",
+    "title": "Block: Checkerboard",
     "fields": [
         {
-            "key": "field_64daa1f812db8",
+            "key": "field_64df907da08bd",
             "label": "Headline",
             "name": "headline",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": "Annual Building Financial Futures Golf Classic",
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -23,7 +23,7 @@
             "append": ""
         },
         {
-            "key": "field_64daa20812db9",
+            "key": "field_64df90b5c05f9",
             "label": "Content",
             "name": "content",
             "aria-label": "",
@@ -43,7 +43,7 @@
             "delay": 0
         },
         {
-            "key": "field_64daa21312dba",
+            "key": "field_64df90c9c05fa",
             "label": "Button",
             "name": "link",
             "aria-label": "",
@@ -59,9 +59,9 @@
             "return_format": "array"
         },
         {
-            "key": "field_64daa22312dbb",
-            "label": "Background",
-            "name": "background",
+            "key": "field_64df90d5c05fb",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -84,11 +84,11 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_64de4ff1d8159",
-            "label": "Background Position",
-            "name": "",
+            "key": "field_64df90dfc05fc",
+            "label": "Background",
+            "name": "background",
             "aria-label": "",
-            "type": "accordion",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -97,17 +97,19 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Off-White",
+            "ui_off_text": "White",
+            "ui": 1
         },
         {
-            "key": "field_64de4d5976b6b",
-            "label": "Background Position",
-            "name": "background_position",
+            "key": "field_64df91ac3d93f",
+            "label": "Image Position",
+            "name": "position",
             "aria-label": "",
-            "type": "clone",
-            "instructions": "",
+            "type": "true_false",
+            "instructions": "Position the image on the left or the right",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -115,13 +117,11 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_64de4c2c73717"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Left",
+            "ui_off_text": "Right",
+            "ui": 1
         }
     ],
     "location": [
@@ -129,7 +129,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cta"
+                "value": "acf\/checkerboard"
             }
         ]
     ],
@@ -139,8 +139,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692291119
+    "modified": 1692373510
 }

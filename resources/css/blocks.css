@@ -1,6 +1,31 @@
 .entry-content,
+.block-editor-block-list__layout,
+.entry-content .acf-wysiwyg,
+.mce-content-body {
+	ul {
+		@apply ml-30 mt-15;
+	}
+	li {
+		@apply text-15 md:text-16 list-disc mb-10;
+	}
+	p {
+		@apply text-15 md:text-16 mb-15;
+		&.has-blue-text {
+			@apply text-secondary;
+		}
+	}
+}
+.entry-content,
 .block-editor-block-list__layout {
-	@apply mt-40 md:mt-80;
+	/* @apply mt-40 md:mt-80; */
+	.wp-block-separator {
+		&.is-style-default {
+			@apply w-full h-[1px] border-none bg-[#C7C6C6] max-xxl:container max-w-[1280px];
+		}
+	}
+	.wp-block-separator + .simple-table {
+		@apply md:mt-50;
+	}
 	> p {
 		/* @apply max-w-[1160px] px-20 mx-auto; */
 		@apply container xl:max-w-screen-xl;
@@ -9,6 +34,10 @@
 		}
 		&.has-xl-font-size {
 			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
+		}
+
+		&:first-child {
+			@apply mt-40 md:mt-80;
 		}
 	}
 
@@ -21,12 +50,19 @@
 		}
 	}
 	p + .acf-block {
-		@apply mt-[85px];
+		@apply mt-[55px];
+		/* NOTE: This is so that the space after a paragraph and before an acf block is smaller, 
+		but its not totally consistent through the design so I might have to tweak this or provide explanation to PMs */
 	}
+
 	.image-pathways {
-		@apply my-50;
+		@apply my-50 md:my-90;
+		& + .image-pathways {
+			@apply mt-[-60px];
+		}
+
 		&__grid {
-			@apply grid grid-cols-1 md:grid-cols-3 gap-x-4 xl:gap-x-20;
+			@apply grid grid-cols-1 md:grid-cols-3 gap-4 xl:gap-x-20;
 			&--count-3 {
 				> * {
 				}
@@ -64,8 +100,12 @@
 		&__image {
 			@apply mb-30 mx-auto rounded-full;
 		}
+		&__main-headline {
+			/* @apply text-44 font-700  text-center mb-30 font-primary; */
+			@apply headline-main mb-40 leading-[114%] text-primary;
+		}
 		&__headline {
-			@apply text-24 font-700 text-primary text-center mb-0;
+			@apply text-24 font-700 text-primary text-center mb-0 font-primary;
 		}
 		&__content {
 			@apply mb-20 max-sm:text-15;
@@ -88,6 +128,16 @@
 		}
 		&__more-open {
 			@apply more-open;
+		}
+		&--style1 {
+			.image-pathways__link {
+				@apply bg-primary hover:bg-primaryDark;
+			}
+			.image-pathways__main-headline {
+				@apply text-secondary;
+			}
+		}
+		&--style2 {
 		}
 	}
 
@@ -291,22 +341,244 @@
 		}
 	}
 	.checkmark-list {
-		@apply py-60;
+		@apply py-45 md:py-60;
 		&--bg-offwhite {
 			@apply bg-brightgray;
 		}
 		&__headline {
-			@apply headline-main mb-40;
-		}
-		&__grid {
-			@apply grid grid-cols-3 max-w-[1133px] mx-auto gap-20;
+			@apply headline-main mb-40 leading-[114%];
 		}
 		&__title {
-			@apply text-spacegray flex justify-start items-start;
+			@apply text-spacegray   justify-start items-start relative font-primary;
 			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
 			svg {
 				@apply mr-10 relative top-2;
 			}
+		}
+		&__grid {
+			@apply grid;
+			&--3col {
+				@apply grid-cols-3 max-w-[1133px] mx-auto gap-20;
+				svg {
+					@apply fill-primary;
+				}
+				.checkmark-list__title {
+					@apply flex;
+				}
+			}
+			&--1col {
+				@apply max-w-[1133px] mx-auto;
+				> * {
+					@apply ml-50 md:ml-75;
+				}
+				svg {
+					@apply fill-[#7F8989] absolute left-[-50px] md:left-[-75px] w-[32px] md:w-[54px] h-auto top-[48%];
+				}
+				.checkmark-list__title {
+					@apply text-primary font-700;
+				}
+				.checkmark-list__description {
+					@apply mb-50  text-15 md:text-18 leading-[155%] text-spacegray;
+				}
+			}
+		}
+	}
+	.secondary-content {
+		@apply my-50 md:my-90;
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-90;
+		}
+		&__headline {
+			@apply text-44 font-700 leading-[113%] font-primary text-center text-primary mb-30 md:mb-45;
+			font-size: clamp(1.75rem, -0.3833rem + 5.3333vw, 2.75rem);
+		}
+		&__grid {
+			@apply flex flex-col-reverse md:flex-row-reverse xl:gap-16 gap-8;
+			> div {
+				@apply w-full md:w-1/2;
+			}
+			&--bg-right {
+				@apply md:flex-row;
+			}
+		}
+		&__image {
+			@apply xl:h-[280px] w-auto mx-auto object-contain;
+		}
+	}
+
+	.icons-block {
+		@apply my-50 md:my-90;
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-50 md:py-90;
+		}
+		&__grid {
+			@apply flex flex-col  md:flex-row  justify-around;
+		}
+		&__headline {
+			/* @apply font-primary text-secondary text-44 font-700 text-center mb-0; */
+			@apply headline-main  leading-[114%];
+		}
+		&__content {
+			@apply text-center mb-20 md:mb-50 text-18 leading-28 text-spacegray;
+		}
+		&__image {
+			@apply h-[80px] md:h-[50px] lg:h-[75px] mx-auto;
+		}
+		&__item {
+			@apply relative   max-md:mx-auto max-md:border-b max-md:border-[#C7C6C6] max-md:py-30 max-md:w-full;
+			@apply flex items-center justify-center md:w-0;
+			flex: 1 1 0;
+
+			&::after {
+				@apply absolute md:bg-[#C7C6C6] w-[1px] h-[50px] lg:h-[80px] block top-0 right-[2%];
+				content: "";
+			}
+			&:last-child::after {
+				@apply h-0;
+			}
+		}
+	}
+
+	.cta-block {
+		@apply pt-[220px] pb-50 md:py-100 text-white;
+		@apply bg-cover;
+		&__headline,
+		&__content {
+			@apply max-w-[540px] leading-28;
+		}
+		&__headline {
+			@apply font-primary text-32 font-700 leading-38 mb-5;
+		}
+		&__content {
+			@apply mb-30;
+		}
+		&__link {
+			@apply button-main  max-md:w-full md:px-40 xl:w-[30%] bg-white text-black hover:bg-brightgray;
+
+			&::after {
+				@apply button-main--chev-blk;
+			}
+			&:hover::after {
+				@apply left-3;
+			}
+		}
+	}
+	.timeline {
+		&__grid {
+			@apply flex;
+		}
+		&__item {
+			@apply border border-brightgray rounded-lg p-20 max-h-[200px] overflow-hidden;
+		}
+	}
+	.simple-table {
+		@apply my-50 md:my-90 max-md:mx-[-20px];
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-90;
+		}
+		&__item {
+			@apply grid max-md:py-20 bg-white;
+			@screen md {
+				grid-template-columns: minmax(150px, 20%) auto 260px;
+			}
+			&:nth-child(even) {
+				@apply bg-brightgray;
+			}
+			&--icon {
+				@media (max-width: 767px) {
+					grid-template-columns: auto 40%;
+					.simple-table__title {
+						@apply col-span-full;
+					}
+					.simple-table__content {
+						@apply pr-10;
+					}
+					.simple-table__col3 {
+						@apply pl-0;
+					}
+				}
+			}
+		}
+		&__headline {
+			@apply headline-main  leading-[114%] mb-40;
+		}
+		&__content {
+			@apply max-md:text-15;
+		}
+		&__title,
+		&__content,
+		&__col3 {
+			@apply px-20 md:py-30 flex items-start md:items-center;
+		}
+		&__title {
+			@apply text-primary text-24 font-700 md:pl-40 mb-10;
+		}
+		&__col3 {
+			@apply md:pr-40;
+		}
+		&__button {
+			@apply button-main block px-15 w-full;
+			&::after {
+				@apply button-main--chev;
+			}
+			&:hover::after {
+				@apply left-3;
+			}
+		}
+		&__link {
+			@apply text-secondary text-15 md:text-18 flex items-center hover:text-primary duration-300 transition-all;
+			i {
+				@apply text-[50px] mr-10;
+			}
+		}
+	}
+	.checkerboard {
+		@apply my-50 md:my-90 max-md:mx-[-20px];
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-90;
+		}
+		&__grid {
+			@apply flex flex-col-reverse md:flex-row;
+			> div {
+				@apply md:w-1/2;
+			}
+			&--right {
+				@apply md:flex-row-reverse;
+				.checkerboard {
+					&__col1 {
+						@apply md:pl-60;
+					}
+				}
+			}
+			&--left {
+				.checkerboard {
+					&__col1 {
+						@apply md:pr-60;
+					}
+				}
+			}
+		}
+		&__col1 {
+			@apply flex flex-col justify-center;
+		}
+		&__headline {
+			@apply text-primary font-primary font-700 mb-30 leading-normal;
+			font-size: clamp(1.5rem, -0.6333rem + 5.3333vw, 2.5rem);
+		}
+		&__content {
+			@apply mb-25 md:mb-50;
+		}
+		&__link {
+			@apply button-main   w-[66%];
+			&::after {
+				@apply button-main--chev;
+			}
+			&:hover::after {
+				@apply left-3;
+			}
+		}
+		&__image {
+			@apply max-md:mb-30;
 		}
 	}
 }

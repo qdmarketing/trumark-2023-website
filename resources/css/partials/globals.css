@@ -6,7 +6,7 @@ body {
 .container-lg {
 	@apply container lg:max-w-screen-lg;
 }
-.container-xxl {
+.container-xl {
 	@apply container xl:max-w-screen-xl;
 }
 
@@ -647,4 +647,8 @@ article > *:not(.entry-content),
 			@apply opacity-100;
 		}
 	}
+}
+
+.modal {
+	@apply max-w-[90vw]   bg-white top-[30px];
 }
