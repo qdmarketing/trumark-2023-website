@@ -46,7 +46,7 @@ $count = $items ? count($items) : '0';
                     <div class="image-pathways__item item--<?php echo $key; ?>">
                         <div class="image-pathways__top">
                             <?php
-                            echo $item['image'] ? '<div class="image-pathways__image">' . wp_get_attachment_image($item['image'], 'pathways', false, array('class' => 'image-pathways__image')) . '</div>' : ''; ?>
+                            echo $item['image'] ? '<div class="image-pathways__image">' . wp_get_attachment_image($item['image'], 'pathways', false, array('class' => 'image-pathways__img')) . '</div>' : ''; ?>
                             <?php echo $item['title'] ? '<h3 class="image-pathways__headline">' . $item['title'] . '</h3>' : ''; ?>
                             <?php echo $item['content'] ? '<div class="image-pathways__content">' . $item['content'] . '</div>' : ''; ?>
                         </div>

@@ -167,19 +167,19 @@ function acf_gutenberg_block_init()
                 'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
             )
         );
-        // acf_register_block_type(
-        //     array(
-        //         'name' => 'wysiwyg',
-        //         'title' => __('QNTM WYSIWYG Content'),
-        //         'description' => __('WYSIWYG Editor with no frills'),
-        //         'render_template' => '/resources/blocks/wysiwyg.php',
-        //         'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM16 96V416C16 442.5 37.49 464 64 464H128V48H64C37.49 48 16 69.49 16 96zM496 416V264H144V464H448C474.5 464 496 442.5 496 416zM496 248V96C496 69.49 474.5 48 448 48H144V248H496z"/></svg>',
-        //         'category' => 'qntm-blocks',
-        //         'keywords' => array('content'),
-        //         'mode' => 'preview',
-        //         'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
-        //     )
-        // );
+        acf_register_block_type(
+            array(
+                'name' => 'featured-rates',
+                'title' => __('QNTM Featured Rates'),
+                'description' => __('Featured Rates and Financial Tools'),
+                'render_template' => '/resources/blocks/featured-rates.php',
+                'icon' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM16 96V416C16 442.5 37.49 464 64 464H128V48H64C37.49 48 16 69.49 16 96zM496 416V264H144V464H448C474.5 464 496 442.5 496 416zM496 248V96C496 69.49 474.5 48 448 48H144V248H496z"/></svg>',
+                'category' => 'qntm-blocks',
+                'keywords' => array('content'),
+                'mode' => 'preview',
+                'supports' => array('mode' => true, 'align' => false, 'anchor' => true),
+            )
+        );
     }
 }
 
@@ -311,6 +311,7 @@ function qd_allowed_block_types($allowed_blocks)
         'acf/timeline',
         'acf/checkerboard',
         'acf/simple-table',
+        'acf/featured-rates',
 
 
 

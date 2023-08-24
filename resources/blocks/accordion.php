@@ -17,10 +17,11 @@ $blockClass = isset($block['className']) ? $block['className'] : '';
 
 $headline = get_field('headline');
 $background = get_field('background');
+$style = get_field('style');
 ?>
 
 
-<div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> accordion<?php echo $background ? ' accordion--bg-offwhite' : ''; ?>">
+<div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> accordion<?php echo $background ? ' accordion--bg-offwhite' : ''; ?><?php echo $style ? ' accordion--' . $style : ''; ?>">
     <div class="container-xxl">
         <div class="accordion__top">
             <?php echo $headline ? '<h3 class="accordion__headline">' . $headline . '</h3>' : ''; ?>

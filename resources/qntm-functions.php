@@ -414,3 +414,45 @@ add_filter('tiny_mce_before_init', 'wpex_styles_dropdown');
 //     );
 // }
 // add_action('init', 'register_custom_block_styles');
+
+
+
+
+// Add a custom metabox to display shortcode
+function interest_rate_shortcode_metabox()
+{
+    add_meta_box(
+        'interest_rate_shortcode',
+        'Shortcode',
+        'interest_rate_shortcode_callback',
+        'qd_interest_rate', // Replace with your custom post type slug
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'interest_rate_shortcode_metabox');
+
+// Metabox callback function
+function interest_rate_shortcode_callback($post)
+{
+    echo '<p>Copy and paste this shortcode where you want to display this interest rate table:<br>';
+    echo '[interest_rate id="' . $post->ID . '"]</p>';
+}
+
+function interest_rate_shortcode($atts)
+{
+    $atts = shortcode_atts(array(
+        'id' => 0,
+    ), $atts, 'qd_interest_rate');
+    $post_id = intval($atts['id']);
+    if ($post_id > 0) {
+        $post = get_post($post_id);
+        if ($post) {
+            ob_start();
+            get_template_part('single-qd_interest_rate', null, array('post_id' => $post_id));
+            return ob_get_clean();
+        }
+    }
+    return '';
+}
+add_shortcode('interest_rate', 'interest_rate_shortcode');

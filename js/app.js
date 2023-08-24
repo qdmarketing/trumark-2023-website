@@ -385,6 +385,10 @@ jQuery(document).ready(function ($) {
         contentToShow.slideDown();
       }
     });
+    var openOne = false;
+    if ($('.accordion--rates')[0]) {
+      $('.accordion__title').first().click();
+    }
   }
 
   // console.log('hello');
@@ -405,6 +409,21 @@ jQuery(document).ready(function ($) {
   // 	}, 300);
   // });
 
+  if ($('.featured-rates')[0]) {
+    $('.featured-rates__tab').click(function () {
+      console.log('featured rates Click');
+      if ($(this).hasClass('featured-rates__tab--active')) {
+        return;
+      } else {
+        $('.featured-rates__tab').removeClass('featured-rates__tab--active');
+        $(this).addClass('featured-rates__tab--active');
+        var target = '.' + $(this).data('target');
+        console.log(target);
+        $('.featured-rates__show-hide').hide();
+        $(target).fadeIn();
+      }
+    });
+  }
   $('a[href$="#modal"]').on('click', function (event) {
     // Your event handling code here
     // This function will be executed when a matching link is clicked

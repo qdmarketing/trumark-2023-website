@@ -426,11 +426,11 @@ if ($('.image-pathways__more-open')[0]){
 }
 
 if ($('.accordion')[0]){
-
+	
 	$('.accordion__title').on('click',function(event){
 		event.preventDefault();
 		const contentToShow = $(this).next();
-
+		
 		if (contentToShow.is(':visible')) {
 			// If the content is visible, slide up to hide it
 			$(this).removeClass('active');
@@ -439,8 +439,13 @@ if ($('.accordion')[0]){
 			// If the content is hidden, slide down to show it
 			$(this).addClass('active');
 			contentToShow.slideDown();
-		  }
+		}
 	})
+	let openOne = false;
+	if ($('.accordion--rates')[0]){
+		$('.accordion__title').first().click();
+	}
+ 
 }
 
 // console.log('hello');
@@ -461,6 +466,23 @@ if ($('.accordion')[0]){
 // 	}, 300);
 // });
 
+
+if ($('.featured-rates')[0]){
+	$('.featured-rates__tab').click(function(){
+		console.log('featured rates Click');
+		if($(this).hasClass('featured-rates__tab--active')){
+			return;
+		} else {
+			$('.featured-rates__tab').removeClass('featured-rates__tab--active');
+			$(this).addClass('featured-rates__tab--active');
+			const target = '.' + $(this).data('target');
+			console.log(target);
+			$('.featured-rates__show-hide').hide();
+			$(target).fadeIn();
+
+		}
+	});
+}
 
 $('a[href$="#modal"]').on('click', function(event) {
     // Your event handling code here

@@ -1,0 +1,810 @@
+{
+    "key": "group_59f387429bd49",
+    "title": "Post Type: Interest Rates",
+    "fields": [
+        {
+            "key": "field_6305323a172d3",
+            "label": "Featured Rate",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_630532a5172d6",
+            "label": "Featured Rate Text",
+            "name": "featured_rate_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter text such as 'as low as' to go above the rate percent",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_63053298172d5",
+            "label": "Featured Rate Percent",
+            "name": "featured_rate_percent",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Enter the percent to appear in Featured Rates widgets",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_63053282172d4",
+            "label": "Featured Rate Link",
+            "name": "featured_rate_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "e.x. 'Apply Now'",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "10",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_630532d474e67",
+            "label": "Rate Table",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f78d5cb70619",
+            "label": "Number of Columns",
+            "name": "qd_number_of_columns",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Please Select the number of columns for this table.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6"
+            },
+            "default_value": 3,
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_64e514358cb9b",
+            "label": "Show Calculator Link",
+            "name": "show_link",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_5f78d6c67061a",
+            "label": "Table Column Header",
+            "name": "qd_table_matrix_column_header",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Only use Text NO HTML - if needed use * instead of <sup>1<\/sup>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 1,
+            "max": 1,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5f78d7267061b",
+                    "label": "Column 1 Heading",
+                    "name": "th_1_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Balance Requirements",
+                    "maxlength": 150,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5f78d6c67061a"
+                },
+                {
+                    "key": "field_5f78daad70621",
+                    "label": "Column 2 Heading",
+                    "name": "th_2_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Rate",
+                    "maxlength": 150,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5f78d6c67061a"
+                },
+                {
+                    "key": "field_5f78d9807061d",
+                    "label": "Column 3 Heading",
+                    "name": "th_3_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "APY",
+                    "maxlength": 150,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5f78d6c67061a"
+                },
+                {
+                    "key": "field_5f78d99e7061e",
+                    "label": "Column 4 Heading",
+                    "name": "th_4_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 150,
+                    "parent_repeater": "field_5f78d6c67061a"
+                },
+                {
+                    "key": "field_5f78db787062e",
+                    "label": "Column 5 Heading",
+                    "name": "th_5_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 150,
+                    "parent_repeater": "field_5f78d6c67061a"
+                },
+                {
+                    "key": "field_5f78dba87062f",
+                    "label": "Column 6 Heading",
+                    "name": "th_6_column",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 150,
+                    "parent_repeater": "field_5f78d6c67061a"
+                }
+            ]
+        },
+        {
+            "key": "field_5f78dcb866ef3",
+            "label": "Table Rows",
+            "name": "qd_table_matrix_rows",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5f78dcb866ef4",
+                    "label": "Column 1 Cell",
+                    "name": "td_1_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_5f78dcb866ef5",
+                    "label": "Column 2 Cell",
+                    "name": "td_2_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_5f78dcb866ef6",
+                    "label": "Column 3 Cell",
+                    "name": "td_3_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_5f78dcb866ef7",
+                    "label": "Column 4 Cell",
+                    "name": "td_4_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_5f78dcb866ef8",
+                    "label": "Column 5 Cell",
+                    "name": "td_5_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_5f78dcb866ef9",
+                    "label": "Column 6 Cell",
+                    "name": "td_6_cell",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5f78d5cb70619",
+                                "operator": "==",
+                                "value": "6"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                },
+                {
+                    "key": "field_64e513dfeda31",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Calculator Link",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64e514358cb9b",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_5f78dcb866ef3"
+                }
+            ]
+        },
+        {
+            "key": "field_5f79d06f56388",
+            "label": "Table Footnotes",
+            "name": "qd_table_matrix_footnotes",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f78d52270618",
+                        "operator": "==",
+                        "value": "On"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "qd_interest_rate"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1692734577
+}
