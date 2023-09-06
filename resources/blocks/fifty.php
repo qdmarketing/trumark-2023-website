@@ -6,7 +6,7 @@
  *
  */
 
-$blockName = str_replace('acf/', '', $block['name']);
+$blockName = 'fifty';
 
 $id = '';
 $id = isset($block['anchor']) ? $block['anchor'] : $blockName . '-' . $block['id'];
@@ -28,7 +28,7 @@ $background = get_field('background');
 ?>
 
 
-<div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> fifty--<?php echo $background; ?>">
+<div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> fifty fifty--<?php echo $background; ?>">
     <div class="container-xxl">
         <div class="fifty__grid">
             <?php $item = get_field('column_one'); ?>

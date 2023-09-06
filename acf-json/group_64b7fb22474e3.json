@@ -221,8 +221,45 @@
             "return_format": "array"
         },
         {
+            "key": "field_64ef768a9bc55",
+            "label": "Google Maps API",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64ef769f9bc56",
+            "label": "Google Maps API Key",
+            "name": "google_maps_api_key",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_64bafa4d1cba2",
-            "label": "Other",
+            "label": "Misc.",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -381,5 +418,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692915238
+    "modified": 1693415328
 }

@@ -6,26 +6,36 @@
  *
  */
 
-$blockName = str_replace('acf/', '', $block['name']);
+$blockName = isset($block)  ? str_replace('acf/', '', $block['name']) : '';
 
 $id = '';
-$id = isset($block['anchor']) ? $block['anchor'] : $blockName . '-' . $block['id'];
+if (isset($block)) {
+    $id = isset($block['anchor']) ? $block['anchor'] : $blockName . '-' . $block['id'];
+}
 
-$align_class = $block['align'] ? 'align' . $block['align'] : '';
+$align_class =  isset($block['align']) ? 'align' . $block['align'] : '';
 $blockClass = '';
 $blockClass = isset($block['className']) ? $block['className'] : '';
 
-$headline = get_field('headline');
-$content = get_field('content');
 
-$link = get_field('link');
-$background = get_field('background');
+
+if (isset($args) && $args['prefix']) {
+    $prefix = $args['prefix'];
+} else {
+    $prefix = '';
+}
+
+$headline = get_field($prefix . 'headline');
+$content = get_field($prefix . 'content');
+
+$link = get_field($prefix . 'link');
+$background = get_field($prefix . 'background');
 
 // Retrieve the values from ACF fields
-$horizontal_position = get_field('horizontal_position'); // Values: 'Left', 'Center', 'Right', 'Percent'
-$vertical_position = get_field('vertical_position'); // Values: 'Top', 'Center', 'Bottom', 'Percent'
-$horizontal_percent = get_field('horizontal_percent'); // Range: 0 - 100
-$vertical_percent = get_field('vertical_percent'); // Range: 0 - 100
+$horizontal_position = get_field($prefix . 'horizontal_position'); // Values: 'Left', 'Center', 'Right', 'Percent'
+$vertical_position = get_field($prefix . 'vertical_position'); // Values: 'Top', 'Center', 'Bottom', 'Percent'
+$horizontal_percent = get_field($prefix . 'horizontal_percent'); // Range: 0 - 100
+$vertical_percent = get_field($prefix . 'vertical_percent'); // Range: 0 - 100
 
 // Initialize the inline CSS variable
 $style = '';

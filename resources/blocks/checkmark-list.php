@@ -15,14 +15,24 @@ $align_class = $block['align'] ? 'align' . $block['align'] : '';
 $blockClass = '';
 $blockClass = isset($block['className']) ? $block['className'] : '';
 
-$headline = get_field('headline');
+
+if ($args && $args['prefix']) {
+    $prefix = $args['prefix'];
+} else {
+    $prefix = '';
+}
+
+
+
+
+$headline = get_field($prefix . 'headline');
 $link = get_field('link');
 
-$content = get_field('content');
+$content = get_field($prefix . 'content');
 
-$layout = get_field('layout');
+$layout = get_field($prefix . 'layout');
 
-$background = get_field('background');
+$background = get_field($prefix . 'background');
 ?>
 
 

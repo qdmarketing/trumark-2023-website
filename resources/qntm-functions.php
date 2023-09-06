@@ -58,6 +58,9 @@ add_action('after_setup_theme', 'wpse_375968_add_menu_description_support');
 add_image_size('mainstage', 1920, 1080, true);
 add_image_size('pathways', 225, 225, true);
 add_image_size('checkerboard', 580, 400, true);
+add_image_size('blog-main', 1160, 640, true);
+add_image_size('blog-lg', 560, 380, true);
+add_image_size('blog-sm', 360, 245, true);
 
 /********************************
         USEFUL UTILITIES
@@ -158,6 +161,60 @@ function get_primary_taxonomy_term($post = 0, $taxonomy = 'category')
     }
 }
 
+
+function custom_breadcrumbs()
+{
+    // Get the ID of the current post
+    $post_id = get_the_ID();
+
+    // Get the current post object
+    $post = get_post($post_id);
+
+    // Initialize an empty array to store breadcrumb items
+    $breadcrumbs = array();
+
+    // Add the "Posts page" breadcrumb
+    $posts_page_id = get_option('page_for_posts');
+    if ($posts_page_id) {
+        $posts_page_title = get_the_title($posts_page_id);
+        $breadcrumbs[] = "<a href='" . get_permalink($posts_page_id) . "'>$posts_page_title</a>";
+    }
+
+    // Add the category breadcrumb if the post is in a category
+    $category = get_primary_taxonomy_term($post_id);
+    if (!empty($category)) {
+        $breadcrumbs[] = "<a href='" . $category['url'] .   "'>" . $category['title'] . "</a>";
+    }
+
+    // Add the current post breadcrumb
+    $breadcrumbs[] = $post->post_title;
+
+    // Output the breadcrumbs
+    echo implode(' > ', $breadcrumbs);
+}
+
+
+function qntm_social_social_share_buttons()
+{
+    $siteurlfromsettingsgeneral =  get_bloginfo('url');
+    // $domainparts = parse_url($siteurlfromsettingsgeneral); // Whats this one for
+    // $domain = isset($domainparts['host']) ? $domainparts['host'] : '';
+    // Get singular which will allow to add the shortcode on WordPress Widget OR you could just use is_single
+    $s151_social_url = urlencode(get_permalink());
+    // get_the_title but add space %20
+    $s151_social_title = str_replace(' ', '%20', get_the_title());
+    // Core Web Vitals are important for shares
+    $twitterURL = 'https://twitter.com/intent/tweet?text=' . $s151_social_title . '&url=' . $s151_social_url . '&via=' . $siteurlfromsettingsgeneral . '';
+    $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u=' . $s151_social_url;
+    $linkedInURL = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $s151_social_url;
+    $emailUrl = 'mailto:?subject=' . $s151_social_title . '&amp;body=' . $s151_social_url;
+
+    $content = '<a href="' . $facebookURL . '" target="_blank" rel="nofollow noopener"><i class="fa-brands fa-facebook"></i></a>';
+    $content .= '<a href="' . $twitterURL . '" target="_blank" rel="nofollow noopener"><i class="fa-brands fa-x-twitter"></i></a>';
+    $content .= '<a href="' . $linkedInURL . '" target="_blank" rel="nofollow noopener"><i class="fa-brands fa-linkedin"></i></a>';
+    $content .= '<a href="' . $emailUrl . '"   target="_blank" rel="nofollow noopener"><i class="fa-solid fa-envelope"></i></a>';
+    return $content;
+};
 
 /*********************
 	PAGE NAVI
@@ -327,6 +384,16 @@ function my_acf_init()
 add_action('acf/init', 'my_acf_init');
 
 
+// function enqueue_google_maps_api()
+// {
+//     $api_key = get_field('google_maps_api_key', 'option'); // Replace with your actual API key
+//     var_dump($api_key);
+//     wp_enqueue_script('google-maps', "https://maps.googleapis.com/maps/api/js?key=$api_key", array(), null, true);
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_google_maps_api');
+
+
+
 add_filter('acf/fields/wysiwyg/toolbars', 'qntm_acf_toolbars');
 function qntm_acf_toolbars($toolbars)
 {
@@ -367,6 +434,11 @@ if (!function_exists('wpex_styles_dropdown')) {
                 'title'        => __('Blue Text', 'wpex'),
                 'selector'    => 'p',
                 'classes'    => 'has-blue-text'
+            ),
+            array(
+                'title'        => __('Red Text', 'wpex'),
+                'selector'    => 'h3, p, strong',
+                'classes'    => 'has-red-text'
             ),
             //   array(
             // 	'title'		=> __('No Bullets','wpex'),
@@ -456,3 +528,64 @@ function interest_rate_shortcode($atts)
     return '';
 }
 add_shortcode('interest_rate', 'interest_rate_shortcode');
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length($length)
+{
+    return 20;
+}
+add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
+function custom_excerpt_more($more)
+{
+    return '...';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+
+
+function renderTable($tableArray, $class)
+{
+    // Check if the array is empty
+    if (empty($tableArray)) {
+        return '';
+    }
+
+    $output = '<table class="' . $class . '">';
+
+    // Render the caption if provided
+    if (isset($tableArray['caption'])) {
+        $output .= '<caption>' . $tableArray['caption'] . '</caption>';
+    }
+
+    // Render the table header
+    $header = $tableArray['header'];
+    $output .= '<thead><tr>';
+    if ($header) {
+
+        foreach ($header as $cell) {
+            $output .= '<th>' . $cell['c'] . '</th>';
+        }
+    }
+    $output .= '</tr></thead>';
+
+    // Render the table body
+    $body = $tableArray['body'];
+    $output .= '<tbody>';
+    foreach ($body as $row) {
+        $output .= '<tr>';
+        foreach ($row as $cell) {
+            $output .= '<td>' . $cell['c'] . '</td>';
+        }
+        $output .= '</tr>';
+    }
+    $output .= '</tbody>';
+
+    $output .= '</table>';
+
+    return $output;
+}

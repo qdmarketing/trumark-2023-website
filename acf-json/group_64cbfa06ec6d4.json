@@ -39,7 +39,8 @@
             "choices": {
                 "text": "Text",
                 "icon": "Icons",
-                "link-list": "Link List"
+                "link-list": "Link List",
+                "table": "Table"
             },
             "default_value": false,
             "return_format": "value",
@@ -54,7 +55,7 @@
             "label": "Text",
             "name": "content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -72,10 +73,10 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_64cbfb1e7a964",
@@ -230,6 +231,31 @@
                     "parent_repeater": "field_64cbfbb3abb3c"
                 }
             ]
+        },
+        {
+            "key": "field_64ef955a754d2",
+            "label": "Table",
+            "name": "table",
+            "aria-label": "",
+            "type": "table",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64cbfac37a962",
+                        "operator": "==",
+                        "value": "table"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "use_header": 2,
+            "use_caption": 2
         }
     ],
     "location": [
@@ -250,5 +276,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691100666
+    "modified": 1693495432
 }

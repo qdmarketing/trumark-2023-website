@@ -37,6 +37,7 @@
             "choices": {
                 "style1": "Blue Header, Red Buttons",
                 "style2": "Red Header, Blue Buttons",
+                "style4": "Red Header, Blue Titles",
                 "style3": "Icon Style"
             },
             "default_value": false,
@@ -236,5 +237,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692816471
+    "modified": 1693249265
 }

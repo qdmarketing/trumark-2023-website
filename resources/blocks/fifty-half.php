@@ -11,6 +11,15 @@ if ($style === 'link-list') {
     $linklist = $item['link_list'];
 }
 
+if ($style === 'table') {
+    $table = $item['table'];
+}
+
+if ($style === 'text') {
+
+    $content = $item['content'];
+}
+
 
 
 
@@ -38,6 +47,16 @@ if ($style === 'link-list') {
                 </li>
             <?php endforeach; ?>
         </ul>
+    <?php endif; ?>
+    <?php if ($style === 'table' && $table) : ?>
+
+        <?php echo renderTable($table, 'fifty-item__table'); ?>
+    <?php endif; ?>
+    <?php if ($style === 'text') : ?>
+        <div class="fifty-item__content acf-wysiwyg">
+
+            <?php echo $content; ?>
+        </div>
     <?php endif; ?>
 
 </div>

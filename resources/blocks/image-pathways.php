@@ -40,7 +40,7 @@ $count = $items ? count($items) : '0';
     <div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> image-pathways image-pathways--<?php echo $style; ?>">
         <div class="container-xxl">
             <?php echo $headline ? '<h3 class="image-pathways__main-headline">' . $headline . '</h3>' : ''; ?>
-            <?php echo $content ? '<div class="image-pathways__content">' . $content . '</div>' : ''; ?>
+            <?php echo $content ? '<div class="image-pathways__main-content">' . $content . '</div>' : ''; ?>
             <div class="image-pathways__grid image-pathways__grid--count-<?php echo $count; ?>">
                 <?php foreach ($items as $key => $item) : ?>
                     <div class="image-pathways__item item--<?php echo $key; ?>">

@@ -69,7 +69,7 @@ $rates = get_field('selected_rates');
         </div>
 
         <?php if (have_rows('financial_tools')) : ?>
-            <div class="featured-rates__tools-grid featured-rates__tab-page featured-rates__show-hide">
+            <div class="featured-rates__tools-grid featured-rates__tab-page featured-rates__show-hide" style="display:none;">
 
                 <?php while (have_rows('financial_tools')) : the_row(); ?>
 
@@ -88,8 +88,8 @@ $rates = get_field('selected_rates');
         <?php endif; ?>
 
 
-        <?php echo '<div class="featured-rates__view-all featured-rates__rates-grid featured-rates__show-hide">' . qntm_acf_link('a', '', get_field('link'), false, false) . '</div>'; ?>
-        <?php echo $financial_tools_text ? '<div class="featured-rates__tools-text featured-rates__tools-grid featured-rates__show-hide">' . $financial_tools_text . '</div>' : ''; ?>
+        <?php echo '<div class="featured-rates__view-all featured-rates__rates-grid featured-rates__show-hide" >' . qntm_acf_link('a', '', get_field('link'), false, false) . '</div>'; ?>
+        <?php echo $financial_tools_text ? '<div class="featured-rates__tools-text featured-rates__tools-grid featured-rates__show-hide"  style="display:none;">' . $financial_tools_text . '</div>' : ''; ?>
 
     </div>
 </div>

@@ -8,10 +8,16 @@
 	li {
 		@apply text-15 md:text-16 list-disc mb-10;
 	}
+	.has-red-text {
+		@apply text-primary;
+	}
 	p {
 		@apply text-15 md:text-16 mb-15;
 		&.has-blue-text {
 			@apply text-secondary;
+		}
+		&:last-of-type {
+			@apply mb-0;
 		}
 	}
 }
@@ -164,13 +170,16 @@
 		}
 		&__main-headline {
 			/* @apply text-44 font-700  text-center mb-30 font-primary; */
-			@apply headline-main mb-35 leading-[114%] text-primary;
+			@apply headline-main leading-[114%] text-primary;
+		}
+		&__main-content {
+			@apply max-w-[1030px] mx-auto text-15 md:text-18 mb-30  md:mb-60 mt-20;
+		}
+		&__content {
+			@apply mb-0 max-sm:text-15 max-w-[250px] mx-auto;
 		}
 		&__headline {
 			@apply text-24 font-700 text-primary text-center mb-0 font-primary;
-		}
-		&__content {
-			@apply mb-60 max-sm:text-15 max-w-[1030px] mx-auto;
 		}
 		&__link {
 			@apply w-full  mt-20 mb-30;
@@ -209,6 +218,16 @@
 				}
 			}
 		}
+		&--style4 {
+			.image-pathways {
+				&__headline {
+					@apply text-secondary;
+				}
+			}
+		}
+	}
+	.image-pathways__main-headline + .image-pathways__grid {
+		@apply mt-30 lg:mt-45;
 	}
 
 	.application-status {
@@ -316,8 +335,9 @@
 		}
 	}
 	.fifty {
+		@apply my-50 md:my-90;
 		&--blue {
-			@apply bg-secondary text-white py-30 md:py-60;
+			@apply bg-secondary text-white py-30 md:py-60 my-0 md:my-0;
 		}
 		&__grid {
 			@apply flex flex-col md:flex-row;
@@ -375,6 +395,28 @@
 				i {
 					@apply text-[#93BFC6] text-28 mr-15;
 				}
+			}
+		}
+		&__table {
+			@apply text-18 lg:text-20;
+
+			td {
+				@apply px-5 py-[6px] w-[200px];
+			}
+		}
+		&--text {
+			@apply justify-start;
+			&:first-child {
+				@apply max-md:border-[#93bfc6] md:border-r border-bordergray;
+			}
+			.fifty-item__headline {
+				@apply text-primary mb-5;
+			}
+		}
+		&__content {
+			@apply max-w-[480px] text-spacegray;
+			p {
+				@apply md:text-18;
 			}
 		}
 	}
@@ -553,10 +595,10 @@
 			@apply mb-30;
 		}
 		&__link {
-			@apply button-main  max-md:w-full md:px-40 xl:w-[30%] bg-white text-black hover:bg-brightgray;
+			@apply button-main  max-md:w-full md:px-40 xl:w-[30%] bg-white text-primary hover:bg-brightgray;
 
 			&::after {
-				@apply button-main--chev-blk;
+				@apply button-chev-red;
 			}
 			&:hover::after {
 				@apply left-3;
@@ -805,9 +847,7 @@
 				@apply inline-block border-b border-opacity-0 transition-all duration-300 hover:border-opacity-100 border-secondaryDark;
 			}
 			a::after {
-				@apply inline-block relative w-[16px] h-[16px] top-[2px] right-[-5px] transition-all duration-300;
-				content: " ";
-				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M11.9211 8.53129L5.8478 14.6045C5.5549 14.8974 5.08002 14.8974 4.78715 14.6045L4.0788 13.8962C3.7864 13.6038 3.78583 13.1299 4.07755 12.8368L8.89071 8.00095L4.07755 3.16516C3.78583 2.87207 3.7864 2.39816 4.0788 2.10576L4.78715 1.39741C5.08005 1.10451 5.55493 1.10451 5.8478 1.39741L11.921 7.47063C12.2139 7.76351 12.2139 8.23838 11.9211 8.53129Z' fill='%2315636E'/%3E%3C/svg%3E");
+				@apply button-chev-red;
 			}
 			a:hover::after {
 				@apply right-[-7px];

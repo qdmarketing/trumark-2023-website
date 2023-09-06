@@ -312,16 +312,17 @@ jQuery(document).ready(function ($) {
     console.log(count);
     if (count < 2) {
       dots = false;
+    } else {
+      $('.mainstage').slick({
+        autoplay: false,
+        arrows: false,
+        dots: dots,
+        fade: false,
+        draggable: true,
+        adaptiveHeight: true,
+        autofocusVideos: true
+      });
     }
-    $('.mainstage').slick({
-      autoplay: false,
-      arrows: false,
-      dots: dots,
-      fade: false,
-      draggable: true,
-      adaptiveHeight: true,
-      autofocusVideos: true
-    });
     var options = {};
     var lightbox = GLightbox(_objectSpread({}, options));
   }

@@ -198,19 +198,18 @@ module.exports = {
           },
         extend: {
             colors: {
-                
                 primary: '#930027', 
                 primaryDark: '#740020',
                 secondary : '#15636E',  
                 spacegray :  '#485050', // find the names on https://www.color-name.com/hex/e4eeee
                 brightgray: '#e4eeee',
+                bordergray: '#c7c6c6', 
                 darkgray: '#252525',
                 midgray:'#485050',
                 secondaryDark: '#0c575f',
                 darkestgray: "#1e1e1e",
                 antiflashwhite: '#ECF2F3'
-                
-                
+
             }
         },
     },

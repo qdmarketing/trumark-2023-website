@@ -7,18 +7,22 @@ $routing_number = get_field('routing_number', 'option');
 $copyright = get_field('copyright', 'option');
 $cta_headline = get_field('cta_headline', 'option');
 $cta_button = get_field('cta_button', 'option');
+$cta_enabled = get_field('footer_cta_enabled');
 ?>
 </main>
 <?php do_action('tailpress_content_end'); ?>
 </div>
 <?php do_action('tailpress_content_after'); ?>
-<div class="site-footer-cta">
-	<div class="container-lg">
-		<?php echo $cta_headline ? '<h4 class="site-footer-cta__headline">' . $cta_headline . '</h4>' : '';
-		echo qntm_acf_link('a', 'site-footer-cta__button', $cta_button, false, false);
-		?>
+
+<?php if ($cta_enabled) : ?>
+	<div class="site-footer-cta">
+		<div class="container-lg">
+			<?php echo $cta_headline ? '<h4 class="site-footer-cta__headline">' . $cta_headline . '</h4>' : '';
+			echo qntm_acf_link('a', 'site-footer-cta__button', $cta_button, false, false);
+			?>
+		</div>
 	</div>
-</div>
+<?php endif; ?>
 <footer id="colophon" class="site-footer bg-gray-50 py-12" role="contentinfo">
 	<div class="container-xxl">
 		<div class="site-footer__grid">
