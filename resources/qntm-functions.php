@@ -22,6 +22,7 @@ if (function_exists('acf_add_options_sub_page')) {
     acf_add_options_sub_page('Sitewide Options');
     acf_add_options_sub_page('Alerts');
     acf_add_options_sub_page('Blog Settings');
+    acf_add_options_sub_page('404 Settings');
 }
 
 /********************************
@@ -588,4 +589,21 @@ function renderTable($tableArray, $class)
     $output .= '</table>';
 
     return $output;
+}
+
+
+
+/**
+ * Trims the content to the first 100 words and outputs it.
+ *
+ * @return void
+ */
+function custom_trimmed_content($content, $length = 50, $truncateSymbol = '...')
+{
+    $stripped_content = trim(strip_tags($content)); // Remove HTML tags
+    $words = explode(' ', $stripped_content); // Split content into words
+    $words = array_filter($words); //Removes Empty Elements
+    $trimmed_content = implode(' ', array_slice($words, 0, $length)); // Take the number of words specified
+
+    echo $trimmed_content . (count($words) > $length ? $truncateSymbol : ''); // Output the trimmed content with ellipsis if needed
 }

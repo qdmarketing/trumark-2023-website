@@ -47,6 +47,14 @@ function tailpress_setup()
 
 	add_theme_support('editor-styles');
 	add_editor_style('css/editor-style.css');
+
+	// add_action('enqueue_block_editor_assets', 'custom_gutenberg_editor_stylesheet');
+	// function custom_gutenberg_editor_stylesheet()
+	// {
+	// 	wp_enqueue_style('custom-gutenberg-stylesheet', get_template_directory_uri() . '/css/editor-styles.css', array(), wp_get_theme()->get('Version'), 'all');
+	// }
+
+
 	add_editor_style('https://use.typekit.net/ffq4tbb.css');
 	// add_editor_style('resources/css/fonts/fontawesome-pro-6.4.2-web/css/all.css');
 }
@@ -67,6 +75,9 @@ function tailpress_enqueue_scripts()
 	wp_enqueue_script('slickJs', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '', true);
 	wp_enqueue_script('glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array('jquery'), '', true);
 	wp_enqueue_script('modal', get_template_directory_uri() . '/js/jquery.modal.min.js', array('jquery'), '', true);
+	// Check if the current page uses the 'page-careers' template
+	if (is_page_template('page-careers.php')) {
+	}
 }
 
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_scripts');

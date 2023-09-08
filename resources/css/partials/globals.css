@@ -365,7 +365,7 @@ article > *:not(.entry-content),
 			/************ LEVEL 2 BG **************/
 			@apply absolute left-0 top-[140px] w-full bg-brightgray text-14 py-40 transition-all duration-300;
 			clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-			z-index: 1;
+			z-index: 2;
 			&:not(.active) {
 				@apply opacity-0 pointer-events-none absolute;
 				clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
@@ -773,6 +773,217 @@ font-family: Trade Gothic Next LT Pro; */
 			}
 			.videolib-item__play {
 				/* @apply opacity-10; */
+			}
+		}
+	}
+}
+
+.careers {
+	&-opening-content {
+		@apply my-50 md:my-90;
+
+		> div {
+			@apply grid gap-x-20 sm:grid-cols-2;
+			@screen lg {
+				grid-template-columns: 1% 40% 40% 1%;
+			}
+		}
+
+		.acf-wysiwyg {
+			p {
+				@apply md:text-24 font-primary leading-[166%] text-spacegray;
+			}
+			h3 {
+				@apply text-24 md:text-28 font-primary text-primary font-700 md:mb-25;
+			}
+		}
+		&__top-content {
+			@apply col-span-full mb-20 md:mb-45;
+		}
+		&__top-left-content {
+			@apply lg:col-start-2;
+		}
+		&__top-left-content.acf-wysiwyg,
+		&__top-right-content.acf-wysiwyg {
+			@apply max-md:mb-20;
+			p {
+				@apply md:text-18;
+			}
+		}
+	}
+}
+
+.careers-carousel__ticker {
+	width: 100%;
+	overflow: hidden;
+}
+
+.careers-carousel__wrapper {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.careers-carousel__item {
+	display: inline-block;
+	/* Set appropriate width, height, and styling for your carousel items */
+}
+
+.careers-carousel {
+	@apply overflow-hidden relative max-w-screen-3xl mx-auto;
+	@screen 3xl {
+		&::before,
+		&::after {
+			background: linear-gradient(
+				to right,
+				white 0%,
+				rgba(255, 255, 255, 0) 100%
+			);
+			content: "";
+			height: 410px;
+			position: absolute;
+			width: 200px;
+			z-index: 2;
+		}
+		&::after {
+			right: 0;
+			top: 0;
+			transform: rotateZ(180deg);
+		}
+		&::before {
+			left: 0;
+			top: 0;
+		}
+	}
+	&__ticker {
+		@apply flex;
+	}
+	&__item {
+		@apply self-start flex-none;
+	}
+	&__image {
+		@apply h-[410px]   object-cover;
+	}
+}
+.careers-ci {
+	@apply pt-40 pb-50 md:pb-100 bg-brightgray;
+	h3 {
+		@apply text-center text-primary text-24 font-700 font-primary mb-16;
+	}
+	p {
+		@apply text-spacegray max-w-[1024px] mx-auto;
+	}
+}
+.careers-cta {
+	.cta-block__content {
+		p {
+			@apply max-w-[450px];
+		}
+	}
+}
+
+.careers-tst {
+	@apply my-50 md:my-90;
+	&__grid {
+	}
+	&__item {
+		@apply pl-30 md:px-80;
+	}
+	&__item-top {
+		@apply flex  gap-4 overflow-auto;
+	}
+	&__item-top-right {
+		@apply flex  justify-center  flex-col;
+	}
+	&__name {
+		@apply text-secondary text-24 font-700 font-primary;
+	}
+	&__title {
+		@apply leading-[150%];
+	}
+
+	&__image {
+		@apply h-[120px] w-[120px] rounded-full;
+	}
+	&__headline {
+		@apply headline-main text-primary mb-60 max-md:hidden;
+	}
+	&__quote {
+		@apply text-spacegray mt-25 text-15 md:text-18;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		@apply w-[100px] h-[100px] text-black opacity-40 text-32;
+	}
+	.slick-arrow {
+		@apply max-sm:translate-x-2;
+	}
+	.slick-next {
+		@apply max-md:hidden max-md:opacity-0 max-md:pointer-events-none;
+	}
+	.slick-current {
+		@apply relative;
+		/* @apply border-r border-bordergray; */
+		&:after {
+			@apply lg:bg-bordergray lg:absolute w-[1px] h-full top-0 right-0;
+
+			content: "";
+		}
+	}
+}
+
+.careers-trumarkstory.entry-content {
+	.cta-block__headline {
+		@apply text-40 mb-25;
+	}
+	.cta-block__headline,
+	.cta-block__content {
+		@apply max-w-[765px] ml-auto;
+	}
+
+	.cta-block__content {
+		@apply max-md:mb-0;
+		p {
+			@apply leading-[155%] md:text-18 mb-0;
+		}
+	}
+}
+
+.error-404 {
+	@apply my-50 md:my-90;
+	h3 {
+		@apply font-primary text-primary text-24 md:text-40 font-700 text-center mb-25;
+	}
+	&__grid {
+		@apply flex flex-wrap;
+	}
+	&__col-one,
+	&__col-two {
+		@apply w-full md:w-1/2 max-md:mb-20;
+	}
+	&__col-one {
+		@apply md:border-r border-bordergray md:pr-80 xxl:pr-[140px];
+	}
+	&__content.acf-wysiwyg {
+		p,
+		ol,
+		ul,
+		li {
+			@apply text-15 md:text-18 text-spacegray;
+		}
+	}
+	&__col-two {
+		@apply md:pl-80 xxl:pl-[140px];
+		form {
+			@apply relative;
+			label {
+				@apply text-15 md:text-18 text-spacegray mb-20 block;
+			}
+			input {
+				@apply border-b border-bordergray w-full h-[30px] mt-20;
+			}
+			button {
+				@apply absolute right-0 bottom-2;
 			}
 		}
 	}

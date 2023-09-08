@@ -1,6 +1,6 @@
 .entry-content,
 .block-editor-block-list__layout,
-.entry-content .acf-wysiwyg,
+.acf-wysiwyg,
 .mce-content-body {
 	ul {
 		@apply ml-30 mt-15;
@@ -128,9 +128,15 @@
 		& + .image-pathways {
 			@apply mt-[-60px];
 		}
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-50 md:py-90;
+		}
 
 		&__grid {
 			@apply grid grid-cols-1 md:grid-cols-3 gap-4 xl:gap-x-20;
+			&--careers {
+				@apply xl:gap-x-12 gap-y-4 md:gap-y-16;
+			}
 			&--count-3 {
 				> * {
 				}
@@ -162,21 +168,35 @@
 		}
 		&__item {
 			@apply flex flex-col justify-between;
-			&--0 {
-			}
 		}
 		&__img {
 			@apply mb-30 mx-auto rounded-full;
+			&--careers {
+				@apply rounded-none w-full object-cover mb-10;
+				aspect-ratio: 380 / 240;
+			}
 		}
 		&__main-headline {
 			/* @apply text-44 font-700  text-center mb-30 font-primary; */
 			@apply headline-main leading-[114%] text-primary;
+			&--text-secondary {
+				@apply text-secondary;
+			}
 		}
 		&__main-content {
 			@apply max-w-[1030px] mx-auto text-15 md:text-18 mb-30  md:mb-60 mt-20;
+			p {
+				@apply text-15 md:text-18;
+			}
 		}
 		&__content {
 			@apply mb-0 max-sm:text-15 max-w-[250px] mx-auto;
+			&--careers {
+				@apply max-w-full;
+				p {
+					@apply mb-10 text-spacegray;
+				}
+			}
 		}
 		&__headline {
 			@apply text-24 font-700 text-primary text-center mb-0 font-primary;
@@ -500,9 +520,9 @@
 		&__grid {
 			@apply grid;
 			&--3col {
-				@apply grid-cols-3 max-w-[1133px] mx-auto gap-20;
+				@apply md:grid-cols-3 grid-cols-2 max-w-[1133px] mx-auto  gap-y-8 gap-x-4 md:gap-20;
 				svg {
-					@apply fill-primary;
+					@apply fill-primary   h-auto flex-shrink-0;
 				}
 				.checkmark-list__title {
 					@apply flex;
@@ -589,7 +609,7 @@
 			@apply max-w-[540px] leading-28;
 		}
 		&__headline {
-			@apply font-primary text-32 font-700 leading-38 mb-5;
+			@apply font-primary text-32 font-700 leading-38 mb-10;
 		}
 		&__content {
 			@apply mb-30;
@@ -847,10 +867,10 @@
 				@apply inline-block border-b border-opacity-0 transition-all duration-300 hover:border-opacity-100 border-secondaryDark;
 			}
 			a::after {
-				@apply button-chev-red;
+				@apply button-chev-blue;
 			}
 			a:hover::after {
-				@apply right-[-7px];
+				@apply left-3;
 			}
 		}
 		&__link {

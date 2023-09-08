@@ -56,50 +56,74 @@ $trumarkstory = get_field('trumark-story');
 
     <?php endif; ?>
 
-    <div class="careers-opening-content entry-content">
-        <div class="container-xl acf-wysiwyg">
-            <?php echo $top_content  ? '<div class="careers-opening-content__top-content">' . $top_content . '</div>' : '';  ?>
-            <?php echo $top_left_content  ? '<div class="careers-opening-content__top-left-content">' . $top_left_content . '</div>' : '';  ?>
-            <?php echo $top_right_content  ? '<div class="careers-opening-content__top-right-content">' . $top_right_content . '</div>' : '';  ?>
-        </div>
-    </div>
-    <div class="careers-lat">
+    <div class="careers-opening-content">
         <div class="container-xl">
-            <?php echo $lat_headline  ? '<h3 class="careers-lat__lat-headline">' . $lat_headline . '</h3>' : '';  ?>
-            <?php echo $lat_content  ? '<div class="careers-lat__lat-content">' . $lat_content . '</div>' : '';  ?>
-            <?php if (have_rows('lat_pathways')) : ?>
-                <?php while (have_rows('lat_pathways')) : the_row(); ?>
-                    <?php
-                    $title = get_sub_field('headline');
-                    $content = get_sub_field('content');
-                    $image = wp_get_attachment_image(get_sub_field('image'), 'blog-sm', null, array('class' => 'careers-lat__item-image'));
-                    echo $image ? $image : ''; ?>
-                    <?php echo $title  ? '<div class="careers-lat__item-title">' . $title . '</div>' : '';  ?>
-                    <?php echo $content  ? '<div class="careers-lat__item-content">' . $content . '</div>' : '';  ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
+            <?php echo $top_content  ? '<div class="careers-opening-content__top-content acf-wysiwyg">' . $top_content . '</div>' : '';  ?>
+            <?php echo $top_left_content  ? '<div class="careers-opening-content__top-left-content acf-wysiwyg">' . $top_left_content . '</div>' : '';  ?>
+            <?php echo $top_right_content  ? '<div class="careers-opening-content__top-right-content acf-wysiwyg">' . $top_right_content . '</div>' : '';  ?>
         </div>
     </div>
-    <div class="careers-carousel">
-        <?php
-        if ($image_gallery) : ?>
-            <?php foreach ($image_gallery as $image_ID) : ?>
-                <?php
-                $image = wp_get_attachment_image($image_ID, 'large', null, array('class' => 'careers-carousel__image'));
-                $image_url = wp_get_attachment_image_url($image_ID, 'full', null)
-                ?>
-                <div class="careers-carousel__item">
-                    <a href="<?php echo $image_url; ?>" class="glightbox">
-                        <?php echo $image; ?>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
+    <div class="entry-content">
+        <div class="image-pathways image-pathways--bg-offwhite">
+            <div class="container-xxl">
+                <?php echo $lat_headline  ? '<h3 class="careers-lat__lat-headline image-pathways__main-headline image-pathways__main-headline--text-secondary">' . $lat_headline . '</h3>' : '';  ?>
+                <?php echo $lat_content  ? '<div class="careers-lat__lat-content image-pathways__main-content">' . $lat_content . '</div>' : '';  ?>
+                <?php if (have_rows('lat_pathways')) : ?>
+                    <div class="image-pathways__grid image-pathways__grid--careers">
+
+                        <?php while (have_rows('lat_pathways')) : the_row(); ?>
+                            <?php
+                            $title = get_sub_field('headline');
+                            $content = get_sub_field('content');
+                            $image = '<div class="image-pathways__image">' . wp_get_attachment_image(get_sub_field('image'), 'blog-sm', null, array('class' => 'careers-lat__item-image image-pathways__img  image-pathways__img--careers ')) . '</div>'; ?>
+                            <div class="image-pathways__item">
+                                <div class="image-pathways__top">
+                                    <?php echo $image ? $image : ''; ?>
+                                    <?php echo $title  ? '<h3 class="image-pathways__headline">' . $title . '</h3>' : '';  ?>
+                                    <?php echo $content  ? '<div class="image-pathways__content image-pathways__content--careers">' . $content . '</div>' : '';  ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
+    <?php
+    if ($image_gallery) : ?>
+        <div id="animation-progress"></div>
+        <div class="careers-carousel">
+            <div class="careers-carousel__ticker" id="ticker">
+
+
+
+                <?php
+                $carousel_count = count($image_gallery);
+                $distance = $carousel_count * -400;
+                // for ($i = 0; $i < 2; $i++) :
+
+                foreach ($image_gallery as $image_ID) : ?>
+                    <?php
+                    $image = wp_get_attachment_image($image_ID, 'large', null, array('class' => 'careers-carousel__image'));
+                    $image_url = wp_get_attachment_image_url($image_ID, 'full', null)
+                    ?>
+                    <div class="careers-carousel__item">
+                        <div href="<?php echo $image_url; ?>" class="">
+                            <?php echo $image; ?>
+                        </div>
+                    </div>
+                <?php endforeach;
+                // endfor; 
+                ?>
+            </div>
+
+        </div>
+
+    <?php endif; ?>
     <div class="careers-ci">
         <div class="container-xl">
             <?php echo $ci_headline  ? '<h3 class="careers-ci__headline">' . $ci_headline . '</h3>' : '';  ?>
-            <?php echo $ci_content  ? '<div class="careers-ci__content">' . $ci_content . '</div>' : '';  ?>
+            <?php echo $ci_content  ? '<p class="careers-ci__content">' . $ci_content . '</p>' : '';  ?>
         </div>
     </div>
     <?php if ($careerscta) : ?>
@@ -109,25 +133,31 @@ $trumarkstory = get_field('trumark-story');
     <?php endif; ?>
     <div class="careers-tst">
         <div class="container-xxl">
-            <?php echo $tst_headline  ? '<h3 class="careers-tst-headline">' . $tst_headline . '</h3>' : '';  ?>
+            <?php echo $tst_headline  ? '<h3 class="careers-tst__headline">' . $tst_headline . '</h3>' : '';  ?>
             <?php if (have_rows('tst_repeater')) : ?>
-                <?php while (have_rows('tst_repeater')) : the_row(); ?>
-                    <?php
-                    $image_ID = get_sub_field('image');
-                    $image = wp_get_attachment_image($image_ID, 'pathways', null, array('class' => 'careers-testimonials__image'));
-                    $quote = get_sub_field('quote');
-                    $title = get_sub_field('title');
-                    $name = get_sub_field('name');
-                    ?>
-                    <div class="careers-tst__item">
-                        <div class="careers-tst__item-top">
-                            <?php echo $image; ?>
-                            <?php echo $name  ? '<h4 class="careers-tst__name">' . $name . '</h4>' : '';  ?>
-                            <?php echo $title  ? '<div class="careers-tst__title">' . $title . '</div>' : '';  ?>
+                <div class="careers-tst__grid">
+
+                    <?php while (have_rows('tst_repeater')) : the_row(); ?>
+                        <?php
+                        $image_ID = get_sub_field('image');
+                        $image = wp_get_attachment_image($image_ID, 'pathways', null, array('class' => 'careers-tst__image'));
+                        $quote = get_sub_field('quote');
+                        $title = get_sub_field('title');
+                        $name = get_sub_field('name');
+                        ?>
+                        <div class="careers-tst__item">
+                            <div class="careers-tst__item-top">
+                                <?php echo $image; ?>
+                                <div class="careers-tst__item-top-right">
+
+                                    <?php echo $name  ? '<h4 class="careers-tst__name">' . $name . '</h4>' : '';  ?>
+                                    <?php echo $title  ? '<div class="careers-tst__title">' . $title . '</div>' : '';  ?>
+                                </div>
+                            </div>
+                            <?php echo $quote  ? '<div class="careers-tst__quote">' . $quote . '</div>' : '';  ?>
                         </div>
-                        <?php echo $quote  ? '<div class="careers-tst__quote">' . $quote . '</div>' : '';  ?>
-                    </div>
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>

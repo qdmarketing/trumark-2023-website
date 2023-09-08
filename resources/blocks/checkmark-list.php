@@ -16,7 +16,7 @@ $blockClass = '';
 $blockClass = isset($block['className']) ? $block['className'] : '';
 
 
-if ($args && $args['prefix']) {
+if (isset($args) && $args['prefix']) {
     $prefix = $args['prefix'];
 } else {
     $prefix = '';
