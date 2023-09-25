@@ -85,6 +85,17 @@ $cta_enabled = get_field('footer_cta_enabled');
 			</div>
 		</div>
 	</div>
+	<aside id="leaveSiteCover" class="" style="display:none;">
+		<div id="leaveSite">
+			<h6 id="leaveTitle"><?php the_field('leaveSite_headline', 'option'); ?></h6>
+			<div id="leaveText"><?php the_field('leaveSite_content', 'option'); ?></div>
+			<div id="leaveLinks">
+				<a href="" id="continueLink" class="noWarning buttons-block__button style1" target="_blank">Continue</a>
+				<a href="" id="cancelLink" class="noWarning buttons-block__button style2 leaveSiteClose">Cancel To Site <i class="fa-solid fa-xmark"></i></a>
+			</div>
+			<div id="leaveSiteClose" class="leaveSiteClose noWarning"><i class="fa-solid fa-xmark"></i></div>
+		</div>
+	</aside>
 	<?php do_action('tailpress_footer'); ?>
 </footer>
 </div>

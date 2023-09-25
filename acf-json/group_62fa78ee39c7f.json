@@ -3,6 +3,24 @@
     "title": "Block: Featured Rates",
     "fields": [
         {
+            "key": "field_6508add83ffdc",
+            "label": "Block: Featured Rates",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64e677d750f0a",
             "label": "Explore Our Current Rates",
             "name": "",
@@ -74,7 +92,14 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6305352e5f3e7",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -205,5 +230,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692825833
+    "modified": 1695067617
 }

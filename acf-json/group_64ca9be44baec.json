@@ -3,7 +3,7 @@
     "title": "Block: Image Pathways",
     "fields": [
         {
-            "key": "field_64de59eb3d9c9",
+            "key": "field_6508af0900bf6",
             "label": "Block: Image Pathways",
             "name": "",
             "aria-label": "",
@@ -118,7 +118,14 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64de599c3d9c8",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -237,5 +244,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693249265
+    "modified": 1695067930
 }

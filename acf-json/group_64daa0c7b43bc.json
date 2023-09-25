@@ -3,6 +3,24 @@
     "title": "Block: Icons",
     "fields": [
         {
+            "key": "field_6508aee18d823",
+            "label": "Block: Icons",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64daa0c81dfcf",
             "label": "Headline",
             "name": "headline",
@@ -97,7 +115,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": "Block: Timeline",
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -117,7 +135,14 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64daa0c81dfcf",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -140,7 +165,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -148,5 +173,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692132590
+    "modified": 1695067885
 }

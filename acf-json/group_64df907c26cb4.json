@@ -3,6 +3,24 @@
     "title": "Block: Checkerboard",
     "fields": [
         {
+            "key": "field_6508ae7300ecb",
+            "label": "Block: Checkerboard",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64df907da08bd",
             "label": "Headline",
             "name": "headline",
@@ -111,7 +129,14 @@
             "type": "true_false",
             "instructions": "Position the image on the left or the right",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64df907da08bd",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -142,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692373510
+    "modified": 1695067770
 }

@@ -3,6 +3,24 @@
     "title": "Block: Accordion",
     "fields": [
         {
+            "key": "field_6508ad01793be",
+            "label": "Block: Accordion",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64cc04ccf33b8",
             "label": "Background",
             "name": "background",
@@ -153,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692812770
+    "modified": 1695067802
 }

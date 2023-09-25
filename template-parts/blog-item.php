@@ -23,21 +23,16 @@ if (has_post_thumbnail($ID)) {
 
 <div class="blog-item<?php echo $class; ?>">
     <a class="blog-item__image" href="<?php echo get_permalink($ID); ?>">
-
         <?php echo $thumb; ?>
     </a>
     <div class="blog-item__bottom">
-
         <a class="blog-item__headline" href="<?php echo get_permalink($ID); ?>">
             <?php echo get_the_title($ID); ?>
         </a>
         <div class="blog-item__excerpt">
             <?php the_excerpt($ID); ?>
         </div>
-        <a class="blog-item__readmore" href="<?php echo get_permalink($ID); ?>">Read Full Article
-
-
-        </a>
+        <a class="blog-item__readmore" href="<?php echo get_permalink($ID); ?>">Read Full Article</a>
     </div>
 
 </div>

@@ -1,6 +1,6 @@
 {
     "key": "group_64cc05fa40e65",
-    "title": "Block: Comparison",
+    "title": "Block: Accordion",
     "fields": [
         {
             "key": "field_64cc06211f110",
@@ -50,7 +50,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64cc06211f110",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -164,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691176058
+    "modified": 1695067411
 }

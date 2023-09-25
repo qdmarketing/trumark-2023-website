@@ -44,14 +44,8 @@ $custom_posts_per_page = $default_posts_per_page + 2;
                     }
                     ?>
                     <?php get_template_part('template-parts/blog-item', null, $args); ?>
-
                 <?php endwhile; ?>
-
-
-
-
                 <?php
-
                 $filter = get_queried_object();
                 if (is_tag()) {
                     $archiveFilter = 'tag="' . $filter->slug . '"';
@@ -62,8 +56,7 @@ $custom_posts_per_page = $default_posts_per_page + 2;
                 } else {
                     $archiveFilter = '';
                 }
-                echo do_shortcode('[ajax_load_more container_type="div" repeater="template_1" post_type="post" ' . $archiveFilter . ' preloaded="true" offset="' . $custom_posts_per_page  . '" preloaded_amount="' . $default_posts_per_page . '" posts_per_page="' . $default_posts_per_page . '"]'); ?>
-
+                echo do_shortcode('[ajax_load_more container_type="div"  post_type="post" ' . $archiveFilter . ' preloaded="true" offset="' . $custom_posts_per_page  . '" preloaded_amount="' . $default_posts_per_page . '" posts_per_page="' . $default_posts_per_page . '"]'); ?>
             </div>
             <div class="container-xl" id="load-more-container"></div>
         </div>

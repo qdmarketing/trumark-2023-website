@@ -3,6 +3,24 @@
     "title": "Block: Secondary Content",
     "fields": [
         {
+            "key": "field_6508aeb4da0c7",
+            "label": "Block: Secondary Content",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64da9e380f393",
             "label": "Headline",
             "name": "headline",
@@ -126,5 +144,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692049377
+    "modified": 1695067837
 }

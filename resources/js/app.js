@@ -527,89 +527,184 @@ jQuery(document).ready(function ($) {
 	}
 
 	 
+	// 3rd Party Pop-Up
 
-	//   if ($('.careers-carousel')[0]) {
-	// 	const ticker = $('#ticker');
-	// 	let isDragging = false;
-	// 	let startOffset;
-	// 	let animationFrame;
-	// 	let animationDuration = 20000; // Updated duration to 20000 milliseconds
-	// 	let currentPosition = 0; // Store the current position within the animation
-	// 	let animationPaused = false; // Flag to track animation state
-	// 	let animationStartTime = null; // Timestamp when animation starts
-	// 	let pausedTime = 0; // Track total paused time
-	// 	let animationPercent;
+	var siteHost = window.location.hostname;
 
-	// 	function pauseAnimation() {
-	// 	  if (!animationPaused) {
-	// 		ticker.css('animation-play-state', 'paused');
-	// 		animationPaused = true;
-	// 		console.log('Animation Paused');
-	// 		animationStartTime = null; // Set animationStartTime to null when paused
-	// 	  }
-	// 	}
+	$("a")
+	.not('[href^="mailto:"]')
+		.not("header a")
+		.not("a.noWarning")
+		.not(".noWarning a")
+		.on("click", function (e) {
+			if ($(this).attr("href")) {
+				var myHref = $(this).attr("href");
 
-	// 	function resumeAnimation() {
-	// 	  if (animationPaused) {
-	// 		ticker.css('animation-play-state', 'running');
-	// 		animationPaused = false;
-	// 		console.log('Animation Resumed');
-	// 		animationStartTime = Date.now() - pausedTime; // Adjust animationStartTime to account for paused time
-	// 	  }
-	// 	}
+				if (
+					$(this).attr("href").indexOf(siteHost) == -1 &&
+					$(this).attr("href").indexOf("/") !== 0
+				) {
+					if (
+						!$(this).hasClass("noWarning") &&
+						myHref != "#" &&
+						!$(this).parent().hasClass("noWarning")
+					) {
+						var newLink = $(this).attr("href");
+						var newTarget = $(this).attr("target");
+						$("#leaveSiteCover #continueLink").attr("href", newLink);
+						$("#leaveSiteCover #continueLink").attr("target", newTarget);
+						$("#leaveSiteCover").fadeIn("fast");
+						console.log("3rd party link detected...");
+					}
 
-	// 	function updateAnimationProgress() {
-	// 	  if (!animationPaused && animationStartTime !== null) {
-	// 		const currentTime = Date.now();
-	// 		const timeElapsed = currentTime - animationStartTime;
-	// 		const relativeProgress = (timeElapsed % animationDuration) / animationDuration * 100;
-	// 		console.log('Animation Progress (from Timer): ' + relativeProgress.toFixed(2) + '%');
-	// 		return relativeProgress.toFixed(2);
-	// 	  }
-	// 	}
+					return false;
+				}
+			}
+		});
 
-	// 	ticker.on('mousedown touchstart', function(e) {
-	// 	  isDragging = true;
-	// 	  startOffset = e.pageX || e.originalEvent.touches[0].pageX;
-	// 	  ticker.addClass('grabbing');
-	// 	  cancelAnimationFrame(animationFrame);
-	// 	  pauseAnimation(); // Pause animation when dragging starts
-	// 	  console.log('Drag Start');
-	// 	});
+	$("#continueLink").on("click", function (e) {
+		$("#leaveSiteCover").fadeOut("fast");
 
-	// 	$(document).on('mouseup touchend', function() {
-	// 	  if (isDragging) {
-	// 		isDragging = false;
-	// 		ticker.removeClass('grabbing');
-	// 		console.log('Drag End');
-	// 		const delta = currentPosition % animationDuration;
-	// 		currentPosition += delta; // Align currentPosition with animation cycle
-	// 		pausedTime += Date.now() - animationStartTime; // Update pausedTime
-	// 		animationStartTime = null; // Reset animationStartTime
-	// 		resumeAnimation(); // Resume animation when dragging ends
-	// 	  }
-	// 	});
+		return true;
+	});
+	$(".leaveSiteClose").on("click", function () {
+		$("#leaveSiteCover").fadeOut("fast");
+		$("#leaveSiteCover #continueLink").attr("href", "");
+		return false;
+	});
 
-	// 	$(document).on('mousemove touchmove', function(e) {
-	// 	  if (isDragging) {
-	// 		e.preventDefault();
-	// 		const x = e.pageX || e.originalEvent.touches[0].pageX;
-	// 		const delta = x - startOffset;
-	// 		const percentage = (delta / ticker.width()) * 100;
-	// 		const newPosition = (percentage / 100) * animationDuration + currentPosition;
 
-	// 		ticker.css('animation-delay', `${(newPosition - currentPosition) % animationDuration}ms`);
-	// 		console.log('Dragging to ' + newPosition, (newPosition - currentPosition) % animationDuration);
-	// 	  }
-	// 	});
+	$('.primary-search a').on('click', function () {
+		// CLOSING ANIMATION
+		if ($(this).parent().hasClass('active')) {
+			$('#mega-menu-wrap-primary').css({
+				opacity: 0
+			}).animate({
+				width: 'toggle'
+			}, 350).animate({
+				opacity: 1
+			}, 350);
+			$('.searchForm').animate({
+				width: 0
+			}, 350);
+			$('.primary-search a span').css({
+				opacity: 1,
+				width: 'toggle'
+			}, 0).fadeIn();
+			$('.primary-search i').animate({
+				opacity: 1
+			})
+			$(this).parent().removeClass('active');
+		} else {
+			// OPENING ANIMATION
+			if (typeof ($menuWidth) == 'undefined') {
+				$menuWidth = $('#mega-menu-wrap-primary').width() + $('.primary-search').width();
+				// console.log($menuWidth);
+			} else if (($('#mega-menu-wrap-primary').width() + $('.primary-search').width()) !== $menuWidth) {
+				$menuWidth = $('#mega-menu-wrap-primary').width() + $('.primary-search').width();
+				// console.log($menuWidth);
+				$('.searchForm').css({
+					width: $menuWidth,
+				})
 
-	// 	ticker.on('animationiteration', function() {
-	// 	  // When the animation completes one iteration (cycle), update the current position
-	// 	  currentPosition += animationDuration;
-	// 	  animationStartTime = Date.now(); // Reset animation start time on iteration
-	// 	});
+			}
+			$('#mega-menu-wrap-primary').animate({
+				width: 'toggle'
+			}, 350);
+			$('.searchForm').css({
+				display: 'block'
+			}).animate({
+				width: $menuWidth
+			}, 350);
+			$('.primary-search a span').animate({
+				opacity: 0,
+				width: 'toggle'
+			}, 0);
+			$('.primary-search i').animate({
+				opacity: 0.5
+			})
+			$(this).parent().addClass('active');
+		}
+	})
 
-	// 	// Start the animation timer
-	// 	setInterval(updateAnimationProgress, 100);
-	//   }
+$('.mobile-search-bar__search').on('click', function () {
+	$this = $(this);
+	$this.toggleClass('active');
+	if ($this.hasClass('active')) {
+		$('#mobile-search-form').slideDown()
+		
+	} else {
+		$('#mobile-search-form').slideUp()
+	}
+})
+	$('.open-menu-search').on('click', function () {
+		const $menu = $('.header__utility__menu');
+		const startingWidth = '22px';
+		const width = $menu.width();
+		const $this = $(this);
+		console.log(width);
+		if ($(this).hasClass('active')) {
+			$this.removeClass('active');
+			$('#header-search').removeClass('active');
+			$('#header-search input').animate({
+				width: startingWidth
+			}, 150, function () {
+				
+				$menu.show();
+				$menu.animate({
+					opacity:1
+				},100,function(){
+					
+				})
+			});
+		} else {
+			$menu.animate({
+				opacity: 0
+			},100,function(){
+				$(this).hide();
+				$('#header-search').addClass('active');
+				$('#header-search input').css({
+					display: 'block'
+				}).animate({
+					width: width
+				}, 150, function () {
+					$this.addClass('active');
+					
+				});
+			});
+		}
+	})
+	$(".alert-item__close").on("click", function () {
+		console.log("click");
+		$(this).parent().parent().parent().fadeOut();
+	  });
+	  $(".alert-group--modal .alert-item__close").on("click", function () {
+		console.log("click");
+		$(this).parent().parent().parent().parent().fadeOut();
+	  });
+
+	    // Smooth scroll to top when .site-footer__return is clicked
+		$('.site-footer__return').click(function () {
+			$('html, body').animate({ scrollTop: 0 }, 'slow');
+		  });
+
+		  	  // Find the elements with the class .primary
+  var primaryElements = $('.current_page_ancestor .primary.current_page_item');
+
+  if (primaryElements[0]){
+
+	  // Iterate through each .primary element
+	  primaryElements.each(function() {
+		// Find the closest ancestor with the class .current_page_ancestor
+		var $currentAncestor = $(this).closest('.current_page_ancestor');
+	
+		// Remove the class .current_page_ancestor from all other ancestors
+		var allItems = $('.current_page_ancestor');
+		allItems.each(function(){
+			$(this).removeClass('current_page_ancestor');
+		})
+		$currentAncestor.addClass('current_page_ancestor');
+	  });
+  }
+	
 });

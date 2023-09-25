@@ -3,6 +3,24 @@
     "title": "Block: Simple Table",
     "fields": [
         {
+            "key": "field_6508ad24be996",
+            "label": "Block: Simple Table",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64df932479715",
             "label": "Headline",
             "name": "headline",
@@ -129,7 +147,7 @@
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
-                    "ui": 0,
+                    "ui": 1,
                     "ajax": 0,
                     "placeholder": "",
                     "parent_repeater": "field_64df933579716"
@@ -168,8 +186,8 @@
                     "custom_icon_set": "",
                     "default_label": "",
                     "default_value": "",
-                    "save_format": "class",
-                    "allow_null": "Calculate Savings",
+                    "save_format": "Accordion",
+                    "allow_null": 1,
                     "show_preview": 1,
                     "enqueue_fa": 0,
                     "fa_live_preview": "",
@@ -222,5 +240,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692384707
+    "modified": 1695067436
 }

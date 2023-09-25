@@ -9,7 +9,7 @@ $content = get_field('404_body_section_content', 'option');; ?>
 
 <main>
 
-    <div class="is-mainstage-php mainstage mainstage--no-dots" data-count="1">
+    <div class="mainstage mainstage--no-dots" data-count="1">
 
 
         <div class="mainstage-slide">

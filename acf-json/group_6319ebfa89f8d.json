@@ -1,0 +1,191 @@
+{
+    "key": "group_6319ebfa89f8d",
+    "title": "Options: Alerts",
+    "fields": [
+        {
+            "key": "field_6319ec17b96f5",
+            "label": "Enable Alerts",
+            "name": "qntm_enable_alerts",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable Alerts",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6319ec29b96f6",
+            "label": "Alerts",
+            "name": "qntm_alerts",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6319ec17b96f5",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Alert",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6319ec95b96f8",
+                    "label": "Start Date",
+                    "name": "qntm_start_date",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "Pick the day and time that the alert should begin to appear on the site.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "m\/d\/Y g:i a",
+                    "return_format": "YmdHi",
+                    "first_day": 1,
+                    "parent_repeater": "field_6319ec29b96f6"
+                },
+                {
+                    "key": "field_6319ecc3b96f9",
+                    "label": "End Date",
+                    "name": "qntm_end_date",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "Pick the day that the alert should stop appearing on the site.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "m\/d\/Y g:i a",
+                    "return_format": "YmdHi",
+                    "first_day": 1,
+                    "parent_repeater": "field_6319ec29b96f6"
+                },
+                {
+                    "key": "field_6319edbaa5ddf",
+                    "label": "Alert Position",
+                    "name": "qntm_alert_position",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "What type of alert will this be?",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "top": "Top",
+                        "bottom": "Bottom",
+                        "modal": "Modal (Popup)"
+                    },
+                    "default_value": "notice",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_6319ec29b96f6"
+                },
+                {
+                    "key": "field_6319ede7a5de1",
+                    "label": "Alert Text",
+                    "name": "qntm_alert_text",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "parent_repeater": "field_6319ec29b96f6"
+                },
+                {
+                    "key": "field_64a6fe0acde04",
+                    "label": "Alert Color Theme",
+                    "name": "qntm_alert_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Note: Selecting 'Gray\/White' will select the gray theme on normal alerts and white on modal alerts.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "red": "Red",
+                        "blue": "Blue",
+                        "gray": "Gray\/White"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_6319ec29b96f6"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-alerts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1694732836
+}

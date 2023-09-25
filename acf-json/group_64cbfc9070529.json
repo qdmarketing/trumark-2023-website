@@ -3,6 +3,24 @@
     "title": "Block: 50\/50 Content",
     "fields": [
         {
+            "key": "field_6508abffa50dd",
+            "label": "50\/50 Content",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64cbfe77ebfe0",
             "label": "Background",
             "name": "background",
@@ -92,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691090602
+    "modified": 1695067216
 }

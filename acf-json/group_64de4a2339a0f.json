@@ -3,6 +3,24 @@
     "title": "Block: CTA",
     "fields": [
         {
+            "key": "field_6508adc1e6f9c",
+            "label": "Block: CTA",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64de4a230c6fa",
             "label": "clone",
             "name": "clone",
@@ -43,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692289658
+    "modified": 1695067592
 }

@@ -49,7 +49,7 @@
 			hue-rotate(172deg) brightness(88%) contrast(84%);
 	}
 	.button-main {
-		@apply inline-block bg-secondary text-white text-center py-12 text-18 px-20 hover:bg-secondaryDark transition-all duration-300;
+		@apply inline-block bg-secondary text-white text-center py-12 text-18 px-20 hover:bg-primary transition-all duration-300;
 		&--chev {
 			@apply text-12 pl-20 pt-[3px]  top-[2px] left-2 relative transition-all duration-300 bg-no-repeat;
 			content: " ";
