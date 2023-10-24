@@ -24,7 +24,6 @@ body {
 .container-2k {
 	@apply max-w-[2000px];
 }
-
 /* **************************    DEFAULT TAILPRESS    ************************** */
 
 article > *:not(.entry-content),
@@ -33,7 +32,72 @@ article > *:not(.entry-content),
 }
 
 .entry-content,
+.block-editor-block-list__layout,
+.entry-content .acf-block .acf-wysiwyg,
+.mce-content-body {
+	strong {
+		@apply font-700;
+	}
+	ul {
+		@apply mt-15 mb-30;
+		@apply list-inside;
+		> li {
+			@apply ml-30;
+		}
+	}
+	li {
+		@apply text-15 md:text-16 list-disc mb-10 indent-[-23px];
+	}
+	.has-red-text {
+		@apply text-primary;
+	}
+	p {
+		@apply text-15 md:text-16 mb-15;
+		&.has-blue-text {
+			@apply text-secondary;
+		}
+		&:last-of-type {
+			/* //@apply mb-0; */
+		}
+	}
+
+	p,
+	ul li {
+		/* @apply max-w-[1160px] px-20 mx-auto; */
+		&.has-large-font-size {
+			font-size: clamp(0.9375rem, 0.5375rem + 1vw, 1.125rem) !important;
+		}
+		&.has-xl-font-size {
+			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
+		}
+	}
+}
+.acf-wysiwyg {
+	p,
+	ul {
+		&:last-of-type {
+			@apply mb-0;
+		}
+	}
+}
+
+.entry-content,
 .block-editor-block-list__layout {
+	> {
+		ul,
+		p,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@apply container xl:max-w-screen-xl;
+			&:first-child {
+				@apply mt-40 md:mt-80;
+			}
+		}
+	}
 	h1 {
 		@apply text-44 text-primary font-700 font-primary leading-[113%] mb-20 md:mb-30;
 		font-size: clamp(1.75rem, -0.3833rem + 5.3333vw, 2.75rem);
@@ -51,6 +115,9 @@ article > *:not(.entry-content),
 		@apply my-40;
 	}
 
+	ul ul {
+		@apply mb-8;
+	}
 	p,
 	ul,
 	ol {
@@ -62,12 +129,9 @@ article > *:not(.entry-content),
 			}
 		}
 
-		@apply mb-8;
+		/* @apply mb-8; */
 		a {
 			@apply no-underline text-primary hover:underline;
-		}
-		&:last-of-type {
-			@apply mb-0;
 		}
 	}
 
@@ -308,14 +372,18 @@ article > *:not(.entry-content),
 	}
 }
 
+.site-content {
+	@apply lg:mt-[149px];
+}
 .header {
-	@apply relative pb-20 hidden lg:block;
+	@apply pb-20 hidden lg:block fixed bg-white w-full h-[149px];
+	z-index: 10;
 	&__logo {
 		@apply pl-20 xl:pl-50 pt-30 flex items-end justify-end  w-[350px] xl:w-[405px] mr-20 mb-10;
 	}
 
 	&__menus {
-		@apply xl:w-[823px];
+		/* @apply xl:w-[823px]; */
 		&__top {
 			@apply flex justify-between items-end pb-15;
 			.fa-magnifying-glass {

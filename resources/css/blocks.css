@@ -1,27 +1,4 @@
 .entry-content,
-.block-editor-block-list__layout,
-.acf-wysiwyg,
-.mce-content-body {
-	ul {
-		@apply ml-30 mt-15;
-	}
-	li {
-		@apply text-15 md:text-16 list-disc mb-10;
-	}
-	.has-red-text {
-		@apply text-primary;
-	}
-	p {
-		@apply text-15 md:text-16 mb-15;
-		&.has-blue-text {
-			@apply text-secondary;
-		}
-		&:last-of-type {
-			@apply mb-0;
-		}
-	}
-}
-.entry-content,
 .block-editor-block-list__layout {
 	.wpex {
 		/* @apply container  mx-auto  xl:max-w-screen-xl; */
@@ -86,20 +63,6 @@
 	.wp-block-separator + .simple-table {
 		@apply md:mt-50;
 	}
-	> p {
-		/* @apply max-w-[1160px] px-20 mx-auto; */
-		@apply container xl:max-w-screen-xl;
-		&.has-large-font-size {
-			font-size: clamp(0.9375rem, 0.5375rem + 1vw, 1.125rem) !important;
-		}
-		&.has-xl-font-size {
-			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
-		}
-
-		&:first-child {
-			@apply mt-40 md:mt-80;
-		}
-	}
 
 	.acf-block {
 		a {
@@ -117,19 +80,19 @@
 	.timeline {
 		@apply my-50 md:my-90;
 		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-90;
+			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
 		&__headline {
 			@apply headline-main mb-40 leading-[114%] xl:text-40 text-left ml-40;
 		}
 	}
 	.image-pathways {
-		@apply my-50 md:my-90;
+		@apply my-50 md:my-80;
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-50 md:py-80;
+		}
 		& + .image-pathways {
 			@apply mt-[-60px];
-		}
-		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
 
 		&__grid {
@@ -190,7 +153,7 @@
 			}
 		}
 		&__content {
-			@apply mb-0 max-sm:text-15 max-w-[250px] mx-auto;
+			@apply mb-0 max-sm:text-15   mx-auto;
 			&--careers {
 				@apply max-w-full;
 				p {
@@ -275,7 +238,7 @@
 	.accordion {
 		@apply my-40 md:my-80;
 		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-90;
+			@apply bg-brightgray my-0 py-40 md:py-80;
 			.accordion__title {
 				@apply bg-white;
 			}
@@ -356,8 +319,14 @@
 	}
 	.fifty {
 		@apply my-50 md:my-90;
+		h3 {
+			@apply text-primary;
+		}
 		&--blue {
 			@apply bg-secondary text-white py-30 md:py-60 my-0 md:my-0;
+			h3 {
+				@apply text-white;
+			}
 		}
 		&__grid {
 			@apply flex flex-col md:flex-row;
@@ -375,6 +344,20 @@
 			@apply max-md:border-b max-md:border-[#93bfc6];
 			@screen md {
 				border-right: 1px solid #93bfc6;
+			}
+		}
+		&__video {
+			@apply relative w-full;
+			img {
+				@apply w-full;
+			}
+		}
+		&__video-play {
+			@apply absolute transition-all duration-300;
+			top: calc(50% - 65px);
+			left: calc(50% - 65px);
+			&:hover {
+				@apply opacity-50;
 			}
 		}
 		&__headline {
@@ -430,11 +413,11 @@
 				@apply max-md:border-[#93bfc6] md:border-r border-bordergray;
 			}
 			.fifty-item__headline {
-				@apply text-primary mb-5;
+				@apply mb-5;
 			}
 		}
 		&__content {
-			@apply max-w-[480px] text-spacegray;
+			@apply max-w-[480px];
 			p {
 				@apply md:text-18;
 			}
@@ -442,9 +425,9 @@
 	}
 
 	.comparison {
-		@apply my-80;
-		&--offwhite {
-			@apply bg-brightgray;
+		@apply my-40 md:my-80;
+		&--bg-offwhite {
+			@apply bg-brightgray my-0 py-40 md:py-80;
 		}
 		&__item {
 			&-inner {
@@ -460,7 +443,7 @@
 			}
 		}
 		&__grid {
-			@apply flex gap-[2%] flex-wrap;
+			@apply flex gap-[2%] flex-wrap justify-evenly;
 			> div {
 				@apply w-full md:w-[48%] xl:w-[23%];
 			}
@@ -477,7 +460,7 @@
 		}
 		&__attributes {
 			ul {
-				@apply pl-40 pr-20 pb-20;
+				@apply pl-20 pr-20 pb-20;
 			}
 			li {
 				@apply list-disc text-15 md:text-16 mb-10;
@@ -505,7 +488,7 @@
 	.checkmark-list {
 		@apply py-45 md:py-60;
 		&--bg-offwhite {
-			@apply bg-brightgray;
+			@apply bg-brightgray my-0 py-45 md:py-60;
 		}
 		&__headline {
 			@apply headline-main mb-40 leading-[114%];
@@ -548,7 +531,7 @@
 	.secondary-content {
 		@apply my-50 md:my-90;
 		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-90;
+			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
 		&__headline {
 			@apply text-44 font-700 leading-[113%] font-primary text-center text-primary mb-30 md:mb-45;
@@ -636,7 +619,7 @@
 	.simple-table {
 		@apply my-50 md:my-90 max-md:mx-[-20px];
 		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-90;
+			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
 		&__item {
 			@apply grid max-md:py-20 bg-white;
@@ -676,7 +659,7 @@
 			@apply text-primary text-24 font-700 md:pl-40 mb-10;
 		}
 		&__col3 {
-			@apply md:pr-40 flex justify-end items-center;
+			@apply md:pr-40 flex justify-start items-center;
 		}
 		&__button {
 			@apply button-main block px-15 w-full;
@@ -697,7 +680,7 @@
 	.checkerboard {
 		@apply my-50 md:my-90 max-md:mx-[-20px];
 		&--bg-offwhite {
-			@apply bg-brightgray my-0 py-90;
+			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
 		&__grid {
 			@apply flex flex-col-reverse md:flex-row;
@@ -745,7 +728,7 @@
 	}
 
 	.interest-rate-table {
-		@apply max-md:mx-[-20px];
+		@apply max-md:mx-[-20px] bg-white;
 		&__table {
 			@apply block sm:table max-sm:overflow-x-auto max-sm:max-w-fit;
 
@@ -797,14 +780,17 @@
 			}
 		}
 		&__footnotes {
-			@apply mt-40 mb-100;
+			@apply mt-40 mb-100 pb-20;
 			p {
 				@apply text-[13px] px-30;
 			}
 		}
 	}
 	.featured-rates {
-		@apply py-50 md:py-90 bg-brightgray;
+		@apply py-30 md:py-50 bg-brightgray;
+		body.home & {
+			@apply pt-100;
+		}
 
 		&__tabs {
 			@apply flex justify-center items-center max-md:mx-[-20px];

@@ -186,7 +186,7 @@
                     "custom_icon_set": "",
                     "default_label": "",
                     "default_value": "",
-                    "save_format": "Accordion",
+                    "save_format": "class",
                     "allow_null": 1,
                     "show_preview": 1,
                     "enqueue_fa": 0,
@@ -240,5 +240,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695067436
+    "modified": 1697145217
 }

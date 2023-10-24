@@ -95,6 +95,9 @@
 			z-index: -1;
 		}
 	}
+	.block-offwhite {
+		@apply bg-brightgray my-0 py-50 md:py-90;
+	}
 }
 
 .screen-reader-text {

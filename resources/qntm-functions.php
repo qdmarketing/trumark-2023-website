@@ -607,3 +607,12 @@ function custom_trimmed_content($content, $length = 50, $truncateSymbol = '...')
 
     echo $trimmed_content . (count($words) > $length ? $truncateSymbol : ''); // Output the trimmed content with ellipsis if needed
 }
+
+
+function custom_set_big_image_size()
+{
+    $threshold = 2560; // You can change this value to your preferred threshold
+    update_option('large_size_w', $threshold);
+    update_option('large_size_h', $threshold);
+}
+add_action('after_setup_theme', 'custom_set_big_image_size');

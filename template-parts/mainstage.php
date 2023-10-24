@@ -92,7 +92,7 @@
                             <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key; ?>&callback=initMap" async defer></script>
                         <?php else : ?>
                             <?php echo $image; ?>
-                            <?php echo  $video_source_url  ? '<a class="mainstage-slide__play glightbox" href="' . $video_source_url . '">' . $play_icon . '</a>' : ''; ?>
+                            <?php echo  $video_source_url  ? '<a class="mainstage-slide__play glightbox noWarning" href="' . $video_source_url . '">' . $play_icon . '</a>' : ''; ?>
                         <?php endif; ?>
 
                     </div>

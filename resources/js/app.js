@@ -676,7 +676,12 @@ $('.mobile-search-bar__search').on('click', function () {
 	})
 	$(".alert-item__close").on("click", function () {
 		console.log("click");
-		$(this).parent().parent().parent().fadeOut();
+		$(this).parent().parent().parent().fadeOut('fast', function(){
+			const hasVisibleDivs = $('.alert-group--top').find('div:visible').length > 0;
+			if (!hasVisibleDivs) {
+				$('.alert-group--top').hide();
+			}
+		});
 	  });
 	  $(".alert-group--modal .alert-item__close").on("click", function () {
 		console.log("click");

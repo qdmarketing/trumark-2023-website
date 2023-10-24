@@ -40,7 +40,8 @@
                 "text": "Text",
                 "icon": "Icons",
                 "link-list": "Link List",
-                "table": "Table"
+                "table": "Table",
+                "video": "Video"
             },
             "default_value": false,
             "return_format": "value",
@@ -256,6 +257,64 @@
             },
             "use_header": 2,
             "use_caption": 2
+        },
+        {
+            "key": "field_652842c1a9950",
+            "label": "Video Link",
+            "name": "video_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64cbfac37a962",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_652842f6a9951",
+            "label": "Video Thumbnail",
+            "name": "video_thumbnail",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64cbfac37a962",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -276,5 +335,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693495432
+    "modified": 1697137449
 }

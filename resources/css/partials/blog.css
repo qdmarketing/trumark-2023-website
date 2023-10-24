@@ -120,10 +120,13 @@
 }
 
 .blog-item {
-	@apply max-md:mb-30 max-md:flex   gap-x-3;
+	@apply max-md:mb-30 flex  md:flex-col gap-x-3;
 
 	> * {
 		@apply max-md:w-1/2;
+	}
+	&__bottom {
+		@apply flex flex-col justify-between flex-1 items-start;
 	}
 	&__headline {
 		@apply text-primary text-24 md:mt-20 mb-10 md:leading-[116%] font-700 font-primary block leading-[20px] max-sm:max-h-[40px] max-md:overflow-hidden;
