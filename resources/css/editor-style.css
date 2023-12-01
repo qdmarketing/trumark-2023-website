@@ -1,10 +1,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "components.css";
+@import "partials/globals.css";
 @import "blocks.css";
 
-body {
-	@apply font-primary;
+body,
+:where(.editor-styles-wrapper) {
+	@apply font-sr !important;
 }
 
 .wp-block {
@@ -14,15 +16,14 @@ body {
 .wp-block[data-align="wide"] {
 	@apply max-w-screen-xl;
 }
+@import "blocks.css";
 
 .wp-block[data-align="full"] {
 	@apply max-w-full;
 }
 
 /* NEED THIS IN ORDER TO INSERT BLOCKS BETWEEN OTHER BLOCKS IF PARAGRAPH G-BLOCK IS DISBALED */
-
 .wp-block {
-	/* max-width: 840px; */
 	margin-top: 28px;
 	margin-bottom: 28px;
 }

@@ -16,7 +16,7 @@ if ($args && isset($args['ID']) && $args['ID']) {
 if (has_post_thumbnail($ID)) {
     $thumb = wp_get_attachment_image(get_post_thumbnail_id($ID), $thumb, false);
 } else {
-    $thumb = '<img src="https://via.placeholder.com/560x380" class="blog-item__image">';
+    $thumb = '<img src="' . get_template_directory_uri() . '/images/postdefault-560.jpg' . '" class="blog-item__image">';
 }
 
 ?>

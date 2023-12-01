@@ -19,7 +19,7 @@ mix.postCss("resources/css/app.css", "css");
 mix.postCss("resources/css/editor-style.css", "css");
 
 mix.browserSync({
-    proxy: 'http://trumark.loc', 
+    proxy: 'https://trumark.loc', 
     host: 'trumark.loc',
     open: 'external',
     port: 8000,

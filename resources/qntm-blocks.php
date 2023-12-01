@@ -234,6 +234,7 @@ function qd_allowed_block_types($allowed_blocks)
         'core/list-item',
         // 'core/image',
         'core/html',
+        'core/group',
         // 'core/quote',
         // 'core/reusableBlock',
         // 'core/shortcode',
@@ -312,6 +313,7 @@ function qd_allowed_block_types($allowed_blocks)
         'acf/checkerboard',
         'acf/simple-table',
         'acf/featured-rates',
+        'gravityforms/form',
 
 
 

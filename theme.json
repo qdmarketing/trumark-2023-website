@@ -2,8 +2,7 @@
   "version": 1,
   "settings": {
     "layout": {
-      "contentSize": "1400px",
-      "wideSize": "1400px"
+      "contentSize": "1150px"
     },
     "color": {
       "palette": [
@@ -21,6 +20,11 @@
           "name": "Seconday Dark",
           "slug": "secondaryDark",
           "color": "#0c575f"
+        },
+        {
+          "name": "Off White",
+          "slug": "brightgray",
+          "color": "#e4eeee"
         },
         {
           "name": "Space Gray",

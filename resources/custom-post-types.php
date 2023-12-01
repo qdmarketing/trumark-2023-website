@@ -41,7 +41,8 @@ function cpt_interest_rate()
             'capability_type' => 'post',
             'hierarchical' => false,
             // the next one is important, it tells what's enabled in the post editor
-            'supports' => array('title', 'revisions', 'acf')
+            'supports' => array('title', 'revisions', 'acf'),
+            'menu_icon' => 'dashicons-chart-line',
         ) // end of options
     ); // end of register post type
 }

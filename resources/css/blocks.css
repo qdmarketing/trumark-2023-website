@@ -1,5 +1,44 @@
+img.alignleft {
+	@apply sm:mr-20 mb-20;
+}
+img.alignright {
+	@apply sm:ml-20 mb-20;
+}
+.wp-block-group {
+	&--padding-sm {
+		@apply py-30;
+	}
+	&--padding-md {
+		@apply py-60;
+	}
+	&--padding-lg {
+		@apply py-80;
+	}
+	&--padding-xl {
+		@apply py-100;
+	}
+}
+.wp-block-separator {
+	&.is-style-default {
+		@apply w-full h-[1px] border-none bg-[#C7C6C6] max-xxl:container max-w-[1280px];
+	}
+}
+.wp-block-separator + .simple-table {
+	@apply md:mt-50;
+}
+
 .entry-content,
 .block-editor-block-list__layout {
+	@apply font-sr !important;
+	.is-layout-constrained
+		> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		/* Some default padding for blocks using this is-layout-constrained class, i.e. group blocks */
+		@apply px-20;
+	}
+	/* .alignwide {
+		@apply mx-auto;
+	} */
+
 	.wpex {
 		/* @apply container  mx-auto  xl:max-w-screen-xl; */
 
@@ -55,14 +94,6 @@
 		}
 	}
 	/* @apply mt-40 md:mt-80; */
-	.wp-block-separator {
-		&.is-style-default {
-			@apply w-full h-[1px] border-none bg-[#C7C6C6] max-xxl:container max-w-[1280px];
-		}
-	}
-	.wp-block-separator + .simple-table {
-		@apply md:mt-50;
-	}
 
 	.acf-block {
 		a {
@@ -84,6 +115,9 @@
 		}
 		&__headline {
 			@apply headline-main mb-40 leading-[114%] xl:text-40 text-left ml-40;
+		}
+		li {
+			@apply indent-0;
 		}
 	}
 	.image-pathways {
@@ -316,15 +350,27 @@
 				@apply relative top-[20%] left-[20%] md:top-[25%] md:left-[25%] fill-white;
 			}
 		}
+
+		.accordion__item.active + .accordion__item {
+			@apply border-primary border mt-80;
+		}
 	}
 	.fifty {
 		@apply my-50 md:my-90;
+
+		&--off-white {
+			@apply bg-brightgray my-0 py-40 md:py-80;
+		}
+		&--white {
+			@apply text-darkgray;
+		}
 		h3 {
 			@apply text-primary;
 		}
 		&--blue {
 			@apply bg-secondary text-white py-30 md:py-60 my-0 md:my-0;
-			h3 {
+			h3,
+			a {
 				@apply text-white;
 			}
 		}
@@ -386,17 +432,17 @@
 			li {
 				@apply list-none relative inline-block mb-25;
 				&::after {
-					@apply button-main--chev top-1;
+					/* @apply button-main--chev top-1; */
 				}
 				&:hover::after {
 					@apply left-3 opacity-75;
 				}
 			}
 			a {
-				@apply text-white   hover:opacity-75 duration-300 transition-all;
+				@apply hover:opacity-75 duration-300 transition-all;
 				font-size: clamp(0.9375rem, 0.2708rem + 1.6667vw, 1.25rem);
 				i {
-					@apply text-[#93BFC6] text-28 mr-15;
+					@apply text-[#93BFC6] text-28 mr-15 w-2;
 				}
 			}
 		}
@@ -487,11 +533,12 @@
 	}
 	.checkmark-list {
 		@apply py-45 md:py-60;
+
 		&--bg-offwhite {
 			@apply bg-brightgray my-0 py-45 md:py-60;
 		}
 		&__headline {
-			@apply headline-main mb-40 leading-[114%];
+			@apply headline-main mb-50 leading-[114%];
 		}
 		&__title {
 			@apply text-spacegray   justify-start items-start relative font-primary;
@@ -500,10 +547,16 @@
 				@apply mr-10 relative top-2;
 			}
 		}
+		/* .checkmark-list__title + .checkmark-list__title {
+		}
+		.& ~ .checkmark-list__title {
+		} */
+
 		&__grid {
 			@apply grid;
+
 			&--3col {
-				@apply md:grid-cols-3 grid-cols-2 max-w-[1133px] mx-auto  gap-y-8 gap-x-4 md:gap-20;
+				@apply md:grid-cols-3 grid-cols-2 max-w-[1133px] mx-auto  gap-y-8 gap-x-4 md:gap-x-20 md:gap-y-12;
 				svg {
 					@apply fill-primary   h-auto flex-shrink-0;
 				}
@@ -521,9 +574,19 @@
 				}
 				.checkmark-list__title {
 					@apply text-primary font-700;
+					&--no-description {
+						@apply mt-20;
+						svg {
+							@apply top-[10%];
+						}
+					}
 				}
-				.checkmark-list__description {
+				.checkmark-list__description p {
 					@apply mb-50  text-15 md:text-18 leading-[155%] text-spacegray;
+				}
+				.checkmark-list__title--no-description
+					+ :not(.checkmark-list__title--no-description) {
+					@apply border mt-50;
 				}
 			}
 		}
@@ -545,14 +608,22 @@
 			&--bg-right {
 				@apply md:flex-row;
 			}
+			&--center {
+				> div {
+					@apply w-full;
+				}
+			}
 		}
 		&__image {
 			@apply xl:h-[280px] w-auto mx-auto object-contain;
 		}
+		iframe {
+			@apply mx-auto;
+		}
 	}
 
 	.icons-block {
-		@apply my-50 md:my-90;
+		@apply my-50 md:my-100;
 		&--bg-offwhite {
 			@apply bg-brightgray my-0 py-50 md:py-90;
 		}
@@ -585,7 +656,7 @@
 	}
 
 	.cta-block {
-		@apply pt-[220px] pb-50 md:py-100 text-white;
+		@apply pt-[220px] pb-50 md:py-[120px] text-white;
 		@apply bg-cover;
 		&__headline,
 		&__content {
@@ -598,7 +669,7 @@
 			@apply mb-30;
 		}
 		&__link {
-			@apply button-main  max-md:w-full md:px-40 xl:w-[30%] bg-white text-primary hover:bg-brightgray;
+			@apply button-main  max-md:w-full md:px-40 xl:w-[20%] bg-white text-primary hover:bg-brightgray;
 
 			&::after {
 				@apply button-chev-red;
@@ -624,7 +695,7 @@
 		&__item {
 			@apply grid max-md:py-20 bg-white;
 			@screen md {
-				grid-template-columns: minmax(150px, 20%) auto 260px;
+				grid-template-columns: minmax(150px, 26%) auto 260px;
 			}
 			&:nth-child(even) {
 				@apply bg-brightgray;
@@ -647,8 +718,8 @@
 		&__headline {
 			@apply headline-main  leading-[114%] mb-40;
 		}
-		&__content {
-			@apply max-md:text-15;
+		&__content p {
+			@apply max-md:text-15 text-18 text-midgray;
 		}
 		&__title,
 		&__content,
@@ -780,7 +851,7 @@
 			}
 		}
 		&__footnotes {
-			@apply mt-40 mb-100 pb-20;
+			@apply mt-40;
 			p {
 				@apply text-[13px] px-30;
 			}

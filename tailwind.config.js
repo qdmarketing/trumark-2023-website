@@ -33,8 +33,8 @@ module.exports = {
         fontFamily: {
             primary: ['trade-gothic-next','helvetica','sans-serif'],
             condensed: ['trade-gothic-next-condensed','helvetica','sans-serif'],
-            srcond: ["tgn-soft-round-con", 'sans-serif'],
-            sr: ["tgn-soft-round", 'sans-serif'],
+            srcond: ["tgn-soft-round-con", 'sans-serif','helvetica'],
+            sr: ["tgn-soft-round", 'sans-serif', 'helvetica'],
             fontawesome: ['\"Font Awesome 6 Pro\"']
         },
         fontWeight: {

@@ -323,9 +323,19 @@ jQuery(document).ready(function ($) {
         autofocusVideos: true
       });
     }
+  }
+  if ($(".glightbox")) {
     var options = {};
     var lightbox = GLightbox(_objectSpread({}, options));
+    window.almComplete = function (alm) {
+      console.log("Ajax Load More Complete!");
+      if (lightbox) {
+        lightbox.reload();
+      }
+    };
   }
+
+  // Ajax load more callback function to create event listeners AFTER the content has loaded
   if ($(".comparison__more-open")[0]) {
     console.log("comparison block");
     $(".comparison__more-open").on("click", function (event) {
@@ -376,13 +386,16 @@ jQuery(document).ready(function ($) {
     $(".accordion__title").on("click", function (event) {
       event.preventDefault();
       var contentToShow = $(this).next();
+      var $parent = $(this).parent();
       if (contentToShow.is(":visible")) {
         // If the content is visible, slide up to hide it
         $(this).removeClass("active");
+        $parent.removeClass("active");
         contentToShow.slideUp();
       } else {
         // If the content is hidden, slide down to show it
         $(this).addClass("active");
+        $parent.addClass("active");
         contentToShow.slideDown();
       }
     });
@@ -504,12 +517,12 @@ jQuery(document).ready(function ($) {
         opacity: 0
       }).animate({
         width: 'toggle'
-      }, 350).animate({
+      }, 35).animate({
         opacity: 1
-      }, 350);
+      }, 35);
       $('.searchForm').animate({
         width: 0
-      }, 350);
+      }, 35);
       $('.primary-search a span').css({
         opacity: 1,
         width: 'toggle'
@@ -532,12 +545,12 @@ jQuery(document).ready(function ($) {
       }
       $('#mega-menu-wrap-primary').animate({
         width: 'toggle'
-      }, 350);
+      }, 35);
       $('.searchForm').css({
         display: 'block'
       }).animate({
         width: $menuWidth
-      }, 350);
+      }, 35);
       $('.primary-search a span').animate({
         opacity: 0,
         width: 'toggle'
@@ -635,12 +648,9 @@ jQuery(document).ready(function ($) {
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Failed to find 'header-footer.css'\n  in [\n    C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\resources\\css\n  ]\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-import\\lib\\resolve-id.js:35:13\n    at async LazyResult.runAsync (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss\\lib\\lazy-result.js:396:11)\n    at async Object.loader (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-loader\\dist\\index.js:97:14)\n    at processResult (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\webpack\\lib\\NormalModule.js:760:19)\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\webpack\\lib\\NormalModule.js:862:5\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-loader\\dist\\index.js:142:7)");
 
 /***/ }),
 
@@ -744,8 +754,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/editor-style": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/editor-style": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -795,9 +804,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/editor-style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/css/editor-style.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

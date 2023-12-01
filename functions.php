@@ -46,6 +46,9 @@ function tailpress_setup()
 	add_theme_support('wp-block-styles');
 
 	add_theme_support('editor-styles');
+	// add_editor_style(get_stylesheet_directory_uri() . '/css/editor-style.css?v=' . filemtime(get_stylesheet_directory() . '/css/editor-style.css'));
+	// add_editor_style(get_stylesheet_directory_uri() . '/css/editor-style.css?v=' . filemtime(get_stylesheet_directory() . '/resources/css/editor-test.css'));
+	// add_editor_style('resources/css/editor-test.css');
 	add_editor_style('css/editor-style.css');
 
 	// add_action('enqueue_block_editor_assets', 'custom_gutenberg_editor_stylesheet');
@@ -55,7 +58,7 @@ function tailpress_setup()
 	// }
 
 
-	add_editor_style('https://use.typekit.net/ffq4tbb.css');
+	// add_editor_style('https://use.typekit.net/ffq4tbb.css');
 	// add_editor_style('resources/css/fonts/fontawesome-pro-6.4.2-web/css/all.css');
 }
 

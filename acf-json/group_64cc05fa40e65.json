@@ -1,6 +1,6 @@
 {
     "key": "group_64cc05fa40e65",
-    "title": "Block: Accordion",
+    "title": "Block: Comparison",
     "fields": [
         {
             "key": "field_64cc06211f110",
@@ -50,15 +50,7 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_64cc06211f110",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -152,6 +144,24 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_655519e1f3dee",
+            "label": "Block: Comparison",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -172,5 +182,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695067411
+    "modified": 1700076008
 }

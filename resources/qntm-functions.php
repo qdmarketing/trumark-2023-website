@@ -1,5 +1,15 @@
 <?php
 
+
+
+function enqueue_custom_scripts()
+{
+    wp_enqueue_script('custom-group-block-controls', get_template_directory_uri() . '/js/gutenberg-extends.js', array('wp-blocks', 'wp-element', 'wp-components', 'wp-i18n'), '1.0', true);
+}
+
+add_action('enqueue_block_editor_assets', 'enqueue_custom_scripts');
+
+
 /********************************
 ENABLE FONT AWESOME
  ********************************/
@@ -79,7 +89,7 @@ function qntm_acf_link($elem, $class, $link, $icon, $content)
     if (!$content) {
 
         if ($icon) {
-            $iconHtml = '<i class="' . $icon . '"></i> ';
+            $iconHtml = '<i class="' . $icon . '"></i>';
         } else {
             $iconHtml = '';
         }
@@ -191,7 +201,7 @@ function custom_breadcrumbs()
     $breadcrumbs[] = $post->post_title;
 
     // Output the breadcrumbs
-    echo implode(' > ', $breadcrumbs);
+    echo implode(' <span>></span> ', $breadcrumbs);
 }
 
 
@@ -421,6 +431,39 @@ if (!function_exists('wpex_style_select')) {
 }
 add_filter('mce_buttons', 'wpex_style_select');
 
+
+/**
+ * Limit MCE WYSIWYG Colors
+ *
+ * Override TinyMCE's default colors. Created specifically for Classic Editor Block or ACF WYSIWYG in WordPress.
+ *
+ * @category   WordPress
+ * @author     Knol Aust <k@knolaust.com>
+ * @version    1.0.0
+ */
+
+function ka_override_MCE_options($init)
+{
+
+    $custom_colors = '
+          "930027", "Primary",
+          "740020", "Primary Dark",
+          "15636E", "Secondary",
+          "485050", "Space Gray",
+          "e4eeee", "brightgray",
+          "c7c6c6", "bordergray",
+      ';
+    // build color grid palette
+    $init['textcolor_map'] = '[' . $custom_colors . ']';
+
+    // change the number of rows in the grid if the number of colors changes
+    // 8 swatches per row
+    $init['textcolor_rows'] = 1;
+
+    return $init;
+}
+add_filter('tiny_mce_before_init', 'ka_override_MCE_options');
+
 /*****************************************************
 Add new styles to the TinyMCE "formats" menu dropdown
  ******************************************************/
@@ -440,6 +483,11 @@ if (!function_exists('wpex_styles_dropdown')) {
                 'title'        => __('Red Text', 'wpex'),
                 'selector'    => 'h3, p, strong',
                 'classes'    => 'has-red-text'
+            ),
+            array(
+                'title'        => __('Button Style Link', 'wpex'),
+                'selector'    => 'a',
+                'classes'    => 'btn-style-link'
             ),
             //   array(
             // 	'title'		=> __('No Bullets','wpex'),

@@ -362,12 +362,23 @@ jQuery(document).ready(function ($) {
 			});
 		}
 
-		const options = {};
+	}
 
+	if ($(".glightbox")){
+		const options = {};
+	
 		const lightbox = GLightbox({
 			...options,
-		});
+		}); 
+		window.almComplete = function(alm){
+			console.log("Ajax Load More Complete!");
+			if (lightbox ){
+			  lightbox.reload();
+			}
+		  };
 	}
+
+	// Ajax load more callback function to create event listeners AFTER the content has loaded
 	if ($(".comparison__more-open")[0]) {
 		console.log("comparison block");
 		$(".comparison__more-open").on("click", function (event) {
@@ -423,14 +434,17 @@ jQuery(document).ready(function ($) {
 		$(".accordion__title").on("click", function (event) {
 			event.preventDefault();
 			const contentToShow = $(this).next();
+			const $parent = $(this).parent();
 
 			if (contentToShow.is(":visible")) {
 				// If the content is visible, slide up to hide it
 				$(this).removeClass("active");
+				$parent.removeClass("active");
 				contentToShow.slideUp();
 			} else {
 				// If the content is hidden, slide down to show it
 				$(this).addClass("active");
+				$parent.addClass("active");
 				contentToShow.slideDown();
 			}
 		});
@@ -581,12 +595,12 @@ jQuery(document).ready(function ($) {
 				opacity: 0
 			}).animate({
 				width: 'toggle'
-			}, 350).animate({
+			}, 35).animate({
 				opacity: 1
-			}, 350);
+			}, 35);
 			$('.searchForm').animate({
 				width: 0
-			}, 350);
+			}, 35);
 			$('.primary-search a span').css({
 				opacity: 1,
 				width: 'toggle'
@@ -610,12 +624,12 @@ jQuery(document).ready(function ($) {
 			}
 			$('#mega-menu-wrap-primary').animate({
 				width: 'toggle'
-			}, 350);
+			}, 35);
 			$('.searchForm').css({
 				display: 'block'
 			}).animate({
 				width: $menuWidth
-			}, 350);
+			}, 35);
 			$('.primary-search a span').animate({
 				opacity: 0,
 				width: 'toggle'
