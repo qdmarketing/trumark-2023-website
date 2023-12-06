@@ -228,7 +228,6 @@ jQuery(document).ready(function ($) {
       if (currentSelector !== previousSelector) {
         var $nextList = $(this).next("ul");
         if ($nextList.length && $nextList.is("ul")) {
-          console.log("Bang!", this);
           // const classes = $nextList.attr('class');
           var $grandparent = $(this).parent().parent(); // Get the grandparent element
           $grandparent.find("li").removeClass("active");
@@ -272,7 +271,13 @@ jQuery(document).ready(function ($) {
         }
       }
     });
-    $(".header__primary__submenu > div > ul > li:first >  a ").click(); // Open the first menu automatically
+
+    // $firsItem = $(".header__primary__submenu > div > ul > li:first >  a ");
+
+    $firsItem = $(".header__primary__submenu > div > ul > li:first-child >  a ");
+    $firsItem.each(function () {
+      $(this).click();
+    }); // Open the first menu automatically
     $(".mobileHeader__primary__colOne > li:first >  a ").click(); // Open the first menu automatically
   };
 
@@ -400,9 +405,9 @@ jQuery(document).ready(function ($) {
       }
     });
     var openOne = false;
-    if ($(".accordion--rates")[0]) {
-      $(".accordion__title").first().click();
-    }
+    // if ($(".accordion--rates")[0]) { // Apparently they do not want this
+    // 	$(".accordion__title").first().click();
+    // }
   }
 
   // console.log('hello');
@@ -481,14 +486,15 @@ jQuery(document).ready(function ($) {
       }]
     });
   }
+  var allowedDomains = ["loans.trumark.org", "trumarkonline.org", "trumark-2023.flywheelsites.com", "trumark.org", "trumark.loc", "trumark.loanspq.com"]; // Array of allowed domains
 
-  // 3rd Party Pop-Up
-
-  var siteHost = window.location.hostname;
   $("a").not('[href^="mailto:"]').not("header a").not("a.noWarning").not(".noWarning a").on("click", function (e) {
     if ($(this).attr("href")) {
       var myHref = $(this).attr("href");
-      if ($(this).attr("href").indexOf(siteHost) == -1 && $(this).attr("href").indexOf("/") !== 0) {
+      var isAllowedDomain = allowedDomains.some(function (domain) {
+        return myHref.indexOf(domain) !== -1;
+      });
+      if (!isAllowedDomain && myHref.indexOf("/") !== 0) {
         if (!$(this).hasClass("noWarning") && myHref != "#" && !$(this).parent().hasClass("noWarning")) {
           var newLink = $(this).attr("href");
           var newTarget = $(this).attr("target");
@@ -648,9 +654,12 @@ jQuery(document).ready(function ($) {
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Failed to find 'header-footer.css'\n  in [\n    C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\resources\\css\n  ]\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-import\\lib\\resolve-id.js:35:13\n    at async LazyResult.runAsync (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss\\lib\\lazy-result.js:396:11)\n    at async Object.loader (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-loader\\dist\\index.js:97:14)\n    at processResult (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\webpack\\lib\\NormalModule.js:760:19)\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\webpack\\lib\\NormalModule.js:862:5\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\nukag\\Local Sites\\trumark-2023\\app\\public\\wp-content\\themes\\trumark-2023-website\\node_modules\\postcss-loader\\dist\\index.js:142:7)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -754,7 +763,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/editor-style": 0
+/******/ 			"css/editor-style": 0,
+/******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -804,9 +814,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editor-style"], () => (__webpack_require__("./resources/css/editor-style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/editor-style.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

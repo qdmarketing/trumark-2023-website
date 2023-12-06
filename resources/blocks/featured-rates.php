@@ -29,6 +29,15 @@ $financial_tools_text = get_field('financial_tools_text');
 
 $rates = get_field('selected_rates');
 
+
+$manual_rates = get_field('manual_rates');
+
+$manual_selected_rates = get_field('manual_selected_rates');
+
+
+
+
+
 ?>
 <div class="featured-rates">
     <div class="container-xxl">
@@ -38,12 +47,12 @@ $rates = get_field('selected_rates');
             </div>
             <?php if (have_rows('financial_tools')) : ?>
                 <div class="featured-rates__tab" data-target="featured-rates__tools-grid">
-                    Utilize Our Financial&nbsp;Tools
+                    Member Support
                 </div>
             <?php endif; ?>
         </div>
         <div class="featured-rates__rates-grid featured-rates__tab-page featured-rates__show-hide">
-            <?php if ($rates) : ?>
+            <?php if ($rates && !$manual_rates) : ?>
                 <?php foreach ($rates as $rate) :
                     //  $title = get_field('featured_rate_title', $rate);
                     $title = get_the_title($rate);
@@ -63,6 +72,31 @@ $rates = get_field('selected_rates');
                         // echo qntm_acf_link('a', 'featured-rates__apply-now', $rateLink, false, $percent);
 
                         ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php elseif ($manual_rates) : ?>
+                <?php foreach ($manual_selected_rates['rate'] as $rate) :
+                    //  $title = get_field('featured_rate_title', $rate);
+                    $title = $rate['rate_text'];
+                    $text = $rate['rate_intro_text'];
+                    $percent = $rate['rate_percent'];
+                    $rateLink = $rate['rate_link'];
+                    $rateType = $rate['rate_type'];
+                    $rateBottom = $rate['rate_bottom_text'];
+                    $rateContent = '<div class="featured-rates__link"><span class="featured-rates__number">' . $percent . '</span><span class="percent">%</span><span class="apr">' . $rateType . '*</span></div>'
+                ?>
+                    <div class="featured-rates__col">
+                        <p class="featured-rates__title"><?php echo $title; ?></p>
+                        <p class="featured-rates__p"><?php echo $text; ?></p>
+
+
+                        <?php
+
+                        echo $rateLink ?  qntm_acf_link('a', '', $rateLink, $percent, $rateContent)  : '';
+                        // echo qntm_acf_link('a', 'featured-rates__apply-now', $rateLink, false, $percent);
+
+                        ?>
+                        <p class="featured-rates__btm-text"><?php echo $rateBottom; ?></p>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

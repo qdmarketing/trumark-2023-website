@@ -259,7 +259,7 @@ jQuery(document).ready(function ($) {
 				const $nextList = $(this).next("ul");
 
 				if ($nextList.length && $nextList.is("ul")) {
-					console.log("Bang!", this);
+		
 					// const classes = $nextList.attr('class');
 					const $grandparent = $(this).parent().parent(); // Get the grandparent element
 					$grandparent.find("li").removeClass("active");
@@ -306,7 +306,15 @@ jQuery(document).ready(function ($) {
 				}
 			}
 		});
-		$(".header__primary__submenu > div > ul > li:first >  a ").click(); // Open the first menu automatically
+
+		// $firsItem = $(".header__primary__submenu > div > ul > li:first >  a ");
+ 
+
+	$firsItem = $(".header__primary__submenu > div > ul > li:first-child >  a "); 
+		$firsItem.each(function () {
+		 
+			$(this).click() ;
+		}); // Open the first menu automatically
 		$(".mobileHeader__primary__colOne > li:first >  a ").click(); // Open the first menu automatically
 	};
 	menuDesktop();
@@ -449,9 +457,9 @@ jQuery(document).ready(function ($) {
 			}
 		});
 		let openOne = false;
-		if ($(".accordion--rates")[0]) {
-			$(".accordion__title").first().click();
-		}
+		// if ($(".accordion--rates")[0]) { // Apparently they do not want this
+		// 	$(".accordion__title").first().click();
+		// }
 	}
 
 	// console.log('hello');
@@ -541,23 +549,30 @@ jQuery(document).ready(function ($) {
 	}
 
 	 
-	// 3rd Party Pop-Up
+	var allowedDomains = [
+		"loans.trumark.org",
+		"trumarkonline.org",
+		"trumark-2023.flywheelsites.com",
+		"trumark.org",
+		"trumark.loc",
+		"trumark.loanspq.com"
 
-	var siteHost = window.location.hostname;
+	]; // Array of allowed domains
 
 	$("a")
-	.not('[href^="mailto:"]')
+		.not('[href^="mailto:"]')
 		.not("header a")
 		.not("a.noWarning")
 		.not(".noWarning a")
 		.on("click", function (e) {
 			if ($(this).attr("href")) {
 				var myHref = $(this).attr("href");
-
-				if (
-					$(this).attr("href").indexOf(siteHost) == -1 &&
-					$(this).attr("href").indexOf("/") !== 0
-				) {
+	
+				var isAllowedDomain = allowedDomains.some(function (domain) {
+					return myHref.indexOf(domain) !== -1;
+				});
+	
+				if (!isAllowedDomain && myHref.indexOf("/") !== 0) {
 					if (
 						!$(this).hasClass("noWarning") &&
 						myHref != "#" &&
@@ -570,7 +585,7 @@ jQuery(document).ready(function ($) {
 						$("#leaveSiteCover").fadeIn("fast");
 						console.log("3rd party link detected...");
 					}
-
+	
 					return false;
 				}
 			}

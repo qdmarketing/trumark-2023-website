@@ -136,6 +136,27 @@
                     "parent_repeater": "field_64cbfb1e7a964"
                 },
                 {
+                    "key": "field_6570a5b85028c",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64cbfb1e7a964"
+                },
+                {
                     "key": "field_64cbfb91bae07",
                     "label": "Link",
                     "name": "link",
@@ -335,5 +356,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697137449
+    "modified": 1701881280
 }

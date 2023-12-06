@@ -8,6 +8,28 @@ $copyright = get_field('copyright', 'option');
 $cta_headline = get_field('cta_headline', 'option');
 $cta_button = get_field('cta_button', 'option');
 $cta_enabled = get_field('footer_cta_enabled');
+
+
+$svgContent = file_get_contents(get_template_directory() . '/resources/images/QNTM_Wordmark_Horizontal.svg');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 </main>
 <?php do_action('tailpress_content_end'); ?>
@@ -79,7 +101,7 @@ $cta_enabled = get_field('footer_cta_enabled');
 				</div>
 				<div class="site-footer__powered-by">
 					<a href="https://qntm.marketing" rel="nofollow" target="_blank">
-						Site powered by QNTM
+						<span>Site powered by</span> <?php echo $svgContent; ?>
 					</a>
 				</div>
 			</div>

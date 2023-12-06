@@ -35,8 +35,11 @@ if ($style === 'video' && $item['video_link'] && $item['video_thumbnail']) {
             <?php foreach ($icons as $icon) : ?>
                 <div class="fifty-item__icon">
                     <? $image = wp_get_attachment_image($icon['image'], 'full', false, false);
+
+
+
                     echo qntm_acf_link('a', 'fifty-item__icon-link', $icon['link'], false, $image);
-                    echo qntm_acf_link('a', 'fifty-item__icon-text', $icon['link'], false, false);
+                    echo qntm_acf_link('a', 'fifty-item__icon-text', $icon['link'], false, $icon['title']);
                     ?>
                 </div>
             <?php endforeach; ?>

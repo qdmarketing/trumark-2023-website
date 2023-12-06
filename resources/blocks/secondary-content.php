@@ -27,9 +27,8 @@ if ($position) {
     $gridClasses = ' secondary-content__grid--bg-right';
 }
 
-if ($image) {
-    $image = $image['ID'];
-} else {
+if (!$image) {
+
     $gridClasses = ' secondary-content__grid--center';
 }
 

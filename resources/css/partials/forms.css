@@ -50,3 +50,89 @@
 	}
 }
 /* } */
+
+/******************************************************************
+TRUECAR WIDGET
+******************************************************************/
+#TrueCarWidget {
+	@apply grid md:grid-cols-2;
+
+	border: 1px solid #d8d8d8;
+	margin: 30px auto;
+	box-shadow: 0px 0px 30px #cccccc;
+	padding-bottom: 20px;
+
+	select {
+		@apply bg-no-repeat appearance-none px-20 w-full mb-15;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M7.46966 11.9213L1.39644 5.84805C1.10353 5.55514 1.10353 5.08027 1.39644 4.78739L2.10478 4.07905C2.39719 3.78664 2.87109 3.78608 3.16419 4.0778L8 8.89095L12.8358 4.0778C13.1289 3.78608 13.6028 3.78664 13.8952 4.07905L14.6035 4.78739C14.8964 5.0803 14.8964 5.55517 14.6035 5.84805L8.53034 11.9213C8.23744 12.2142 7.76256 12.2142 7.46966 11.9213Z' fill='%23747474'/%3E%3C/svg%3E");
+		background-position: 96% 50%;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	select {
+		@apply bg-brightgray h-[48px] px-10 mt-5;
+	}
+}
+
+#TrueCarWidget .errorMsg {
+	color: transparent;
+	font-size: larger;
+	padding: 10px 0 5px;
+}
+/* #TrueCarWidget .select {
+	margin: 10px 0px 0px 0px;
+	padding: 10px 10px !important;
+	overflow: auto;
+} */
+#TrueCarWidget .searchDiv2 {
+	display: none;
+}
+#TrueCarWidget .searchDiv {
+	padding: 0px 20px 0px 20px;
+}
+/* #TrueCarWidget .searchDiv:first-child {
+	border-bottom: 1px solid;
+	padding-bottom: 25px;
+	margin-bottom: 10px;
+} */
+#TrueCarWidget .searchTab {
+	margin: 0px 20x;
+}
+#TrueCarWidget .searchTab td {
+	padding: 5px;
+}
+#TrueCarWidget .searchText {
+	width: 100%;
+	border: 1px solid #d8d8d8;
+	margin: 10px 0px 0px 0px;
+	font-size: 16px;
+	color: #6a6a6a;
+}
+#TrueCarWidget .searchHDR {
+	@apply font-primary;
+	font-weight: 700;
+	font-size: 24px;
+	font-weight: normal;
+	color: #007581;
+	padding: 20px 0px 0px 0px;
+	margin-bottom: 15px;
+}
+#TrueCarWidget .truecar-btn input[type="text"] {
+	padding: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#TrueCarWidget .truecar-btn input[type="text"]:focus {
+	border-color: #999999;
+}
+#TrueCarWidget .truecar-btn input[type="button"] {
+	@apply button-main pl-30 pr-50 cursor-pointer block;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M11.9213 8.53129L5.84805 14.6045C5.55514 14.8974 5.08027 14.8974 4.78739 14.6045L4.07905 13.8962C3.78664 13.6038 3.78608 13.1299 4.0778 12.8368L8.89095 8.00095L4.0778 3.16516C3.78608 2.87207 3.78664 2.39816 4.07905 2.10576L4.78739 1.39741C5.0803 1.10451 5.55517 1.10451 5.84805 1.39741L11.9213 7.47063C12.2142 7.76351 12.2142 8.23838 11.9213 8.53129Z' fill='%23F5F5F8'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: 83% 53%;
+	&:hover {
+		background-position: 85% 53%;
+	}
+}

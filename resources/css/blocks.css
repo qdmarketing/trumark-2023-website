@@ -215,7 +215,7 @@ img.alignright {
 			}
 		}
 		&__more-open {
-			@apply more-open;
+			@apply more-open relative;
 		}
 		&--style1 {
 			.image-pathways__link {
@@ -231,7 +231,7 @@ img.alignright {
 					@apply h-[100px];
 				}
 				&__img {
-					@apply rounded-none;
+					@apply rounded-none max-h-[100px];
 				}
 			}
 		}
@@ -300,11 +300,16 @@ img.alignright {
 				}
 			}
 		}
+		&--rates {
+			.accordion__item.active + .accordion__item {
+				@apply mt-80;
+			}
+		}
 		&__headline {
 			@apply headline-main;
 		}
 		&__item {
-			@apply block;
+			@apply block transition-all duration-300;
 			&:not(:last-child) {
 				@apply border-b border-[#C7C6C6];
 			}
@@ -349,10 +354,6 @@ img.alignright {
 			svg {
 				@apply relative top-[20%] left-[20%] md:top-[25%] md:left-[25%] fill-white;
 			}
-		}
-
-		.accordion__item.active + .accordion__item {
-			@apply border-primary border mt-80;
 		}
 	}
 	.fifty {
@@ -477,7 +478,7 @@ img.alignright {
 		}
 		&__item {
 			&-inner {
-				@apply transition-all duration-500 overflow-clip xl:max-h-[348px];
+				@apply transition-all duration-500 overflow-clip xl:max-h-[400px];
 				&.active {
 					@apply max-h-[1500px];
 				}
@@ -495,18 +496,19 @@ img.alignright {
 			}
 		}
 		&__headline {
-			@apply headline-main mb-20;
+			@apply headline-main mb-40;
 		}
 		&__title {
 			@apply text-center text-white bg-primary w-full py-20 mb-20;
 			font-size: clamp(0.9375rem, -0.2625rem + 3vw, 1.5rem) !important;
 		}
 		&__content {
-			@apply text-secondary px-20 font-700 mb-10;
+			@apply text-secondary px-25 font-700 mb-20;
 		}
 		&__attributes {
+			@apply text-spacegray;
 			ul {
-				@apply pl-20 pr-20 pb-20;
+				@apply px-0;
 			}
 			li {
 				@apply list-disc text-15 md:text-16 mb-10;
@@ -514,6 +516,16 @@ img.alignright {
 		}
 		&__more-open {
 			@apply hidden xl:block more-open;
+			&:not(.active)::after {
+				@apply absolute bg-white  left-0 right-0 top-[-140px];
+				height: 140px;
+				content: "";
+				background: linear-gradient(
+					0deg,
+					rgba(255, 255, 255, 1) 0%,
+					rgba(255, 255, 255, 0) 100%
+				);
+			}
 			&--mobile {
 				@apply hidden more-open;
 			}
@@ -546,6 +558,10 @@ img.alignright {
 			svg {
 				@apply mr-10 relative top-2;
 			}
+			p {
+				font-size: inherit;
+				margin-bottom: inherit;
+			}
 		}
 		/* .checkmark-list__title + .checkmark-list__title {
 		}
@@ -554,6 +570,9 @@ img.alignright {
 
 		&__grid {
 			@apply grid;
+			a:hover {
+				@apply underline;
+			}
 
 			&--3col {
 				@apply md:grid-cols-3 grid-cols-2 max-w-[1133px] mx-auto  gap-y-8 gap-x-4 md:gap-x-20 md:gap-y-12;
@@ -574,6 +593,7 @@ img.alignright {
 				}
 				.checkmark-list__title {
 					@apply text-primary font-700;
+
 					&--no-description {
 						@apply mt-20;
 						svg {
@@ -847,7 +867,7 @@ img.alignright {
 		}
 		&__link {
 			> a {
-				@apply text-left lg:float-right;
+				/* @apply text-left lg:float-right; */
 			}
 		}
 		&__footnotes {
@@ -888,7 +908,7 @@ img.alignright {
 			@apply flex  max-md:flex-wrap justify-between mt-40 md:mt-55;
 		}
 		&__col {
-			@apply max-md:w-1/2 text-center relative flex flex-col justify-center items-center px-5;
+			@apply max-md:w-1/2 text-center relative flex flex-col justify-start items-center px-5 lg:mt-20;
 			@screen md {
 				flex: 1 1 0;
 			}
@@ -913,8 +933,68 @@ img.alignright {
 		&__title {
 			@apply text-secondary md:text-24 text-18 font-700 leading-[116%] font-primary lg:w-[200px];
 		}
-		&__p {
+
+		Laborum
+			ipsum
+			aliquip
+			ea
+			id
+			excepteur
+			laboris
+			Lorem
+			officia
+			ullamco
+			aliquip
+			magna
+			qui.
+			Duis
+			duis
+			cillum
+			excepteur
+			ipsum
+			incididunt
+			elit
+			laborum.
+			Nostrud
+			et
+			irure
+			proident
+			incididunt
+			cupidatat
+			fugiat
+			ipsum
+			pariatur
+			esse
+			cupidatat.
+			Veniam
+			quis
+			duis
+			in
+			pariatur
+			minim
+			cupidatat
+			aliquip
+			proident
+			labore
+			ad
+			incididunt
+			nostrud.
+			Aliquip
+			dolore
+			velit
+			nulla
+			ipsum
+			dolor
+			Lorem
+			pariatur
+			eiusmod
+			velit
+			exercitation.
+			&__p {
 			@apply text-16 md:text-18 text-[#485050] mb-0 mt-[-10px];
+		}
+		&__btm-text {
+			@apply text-secondary text-[10px] relative top-[-15px];
 		}
 		&__number {
 		}

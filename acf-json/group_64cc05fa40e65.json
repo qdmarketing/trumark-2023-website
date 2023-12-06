@@ -3,6 +3,24 @@
     "title": "Block: Comparison",
     "fields": [
         {
+            "key": "field_656e0b0377db1",
+            "label": "Block: Comparison",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_64cc06211f110",
             "label": "Background",
             "name": "background",
@@ -86,27 +104,6 @@
                     "parent_repeater": "field_64cc06501f112"
                 },
                 {
-                    "key": "field_64cc06a71f114",
-                    "label": "Summary",
-                    "name": "content",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": "",
-                    "parent_repeater": "field_64cc06501f112"
-                },
-                {
                     "key": "field_64cd4a8143188",
                     "label": "Attributes",
                     "name": "attributes",
@@ -125,6 +122,27 @@
                     "toolbar": "just_list",
                     "media_upload": 0,
                     "delay": 0,
+                    "parent_repeater": "field_64cc06501f112"
+                },
+                {
+                    "key": "field_64cc06a71f114",
+                    "label": "Summary",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "br",
                     "parent_repeater": "field_64cc06501f112"
                 }
             ]
@@ -146,11 +164,11 @@
             "return_format": "array"
         },
         {
-            "key": "field_655519e1f3dee",
-            "label": "Block: Comparison",
-            "name": "",
+            "key": "field_656e096caf4ca",
+            "label": "More Info",
+            "name": "more_info_enabled",
             "aria-label": "",
-            "type": "message",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -160,8 +178,10 @@
                 "id": ""
             },
             "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "default_value": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled",
+            "ui": 1
         }
     ],
     "location": [
@@ -182,5 +202,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700076008
+    "modified": 1701716847
 }

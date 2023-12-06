@@ -12,5 +12,5 @@
 
 @import "components.css";
 @import "custom.css";
-@import "header-footer.css";
+@import "./partials/header-footer.css";
 @import "blocks.css";

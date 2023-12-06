@@ -39,15 +39,17 @@ article > *:not(.entry-content),
 	strong {
 		@apply font-700;
 	}
+
 	ul {
 		@apply mt-15 mb-30;
-		@apply list-inside;
+		/* @apply list-inside; */
 		> li {
-			@apply ml-30;
+			@apply ml-50;
 		}
 	}
 	li {
-		@apply text-15 md:text-16 list-disc mb-10 indent-[-23px];
+		/* @apply text-15 md:text-16 list-disc mb-10 indent-[-23px]; */
+		@apply text-15 md:text-16 mb-10 list-disc;
 	}
 	ol {
 		@apply relative left-[22px];
@@ -55,6 +57,7 @@ article > *:not(.entry-content),
 			@apply list-decimal list-inside indent-[-18px];
 		}
 	}
+
 	.has-red-text {
 		@apply text-primary;
 	}
@@ -169,38 +172,6 @@ article > *:not(.entry-content),
 
 .site-content {
 	@apply lg:mt-[149px];
-}
-
-.slick-dotted.slick-slider {
-	@apply mb-0;
-}
-.mainstage .slick-dots {
-	@apply bottom-[-35px] md:bottom-[-40px] right-[3px];
-	li {
-		@apply mx-5 md:mx-15 transition-all duration-300;
-		&:hover {
-		}
-		&:not(.slick-active):hover {
-			@apply opacity-40;
-		}
-	}
-	li button:before {
-		@apply text-20 bg-white border-primary border-2 border-opacity-100 rounded-full;
-		@apply w-[15px] h-[15px] md:w-[25px] md:h-[25px] opacity-100;
-		content: " ";
-		&:hover {
-		}
-	}
-	li.slick-active button:before {
-		@apply bg-primary;
-		&:hover {
-			@apply opacity-100;
-		}
-	}
-}
-
-.modal {
-	@apply max-w-[90vw]   bg-white top-[30px];
 }
 
 .location-overview {

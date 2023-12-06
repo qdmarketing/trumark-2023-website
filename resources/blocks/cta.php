@@ -64,12 +64,23 @@ if ($background) {
     $style .= "background-image: url(" . wp_get_attachment_image_url($background, 'full', false) . ");";
 }
 
+$alignment = get_field('alignment');
+$containerClass = 'container-xxl';
+if ($alignment == 'Normal') {
+    $containerClass = 'container-xl';
+}
+if ($alignment == 'Narrow') {
+    $containerClass = 'container-lg';
+}
+
+
+
 
 ?>
 
 
 <div id="<?php echo $id; ?>" class="<?php echo $blockClass; ?> <?php echo $blockName ?>-block acf-block <?php echo $align_class; ?> cta-block" style="<?php echo $style; ?>">
-    <div class="container-xxl">
+    <div class="<?php echo $containerClass; ?>">
         <?php echo $headline ? '<h3 class="cta-block__headline">' . $headline . '</h3>' : ''; ?>
         <?php echo $content ? '<div class="cta-block__content">' . $content . '</div>' : ''; ?>
         <?php echo $link ? qntm_acf_link('a', 'cta-block__link', $link, false, false) : ''; ?>

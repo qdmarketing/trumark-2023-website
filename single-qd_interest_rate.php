@@ -18,6 +18,10 @@
 $rateid = $post_id;
 $title = get_the_title($rateid);
 
+$calculator_column_title = get_field('calculator_column_title', $rateid);
+
+
+
 
 if (get_field('qd_rate_content', $rateid)) {
     echo '<div class="rate-post-content">';
@@ -63,6 +67,9 @@ if ($rateid) {
                 }
                 if ($columnCount >= 6) {
                     $thead .= '<div class="th">'  . $th6 .  '&nbsp;</div>';
+                }
+                if ($calculator_column_title) {
+                    $thead .= '<div class="th">'  . $calculator_column_title .  '&nbsp;</div>';
                 }
                 $thead .= '</div>';
             }

@@ -143,6 +143,34 @@
             "ui": 1
         },
         {
+            "key": "field_656e336ab87f6",
+            "label": "Calculator Column Title",
+            "name": "calculator_column_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64e514358cb9b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5f78d6c67061a",
             "label": "Table Column Header",
             "name": "qd_table_matrix_column_header",
@@ -806,5 +834,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692734577
+    "modified": 1701720989
 }
