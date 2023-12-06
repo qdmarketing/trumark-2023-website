@@ -94,7 +94,7 @@ function qntm_acf_link($elem, $class, $link, $icon, $content)
             $iconHtml = '';
         }
 
-        $content = $iconHtml .  wp_kses_post($link['title']);
+        $content = $iconHtml . $link['title'];
     }
     $screenreader = '<span class="screen-reader-text">' . $link['title'] . '</span>';
 
@@ -104,18 +104,6 @@ function qntm_acf_link($elem, $class, $link, $icon, $content)
 
     return $html;
 }
-
-
-add_filter('wp_kses_allowed_html', 'acf_add_span_tag', 10, 2);
-function acf_add_span_tag($tags, $context)
-{
-    if ($context === 'acf') {
-        $tags['span'] = array();
-    }
-
-    return $tags;
-}
-
 
 /********************************
 SHORTCODE FOR CURRENT YEAR (PRIMARILY USED IN THE FOOTER)
