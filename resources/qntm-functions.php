@@ -678,3 +678,11 @@ function custom_set_big_image_size()
     update_option('large_size_h', $threshold);
 }
 add_action('after_setup_theme', 'custom_set_big_image_size');
+
+function my_acf_settings_capability($path)
+{
+
+    return 'administrator';
+}
+
+add_filter('acf/settings/capability', 'my_acf_settings_capability');

@@ -92,7 +92,7 @@ $manual_selected_rates = get_field('manual_selected_rates');
 
                         <?php
 
-                        echo $rateLink ?  qntm_acf_link('a', '', $rateLink, $percent, $rateContent)  : '';
+                        echo $rateLink ?  qntm_acf_link('a', '', $rateLink, $percent, $rateContent)  : $rateContent;
                         // echo qntm_acf_link('a', 'featured-rates__apply-now', $rateLink, false, $percent);
 
                         ?>

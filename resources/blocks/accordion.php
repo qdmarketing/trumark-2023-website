@@ -45,7 +45,7 @@ $style = get_field('style');
                             </div>
                         </a>
 
-                        <?php echo $content ? '<div class="accordion__content" style="display:none;">' . $content . '</div>' : '';
+                        <?php echo $content ? '<div class="accordion__content acf-wysiwyg" style="display:none;">' . $content . '</div>' : '';
                         ?>
 
                     </div>
